@@ -1,0 +1,37 @@
+ <script type="text/javascript">
+    RED.nodes.registerType('deebot', {
+        category: 'deebot',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			mail: {value:"votre@email.fr",required: true},
+			password: {value:"votrepassword",required:true}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function() {
+            return this.name || "deebot";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="deebot">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-mail"><i class="icon-tag"></i>Mail</label>
+        <input type="text" id="node-input-mail">
+    </div>
+    <div class="form-row">
+        <label for="node-input-password"><i class="icon-tag"></i>Password</label>
+        <input type="text" id="node-input-password">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="deebot">
+    <p>Node pour aspirateurs Deebots.</p>
+	<p>Basé sur la librairie 'ecovacs-deebot.js' de mrbungle64 (https://www.npmjs.com/package/ecovacs-deebot)</p>
+</script>

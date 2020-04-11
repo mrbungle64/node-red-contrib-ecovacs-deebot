@@ -1,0 +1,20 @@
+{
+    "name": "node-red-contrib-deebot",
+    "version": "1.0.0",
+    "description": "Node for deebot vaccum",
+    "main": "deebot.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "GyOmE",
+    "license": "ISC",
+    "node-red": {
+        "nodes": {
+            "deebot": "deebot.js"
+        }
+    },
+    "dependencies": {
+        "ecovacs-deebot": "^0.4.4",
+        "node-machine-id": "^1.1.12"
+    }
+}
