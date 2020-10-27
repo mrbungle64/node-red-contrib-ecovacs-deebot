@@ -6,7 +6,7 @@ Installation:
   - Run `npm i node-red-contrib-deebot`
 
 How to use:
-  - Configure the node with your Ecovacs credentials (only the first vacuum can be used for the moment).
+  - Configure the node with your Ecovacs credentials
   - Send commands to the node:
       - Some possible commands for `msg.payload` are:
         - `clean`

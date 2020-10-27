@@ -4,8 +4,10 @@
         color: '#a6bbcf',
         defaults: {
             name: {value:""},
-			mail: {value:"votre@email.fr",required: true},
-			password: {value:"votrepassword",required:true}
+			mail: {value:"",required: true},
+            password: {value:"",required:true},
+            countryCode: {value:"DE",required:true},
+            deviceNumber: {value:"0",required:true}
         },
         inputs: 1,
         outputs: 1,
@@ -28,6 +30,14 @@
     <div class="form-row">
         <label for="node-input-password"><i class="icon-tag"></i>Password</label>
         <input type="text" id="node-input-password">
+    </div>
+    <div class="form-row">
+        <label for="node-input-countryCode"><i class="icon-tag"></i>Country code</label>
+        <input type="text" id="node-input-countryCode">
+    </div>
+    <div class="form-row">
+        <label for="node-input-deviceNumber"><i class="icon-tag"></i>Device number</label>
+        <input type="text" id="node-input-deviceNumber">
     </div>
 </script>
 
