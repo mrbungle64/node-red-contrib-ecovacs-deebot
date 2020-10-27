@@ -51,9 +51,21 @@ module.exports = function (RED) {
                         msg.payload = temp;
                         debugMessage.send(msg);
                     });
-                    vacbot.on("LifeSpan", (temp) => {
+                    vacbot.on("LifeSpan_filter", (temp) => {
                         let msg = {};
-                        msg.type = "LifeSpan";
+                        msg.type = "LifeSpan_filter";
+                        msg.payload = temp;
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("LifeSpan_main_brush", (temp) => {
+                        let msg = {};
+                        msg.type = "LifeSpan_main_brush";
+                        msg.payload = temp;
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("LifeSpan_side_brush", (temp) => {
+                        let msg = {};
+                        msg.type = "LifeSpan_side_brush";
                         msg.payload = temp;
                         debugMessage.send(msg);
                     });
