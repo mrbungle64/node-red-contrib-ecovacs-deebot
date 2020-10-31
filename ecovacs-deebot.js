@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-    const library = require('ecovacs-ecovacsDeebot');
+    const library = require('ecovacs-deebot');
     const EcoVacsAPI = library.EcoVacsAPI;
     const nodeMachineId = require('node-machine-id');
     const countries = library.countries;

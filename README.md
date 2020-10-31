@@ -1,4 +1,4 @@
-# node-red-contrib-deebot
+# node-red-contrib-ecovacs-deebot
 Node-RED node for running Ecovacs Deebot vacuum cleaner robots
 
 Installation:
