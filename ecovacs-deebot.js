@@ -33,40 +33,46 @@ module.exports = function (RED) {
                         text: 'Connected',
                     });
                     vacbot.run("BatteryState");
-                    vacbot.on("BatteryInfo", (temp) => {
-                        let msg = {};
-                        msg.type = "BatteryInfo";
-                        msg.payload = temp;
+                    vacbot.on("BatteryInfo", (value) => {
+                        let msg = {
+                            type: "BatteryInfo",
+                            payload: value
+                        };
                         debugMessage.send(msg);
                     });
-                    vacbot.on("CleanReport", (temp) => {
-                        let msg = {};
-                        msg.type = "CleanReport";
-                        msg.payload = temp;
+                    vacbot.on("CleanReport", (value) => {
+                        let msg = {
+                            type: "CleanReport",
+                            payload: value
+                        };
                         debugMessage.send(msg);
                     });
-                    vacbot.on("ChargeState", (temp) => {
-                        let msg = {};
-                        msg.type = "ChargeState";
-                        msg.payload = temp;
+                    vacbot.on("ChargeState", (value) => {
+                        let msg = {
+                            type: "ChargeState",
+                            payload: value
+                        };
                         debugMessage.send(msg);
                     });
-                    vacbot.on("LifeSpan_filter", (temp) => {
-                        let msg = {};
-                        msg.type = "LifeSpan_filter";
-                        msg.payload = temp;
+                    vacbot.on("LifeSpan_filter", (value) => {
+                        let msg = {
+                            type: "LifeSpan_filter",
+                            payload: value
+                        };
                         debugMessage.send(msg);
                     });
-                    vacbot.on("LifeSpan_main_brush", (temp) => {
-                        let msg = {};
-                        msg.type = "LifeSpan_main_brush";
-                        msg.payload = temp;
+                    vacbot.on("LifeSpan_main_brush", (value) => {
+                        let msg = {
+                            type: "LifeSpan_main_brush",
+                            payload: value
+                        };
                         debugMessage.send(msg);
                     });
-                    vacbot.on("LifeSpan_side_brush", (temp) => {
-                        let msg = {};
-                        msg.type = "LifeSpan_side_brush";
-                        msg.payload = temp;
+                    vacbot.on("LifeSpan_side_brush", (value) => {
+                        let msg = {
+                            type: "LifeSpan_side_brush",
+                            payload: value
+                        };
                         debugMessage.send(msg);
                     });
                 });
@@ -90,9 +96,9 @@ module.exports = function (RED) {
 
         Connection(config, node);
 
-        node.on('input', function (msg) {
-            if (msg.cmd != "") {
-                vacbot.run(msg.payload, msg.cmd);
+        node.on('input', msg => {
+            if (msg.arg !== "") {
+                vacbot.run(msg.payload, msg.arg);
             } else {
                 vacbot.run(msg.payload);
             }
