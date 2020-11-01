@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('ecovacs-deebot-account', {
+    RED.nodes.registerType('ecovacs-account', {
         category: 'config',
         defaults: {
             mail: {value: "", required: true},
@@ -7,19 +7,19 @@
             countryCode: {value: "DE", required: true}
         },
         label: function () {
-            return this.name || "ecovacs-deebot-account";
+            return this.mail || "ecovacs-account";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="ecovacs-deebot-account">
+<script type="text/html" data-template-name="ecovacs-account">
     <div class="form-row">
         <label for="node-config-input-mail"><i class="icon-tag"></i>Mail</label>
         <input type="text" id="node-config-input-mail">
     </div>
     <div class="form-row">
         <label for="node-config-input-password"><i class="icon-tag"></i>Password</label>
-        <input type="text" id="node-config-input-password">
+        <input type="password" id="node-config-input-password">
     </div>
     <div class="form-row">
         <label for="node-config-input-countryCode"><i class="icon-tag"></i>Country code</label>
@@ -27,6 +27,6 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="ecovacs-deebot-account">
+<script type="text/html" data-help-name="ecovacs-account">
     <p>Ecovacs account credentials</p>
 </script>
