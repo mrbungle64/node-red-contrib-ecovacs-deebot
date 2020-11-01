@@ -57,20 +57,69 @@ module.exports = function (RED) {
                     vacbot.on("LifeSpan_filter", (value) => {
                         let msg = {
                             type: "LifeSpan_filter",
-                            payload: value
+                            payload: Math.round(value)
                         };
                         debugMessage.send(msg);
                     });
                     vacbot.on("LifeSpan_main_brush", (value) => {
                         let msg = {
                             type: "LifeSpan_main_brush",
-                            payload: value
+                            payload: Math.round(value)
                         };
                         debugMessage.send(msg);
                     });
                     vacbot.on("LifeSpan_side_brush", (value) => {
                         let msg = {
                             type: "LifeSpan_side_brush",
+                            payload: Math.round(value)
+                        };
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("WaterLevel", (value) => {
+                        let msg = {
+                            type: "WaterLevel",
+                            payload: value
+                        };
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("WaterBoxInfo", (status) => {
+                        let msg = {
+                            type: "WaterBoxInfo",
+                            payload: status
+                        };
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("DustCaseInfo", (status) => {
+                        let msg = {
+                            type: "DustCaseInfo",
+                            payload: status
+                        };
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("SleepStatus", (status) => {
+                        let msg = {
+                            type: "SleepStatus",
+                            payload: status
+                        };
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("CleanSpeed", (value) => {
+                        let msg = {
+                            type: "CleanSpeed",
+                            payload: value
+                        };
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("Error", (value) => {
+                        let msg = {
+                            type: "Error",
+                            payload: value
+                        };
+                        debugMessage.send(msg);
+                    });
+                    vacbot.on("ErrorCode", (value) => {
+                        let msg = {
+                            type: "ErrorCode",
                             payload: value
                         };
                         debugMessage.send(msg);
