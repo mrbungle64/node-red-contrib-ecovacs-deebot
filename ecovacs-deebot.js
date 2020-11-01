@@ -3,7 +3,6 @@ module.exports = function (RED) {
     const EcoVacsAPI = library.EcoVacsAPI;
     const nodeMachineId = require('node-machine-id');
     const countries = library.countries;
-    let connection = false;
 
     function connect(node) {
         node.vacbot = null;
@@ -25,7 +24,6 @@ module.exports = function (RED) {
                 let vacuum = devices[node.config.deviceNumber];
                 node.vacbot = api.getVacBot(api.uid, EcoVacsAPI.REALM, api.resource, api.user_access_token, vacuum, continent);
                 node.vacbot.on("ready", (event) => {
-                    connection = true;
                     node.status({
                         fill: 'green',
                         shape: 'dot',
@@ -142,25 +140,40 @@ module.exports = function (RED) {
         let node = this;
         node.config = config;
         node.account = RED.nodes.getNode(config.account);
-        if (node.account) {
-            connect(node);
-        } else {
-            node.status({
-                fill: "red",
-                shape: "dot",
-                text: "Ecovacs account missing"
-            });
-        }
 
-        this.on('input', (msg) => {
-            if (msg.arg !== "") {
+        node.status({
+            fill: 'gray',
+            shape: 'dot',
+            text: 'Not connected yet',
+        });
+
+        node.on('input', (msg) => {
+            if (msg.payload === "connect") {
+                if (node.account) {
+                    connect(node);
+                } else {
+                    node.status({
+                        fill: "red",
+                        shape: "dot",
+                        text: "Ecovacs account missing"
+                    });
+                }
+            } else if (msg.payload === "disconnect") {
+                node.vacbot.disconnect();
+                node.status({
+                    fill: "gray",
+                    shape: "dot",
+                    text: "Disconnected"
+                });
+            }
+            else if (msg.arg !== "") {
                 node.vacbot.run(msg.payload, msg.arg);
             } else {
                 node.vacbot.run(msg.payload);
             }
         });
 
-        this.on('close', () => {
+        node.on('close', () => {
             node.vacbot.disconnect();
         });
     }
