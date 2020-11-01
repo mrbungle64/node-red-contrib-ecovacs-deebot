@@ -14,13 +14,13 @@ module.exports = function (RED) {
             text: 'Connecting...',
         });
 
-        const password_hash = EcoVacsAPI.md5(node.ecovacsAccount.password);
+        const password_hash = EcoVacsAPI.md5(node.account.password);
         const device_id = EcoVacsAPI.md5(nodeMachineId.machineIdSync());
-        const countryCode = node.ecovacsAccount.countryCode.toLowerCase();
+        const countryCode = node.account.countryCode.toLowerCase();
         const continent = countries[countryCode.toUpperCase()].continent.toLowerCase();
 
         let api = new EcoVacsAPI(device_id, countryCode, continent);
-        api.connect(node.ecovacsAccount.mail, password_hash).then(() => {
+        api.connect(node.account.mail, password_hash).then(() => {
             api.devices().then((devices) => {
                 let vacuum = devices[node.config.deviceNumber];
                 this.vacbot = api.getVacBot(api.uid, EcoVacsAPI.REALM, api.resource, api.user_access_token, vacuum, continent);
@@ -141,8 +141,8 @@ module.exports = function (RED) {
 
         let node = this;
         node.config = config;
-        node.ecovacsAccount = RED.nodes.getNode(config.account);
-        if (node.ecovacsAccount) {
+        node.account = RED.nodes.getNode(config.account);
+        if (node.account) {
             connect(node);
         } else {
             node.status({
