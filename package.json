@@ -10,7 +10,8 @@
     "license": "ISC",
     "node-red": {
         "nodes": {
-            "deebot": "ecovacs-deebot.js"
+            "ecovacs-account": "ecovacs-account.js",
+            "ecovacs-deebot": "ecovacs-deebot.js"
         }
     },
     "dependencies": {

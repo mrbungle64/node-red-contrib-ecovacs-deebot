@@ -3,9 +3,18 @@
         category: 'ecovacs-deebot',
         color: '#a6bbcf',
         defaults: {
-            account: {value:"", type:"ecovacs-account"},
-            name: {value: "Deebot", required: true},
-            deviceNumber: {value: "0", required: true}
+            account: {
+                type: "ecovacs-account",
+                required: true
+            },
+            name: {
+                value: "Deebot",
+                required: true
+            },
+            deviceNumber: {
+                value: "0",
+                required: true
+            }
         },
         inputs: 1,
         outputs: 1,
@@ -18,15 +27,15 @@
 
 <script type="text/html" data-template-name="ecovacs-deebot">
     <div class="form-row">
-        <label for="node-input-account"><i class="icon-tag"></i>Account</label>
+        <label for="node-input-account"><i class="fa fa-globe"></i> Account</label>
         <input type="text" id="node-input-account">
     </div>
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-deviceNumber"><i class="icon-tag"></i>Device number</label>
+        <label for="node-input-deviceNumber"><i class="icon-tag"></i> Device number</label>
         <input type="text" id="node-input-deviceNumber">
     </div>
 </script>
