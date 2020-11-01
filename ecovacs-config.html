@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ecovacs-deebot-account', {
+        category: 'config',
+        defaults: {
+            mail: {value: "", required: true},
+            password: {value: "", required: true},
+            countryCode: {value: "DE", required: true}
+        },
+        label: function () {
+            return this.name || "ecovacs-deebot-account";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ecovacs-deebot-account">
+    <div class="form-row">
+        <label for="node-config-input-mail"><i class="icon-tag"></i>Mail</label>
+        <input type="text" id="node-config-input-mail">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="icon-tag"></i>Password</label>
+        <input type="text" id="node-config-input-password">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-countryCode"><i class="icon-tag"></i>Country code</label>
+        <input type="text" id="node-config-input-countryCode">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ecovacs-deebot-account">
+    <p>Ecovacs account credentials</p>
+</script>

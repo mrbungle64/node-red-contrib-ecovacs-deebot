@@ -4,155 +4,166 @@ module.exports = function (RED) {
     const nodeMachineId = require('node-machine-id');
     const countries = library.countries;
     let connection = false;
-    let debugMessage;
-    let vacbot;
 
-    function Connection(config, node) {
+    function connect(node) {
+        this.vacbot = null;
+
         node.status({
             fill: 'yellow',
             shape: 'dot',
             text: 'Connecting...',
         });
 
-        let password_hash = EcoVacsAPI.md5(config.password), device_id = EcoVacsAPI.md5(nodeMachineId.machineIdSync()),
-            country = null, continent = null;
+        const password_hash = EcoVacsAPI.md5(node.ecovacsAccount.password);
+        const device_id = EcoVacsAPI.md5(nodeMachineId.machineIdSync());
+        const countryCode = node.ecovacsAccount.countryCode.toLowerCase();
+        const continent = countries[countryCode.toUpperCase()].continent.toLowerCase();
 
-        country = config.countryCode.toLowerCase();
-        continent = countries[country.toUpperCase()].continent.toLowerCase();
-
-        let api = new EcoVacsAPI(device_id, country, continent);
-        api.connect(config.mail, password_hash).then(() => {
+        let api = new EcoVacsAPI(device_id, countryCode, continent);
+        api.connect(node.ecovacsAccount.mail, password_hash).then(() => {
             api.devices().then((devices) => {
-                let vacuum = devices[config.deviceNumber];
-                vacbot = api.getVacBot(api.uid, EcoVacsAPI.REALM, api.resource, api.user_access_token, vacuum, continent);
-                vacbot.on("ready", (event) => {
+                let vacuum = devices[node.config.deviceNumber];
+                this.vacbot = api.getVacBot(api.uid, EcoVacsAPI.REALM, api.resource, api.user_access_token, vacuum, continent);
+                this.vacbot.on("ready", (event) => {
                     connection = true;
                     node.status({
                         fill: 'green',
                         shape: 'dot',
                         text: 'Connected',
                     });
-                    vacbot.run("BatteryState");
-                    vacbot.on("BatteryInfo", (value) => {
+                    this.vacbot.run("BatteryState");
+                    this.vacbot.on("BatteryInfo", (value) => {
                         let msg = {
                             type: "BatteryInfo",
                             payload: value
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("CleanReport", (value) => {
+                    this.vacbot.on("CleanReport", (value) => {
                         let msg = {
                             type: "CleanReport",
                             payload: value
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("ChargeState", (value) => {
+                    this.vacbot.on("ChargeState", (value) => {
                         let msg = {
                             type: "ChargeState",
                             payload: value
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("LifeSpan_filter", (value) => {
+                    this.vacbot.on("LifeSpan_filter", (value) => {
                         let msg = {
                             type: "LifeSpan_filter",
                             payload: Math.round(value)
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("LifeSpan_main_brush", (value) => {
+                    this.vacbot.on("LifeSpan_main_brush", (value) => {
                         let msg = {
                             type: "LifeSpan_main_brush",
                             payload: Math.round(value)
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("LifeSpan_side_brush", (value) => {
+                    this.vacbot.on("LifeSpan_side_brush", (value) => {
                         let msg = {
                             type: "LifeSpan_side_brush",
                             payload: Math.round(value)
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("WaterLevel", (value) => {
+                    this.vacbot.on("WaterLevel", (value) => {
                         let msg = {
                             type: "WaterLevel",
                             payload: value
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("WaterBoxInfo", (status) => {
+                    this.vacbot.on("WaterBoxInfo", (status) => {
                         let msg = {
                             type: "WaterBoxInfo",
                             payload: status
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("DustCaseInfo", (status) => {
+                    this.vacbot.on("DustCaseInfo", (status) => {
                         let msg = {
                             type: "DustCaseInfo",
                             payload: status
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("SleepStatus", (status) => {
+                    this.vacbot.on("SleepStatus", (status) => {
                         let msg = {
                             type: "SleepStatus",
                             payload: status
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("CleanSpeed", (value) => {
+                    this.vacbot.on("CleanSpeed", (value) => {
                         let msg = {
                             type: "CleanSpeed",
                             payload: value
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("Error", (value) => {
+                    this.vacbot.on("Error", (value) => {
                         let msg = {
                             type: "Error",
                             payload: value
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
-                    vacbot.on("ErrorCode", (value) => {
+                    this.vacbot.on("ErrorCode", (value) => {
                         let msg = {
                             type: "ErrorCode",
                             payload: value
                         };
-                        debugMessage.send(msg);
+                        node.send(msg);
                     });
                 });
-                vacbot.connect_and_wait_until_ready();
+                this.vacbot.connect_and_wait_until_ready();
             });
         }).catch((e) => {
             node.status({
                 fill: 'red',
                 shape: 'dot',
-                text: e.codes,
+                text: e.error,
             });
-            console.log(e.error);
+            node.error(e.error);
         });
     }
 
-    function ecovacsDeebot(config) {
+    function EcovacsDeebot(config) {
         RED.nodes.createNode(this, config);
 
-        debugMessage = this;
-        var node = this;
+        let node = this;
+        node.config = config;
+        node.ecovacsAccount = RED.nodes.getNode(config.account);
+        if (node.ecovacsAccount) {
+            connect(node);
+        } else {
+            node.status({
+                fill: "red",
+                shape: "dot",
+                text: "Ecovacs account missing"
+            });
+        }
 
-        Connection(config, node);
-
-        node.on('input', msg => {
+        this.on('input', (msg) => {
             if (msg.arg !== "") {
-                vacbot.run(msg.payload, msg.arg);
+                node.vacbot.run(msg.payload, msg.arg);
             } else {
-                vacbot.run(msg.payload);
+                node.vacbot.run(msg.payload);
             }
+        });
+
+        this.on('close', () => {
+            node.vacbot.disconnect();
         });
     }
 
-    RED.nodes.registerType("ecovacs-deebot", ecovacsDeebot);
+    RED.nodes.registerType("ecovacs-deebot", EcovacsDeebot);
 }
