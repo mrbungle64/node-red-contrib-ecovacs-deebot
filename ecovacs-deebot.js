@@ -39,96 +39,122 @@ module.exports = function (RED) {
                     });
                     node.vacbot.on("BatteryInfo", (value) => {
                         let msg = {
-                            type: "BatteryInfo",
-                            payload: value,
-                            unit: "%"
+                            payload: {
+                                type: "BatteryInfo",
+                                value: value,
+                                unit: "%"
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("CleanReport", (value) => {
                         let msg = {
-                            type: "CleanReport",
-                            payload: value
+                            payload: {
+                                type: "CleanReport",
+                                state: value
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("ChargeState", (value) => {
                         let msg = {
-                            type: "ChargeState",
-                            payload: value
+                            payload: {
+                                type: "ChargeState",
+                                state: value
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("LifeSpan_filter", (value) => {
                         let msg = {
-                            type: "LifeSpan_filter",
-                            payload: Math.round(value),
-                            unit: "%"
+                            payload: {
+                                type: "LifeSpan_filter",
+                                value: Math.round(value),
+                                unit: "%"
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("LifeSpan_main_brush", (value) => {
                         let msg = {
-                            type: "LifeSpan_main_brush",
-                            payload: Math.round(value),
-                            unit: "%"
+                            payload: {
+                                type: "LifeSpan_main_brush",
+                                value: Math.round(value),
+                                unit: "%"
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("LifeSpan_side_brush", (value) => {
                         let msg = {
-                            type: "LifeSpan_side_brush",
-                            payload: Math.round(value),
-                            unit: "%"
+                            payload: {
+                                type: "LifeSpan_side_brush",
+                                value: Math.round(value),
+                                unit: "%"
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("WaterLevel", (value) => {
                         let msg = {
-                            type: "WaterLevel",
-                            payload: value
+                            payload: {
+                                type: "WaterLevel",
+                                value: value
+                            }
                         };
                         node.send(msg);
                     });
-                    node.vacbot.on("WaterBoxInfo", (status) => {
+                    node.vacbot.on("WaterBoxInfo", (value) => {
                         let msg = {
-                            type: "WaterBoxInfo",
-                            payload: status
+                            payload: {
+                                type: "WaterBoxInfo",
+                                value: value
+                            }
                         };
                         node.send(msg);
                     });
-                    node.vacbot.on("DustCaseInfo", (status) => {
+                    node.vacbot.on("DustCaseInfo", (value) => {
                         let msg = {
-                            type: "DustCaseInfo",
-                            payload: status
+                            payload: {
+                                type: "DustCaseInfo",
+                                value: value
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("SleepStatus", (status) => {
                         let msg = {
-                            type: "SleepStatus",
-                            payload: status
+                            payload: {
+                                type: "SleepStatus",
+                                status: status
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("CleanSpeed", (value) => {
                         let msg = {
-                            type: "CleanSpeed",
-                            payload: value
+                            payload: {
+                                type: "CleanSpeed",
+                                value: value
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("Error", (value) => {
                         let msg = {
-                            type: "Error",
-                            payload: value
+                            payload: {
+                                type: "Error",
+                                value: value
+                            }
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("ErrorCode", (value) => {
                         let msg = {
-                            type: "ErrorCode",
-                            payload: value
+                            payload: {
+                                type: "ErrorCode",
+                                value: value
+                            }
                         };
                         node.send(msg);
                     });
