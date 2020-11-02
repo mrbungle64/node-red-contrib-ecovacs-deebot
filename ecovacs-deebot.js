@@ -30,10 +30,18 @@ module.exports = function (RED) {
                         text: 'Connected',
                     });
                     node.vacbot.run("BatteryState");
+                    node.vacbot.on("disconnect", () => {
+                        node.status({
+                            fill: "gray",
+                            shape: "dot",
+                            text: "Disconnected"
+                        });
+                    });
                     node.vacbot.on("BatteryInfo", (value) => {
                         let msg = {
                             type: "BatteryInfo",
-                            payload: value
+                            payload: value,
+                            unit: "%"
                         };
                         node.send(msg);
                     });
@@ -54,21 +62,24 @@ module.exports = function (RED) {
                     node.vacbot.on("LifeSpan_filter", (value) => {
                         let msg = {
                             type: "LifeSpan_filter",
-                            payload: Math.round(value)
+                            payload: Math.round(value),
+                            unit: "%"
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("LifeSpan_main_brush", (value) => {
                         let msg = {
                             type: "LifeSpan_main_brush",
-                            payload: Math.round(value)
+                            payload: Math.round(value),
+                            unit: "%"
                         };
                         node.send(msg);
                     });
                     node.vacbot.on("LifeSpan_side_brush", (value) => {
                         let msg = {
                             type: "LifeSpan_side_brush",
-                            payload: Math.round(value)
+                            payload: Math.round(value),
+                            unit: "%"
                         };
                         node.send(msg);
                     });
