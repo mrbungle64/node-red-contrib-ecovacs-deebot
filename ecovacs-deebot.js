@@ -158,18 +158,20 @@ module.exports = function (RED) {
                         text: "Ecovacs account missing"
                     });
                 }
-            } else if (msg.payload === "disconnect") {
-                node.vacbot.disconnect();
-                node.status({
-                    fill: "gray",
-                    shape: "dot",
-                    text: "Disconnected"
-                });
             }
-            else if (msg.arg !== "") {
-                node.vacbot.run(msg.payload, msg.arg);
-            } else {
-                node.vacbot.run(msg.payload);
+            else if (node.vacbot) {
+                if (msg.payload === "disconnect") {
+                    node.vacbot.disconnect();
+                    node.status({
+                        fill: "gray",
+                        shape: "dot",
+                        text: "Disconnected"
+                    });
+                } else if (msg.arg !== "") {
+                    node.vacbot.run(msg.payload, msg.arg);
+                } else {
+                    node.vacbot.run(msg.payload);
+                }
             }
         });
 
