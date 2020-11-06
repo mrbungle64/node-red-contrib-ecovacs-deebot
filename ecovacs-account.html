@@ -2,7 +2,7 @@
     RED.nodes.registerType('ecovacs-account', {
         category: 'config',
         defaults: {
-            mail: {value: "", required: true},
+            email: {value: "", required: true},
             password: {value: "", required: true},
             countryCode: {value: "DE", required: true}
         },
@@ -14,8 +14,8 @@
 
 <script type="text/html" data-template-name="ecovacs-account">
     <div class="form-row">
-        <label for="node-config-input-mail"><i class="icon-tag"></i>Mail</label>
-        <input type="text" id="node-config-input-mail">
+        <label for="node-config-input-email"><i class="icon-tag"></i>Email</label>
+        <input type="text" id="node-config-input-email">
     </div>
     <div class="form-row">
         <label for="node-config-input-password"><i class="icon-tag"></i>Password</label>

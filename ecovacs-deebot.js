@@ -19,7 +19,7 @@ module.exports = function (RED) {
         const continent = countries[countryCode.toUpperCase()].continent.toLowerCase();
 
         let api = new EcoVacsAPI(device_id, countryCode, continent);
-        api.connect(node.account.mail, password_hash).then(() => {
+        api.connect(node.account.email, password_hash).then(() => {
             api.devices().then((devices) => {
                 let vacuum = devices[node.config.deviceNumber];
                 node.vacbot = api.getVacBot(api.uid, EcoVacsAPI.REALM, api.resource, api.user_access_token, vacuum, continent);

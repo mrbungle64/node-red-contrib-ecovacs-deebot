@@ -8,12 +8,13 @@ This node uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-dee
 - Run `npm i node-red-contrib-deebot`
 
 ## How to use
-First you have to configure the node:
-- `Name` of the Device
-- your Ecovacs credentials
-  - `Mail`
+First you have to configure the Ecovacs account node:
+  - `Email`
   - `Password`
-- `Country code` (e.g. `DE`)
+  - `Country code` (e.g. `DE`)
+  
+and also for every device:
+- `Name` of the Device
 - `Device number` (`0` for the first device)
 
 ### Commands
