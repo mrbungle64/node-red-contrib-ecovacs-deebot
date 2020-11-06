@@ -1,7 +1,7 @@
 {
     "name": "node-red-contrib-ecovacs-deebot",
     "version": "0.0.1",
-    "description": "NodeRed node for Ecovacs Deebot vacuum cleaner",
+    "description": "Node-RED node for Ecovacs Deebot vacuum cleaner",
     "main": "ecovacs-deebot.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
         }
     },
     "dependencies": {
-        "ecovacs-deebot": "^0.4.21",
+        "ecovacs-deebot": "^0.4.22",
         "node-machine-id": "^1.1.12"
     }
 }
