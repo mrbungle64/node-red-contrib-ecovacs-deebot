@@ -1,4 +1,7 @@
+![Logo](ecovacs-deebot.png)
+
 # node-red-contrib-ecovacs-deebot
+
 Node-RED node for running Ecovacs Deebot vacuum cleaner robots
 
 This node uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
@@ -55,6 +58,12 @@ It is possible to receive the following events:
 ### 0.0.1
 * (mrbungle64) Initial development release
 
+## Disclaimer
+
+I am in no way affiliated with ECOVACS.
+
 ## License
 
 GNU GENERAL PUBLIC LICENSE
+
+Copyright (c) 2020 Sascha Hölzel <mrb1232@posteo.de>
