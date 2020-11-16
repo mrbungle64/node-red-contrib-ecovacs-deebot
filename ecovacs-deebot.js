@@ -14,7 +14,7 @@ module.exports = function (RED) {
         });
 
         const password_hash = EcoVacsAPI.md5(node.account.password);
-        const device_id = EcoVacsAPI.md5(nodeMachineId.machineIdSync());
+        const device_id = EcoVacsAPI.getDeviceId(nodeMachineId.machineIdSync(), node.config.deviceNumber);
         const countryCode = node.account.countryCode.toLowerCase();
         const continent = countries[countryCode.toUpperCase()].continent.toLowerCase();
 
