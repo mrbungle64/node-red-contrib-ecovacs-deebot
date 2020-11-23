@@ -184,6 +184,8 @@ module.exports = function (RED) {
             text: 'Not connected yet',
         });
 
+        connect(node);
+
         node.on('input', (msg) => {
             if (msg.payload === "connect") {
                 if (node.account) {
