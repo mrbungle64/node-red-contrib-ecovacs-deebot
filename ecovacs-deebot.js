@@ -206,7 +206,9 @@ module.exports = function (RED) {
                         shape: "dot",
                         text: "Disconnected"
                     });
-                } else if (msg.arg !== "") {
+                } else if (msg.arg && msg.arg2) {
+                    node.vacbot.run(msg.payload, msg.arg, msg.arg2);
+                } else if (msg.arg) {
                     node.vacbot.run(msg.payload, msg.arg);
                 } else {
                     node.vacbot.run(msg.payload);
