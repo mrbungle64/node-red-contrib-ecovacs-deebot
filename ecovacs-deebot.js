@@ -140,6 +140,42 @@ module.exports = function (RED) {
                         };
                         node.send(msg);
                     });
+                    node.vacbot.on("CleanSum_totalSquareMeters", (value) => {
+                        let msg = {
+                            payload: {
+                                type: "CleanSum_totalSquareMeters",
+                                value: value
+                            }
+                        };
+                        node.send(msg);
+                    });
+                    node.vacbot.on("CleanSum_squareMeters", (value) => {
+                        let msg = {
+                            payload: {
+                                type: "CleanSum_squareMeters",
+                                value: value
+                            }
+                        };
+                        node.send(msg);
+                    });
+                    node.vacbot.on("CleanSum_totalSeconds", (value) => {
+                        let msg = {
+                            payload: {
+                                type: "CleanSum_totalSeconds",
+                                value: value
+                            }
+                        };
+                        node.send(msg);
+                    });
+                    node.vacbot.on("CleanSum_totalNumber", (value) => {
+                        let msg = {
+                            payload: {
+                                type: "CleanSum_totalNumber",
+                                value: value
+                            }
+                        };
+                        node.send(msg);
+                    });
                     node.vacbot.on("Error", (value) => {
                         let msg = {
                             payload: {
