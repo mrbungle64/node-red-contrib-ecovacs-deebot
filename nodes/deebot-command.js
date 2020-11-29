@@ -18,7 +18,11 @@ module.exports = function (RED) {
                     payload: command.payload,
                     arg: msg.arg ? msg.arg : command.arg,
                     arg2: msg.arg2 ? msg.arg2 : command.arg
-                })
+                });
+            } else {
+                node.send({
+                    payload: node.config.command
+                });
             }
         }
     }

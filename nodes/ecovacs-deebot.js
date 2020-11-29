@@ -158,7 +158,7 @@ module.exports = function (RED) {
         }
 
         node.on('input', (msg) => {
-            if (msg.payload === 'connect') {
+            if (msg.payload === 'Connect') {
                 if (node.account) {
                     connect(node);
                 } else {
@@ -170,7 +170,7 @@ module.exports = function (RED) {
                 }
             }
             else if (node.vacbot) {
-                if (msg.payload === 'disconnect') {
+                if (msg.payload === 'Disconnect') {
                     node.vacbot.disconnect();
                     node.status({
                         fill: 'gray',

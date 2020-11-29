@@ -32,5 +32,12 @@ module.exports = {
     "SpotArea": {
         payload: "SpotArea",
         arg: "start"
+    },
+    "PlaySound": {
+        payload: "PlaySound"
+    },
+    "FindMe": {
+        payload: "PlaySound",
+        arg: "30"
     }
 }
