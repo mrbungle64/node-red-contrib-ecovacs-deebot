@@ -23,175 +23,86 @@ module.exports = function (RED) {
             api.devices().then((devices) => {
                 let vacuum = devices[node.config.deviceNumber];
                 node.vacbot = api.getVacBot(api.uid, EcoVacsAPI.REALM, api.resource, api.user_access_token, vacuum, continent);
-                node.vacbot.on("ready", (event) => {
+                node.vacbot.on('ready', (event) => {
                     node.status({
                         fill: 'green',
                         shape: 'dot',
                         text: 'Connected',
                     });
-                    node.vacbot.run("BatteryState");
-                    node.vacbot.on("disconnect", () => {
+                    node.vacbot.run('BatteryState');
+                    node.vacbot.on('disconnect', () => {
                         node.status({
-                            fill: "gray",
-                            shape: "dot",
-                            text: "Disconnected"
+                            fill: 'gray',
+                            shape: 'dot',
+                            text: 'Disconnected'
                         });
                     });
-                    node.vacbot.on("BatteryInfo", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "BatteryInfo",
-                                value: value,
-                                unit: "%"
-                            }
-                        };
+                    node.vacbot.on('BatteryInfo', (value) => {
+                        const msg = createMsgObject('BatteryInfo', value, '%');
                         node.send(msg);
                     });
-                    node.vacbot.on("CleanReport", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "CleanReport",
-                                state: value
-                            }
-                        };
+                    node.vacbot.on('CleanReport', (value) => {
+                        const msg = createMsgObject('CleanReport', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("ChargeState", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "ChargeState",
-                                state: value
-                            }
-                        };
+                    node.vacbot.on('ChargeState', (value) => {
+                        const msg = createMsgObject('ChargeState', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("LifeSpan_filter", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "LifeSpan_filter",
-                                value: Math.round(value),
-                                unit: "%"
-                            }
-                        };
+                    node.vacbot.on('LifeSpan_filter', (value) => {
+                        const msg = createMsgObject('LifeSpan_filter', Math.round(value), '%');
                         node.send(msg);
                     });
-                    node.vacbot.on("LifeSpan_main_brush", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "LifeSpan_main_brush",
-                                value: Math.round(value),
-                                unit: "%"
-                            }
-                        };
+                    node.vacbot.on('LifeSpan_main_brush', (value) => {
+                        const msg = createMsgObject('LifeSpan_main_brush', Math.round(value), '%');
                         node.send(msg);
                     });
-                    node.vacbot.on("LifeSpan_side_brush", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "LifeSpan_side_brush",
-                                value: Math.round(value),
-                                unit: "%"
-                            }
-                        };
+                    node.vacbot.on('LifeSpan_side_brush', (value) => {
+                        const msg = createMsgObject('LifeSpan_side_brush', Math.round(value), '%');
                         node.send(msg);
                     });
-                    node.vacbot.on("WaterLevel", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "WaterLevel",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('WaterLevel', (value) => {
+                        const msg = createMsgObject('WaterLevel', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("WaterBoxInfo", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "WaterBoxInfo",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('WaterBoxInfo', (value) => {
+                        const msg = createMsgObject('WaterBoxInfo', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("DustCaseInfo", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "DustCaseInfo",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('DustCaseInfo', (value) => {
+                        const msg = createMsgObject('DustCaseInfo', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("SleepStatus", (status) => {
-                        let msg = {
-                            payload: {
-                                type: "SleepStatus",
-                                status: status
-                            }
-                        };
+                    node.vacbot.on('SleepStatus', (value) => {
+                        const msg = createMsgObject('SleepStatus', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("CleanSpeed", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "CleanSpeed",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('CleanSpeed', (value) => {
+                        const msg = createMsgObject('CleanSpeed', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("CleanSum_totalSquareMeters", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "CleanSum_totalSquareMeters",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('CleanSum_totalSquareMeters', (value) => {
+                        const msg = createMsgObject('CleanSum_totalSquareMeters', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("CleanSum_squareMeters", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "CleanSum_squareMeters",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('CleanSum_squareMeters', (value) => {
+                        const msg = createMsgObject('CleanSum_squareMeters', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("CleanSum_totalSeconds", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "CleanSum_totalSeconds",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('CleanSum_totalSeconds', (value) => {
+                        const msg = createMsgObject('CleanSum_totalSeconds', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("CleanSum_totalNumber", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "CleanSum_totalNumber",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('CleanSum_totalNumber', (value) => {
+                        const msg = createMsgObject('CleanSum_totalNumber', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("Error", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "Error",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('Error', (value) => {
+                        const msg = createMsgObject('Error', value);
                         node.send(msg);
                     });
-                    node.vacbot.on("ErrorCode", (value) => {
-                        let msg = {
-                            payload: {
-                                type: "ErrorCode",
-                                value: value
-                            }
-                        };
+                    node.vacbot.on('ErrorCode', (value) => {
+                        const msg = createMsgObject('ErrorCode', value);
                         node.send(msg);
                     });
                 });
@@ -205,6 +116,16 @@ module.exports = function (RED) {
             });
             node.error(e.error);
         });
+    }
+
+    function createMsgObject(type, value, unit = null) {
+        return {
+            payload: {
+                type: type,
+                value: value,
+                unit: unit
+            }
+        };
     }
 
     function EcovacsDeebot(config) {
@@ -223,24 +144,24 @@ module.exports = function (RED) {
         connect(node);
 
         node.on('input', (msg) => {
-            if (msg.payload === "connect") {
+            if (msg.payload === 'connect') {
                 if (node.account) {
                     connect(node);
                 } else {
                     node.status({
-                        fill: "red",
-                        shape: "dot",
-                        text: "Ecovacs account missing"
+                        fill: 'red',
+                        shape: 'dot',
+                        text: 'Ecovacs account missing'
                     });
                 }
             }
             else if (node.vacbot) {
-                if (msg.payload === "disconnect") {
+                if (msg.payload === 'disconnect') {
                     node.vacbot.disconnect();
                     node.status({
-                        fill: "gray",
-                        shape: "dot",
-                        text: "Disconnected"
+                        fill: 'gray',
+                        shape: 'dot',
+                        text: 'Disconnected'
                     });
                 } else if (msg.arg && msg.arg2) {
                     node.vacbot.run(msg.payload, msg.arg, msg.arg2);
@@ -257,5 +178,5 @@ module.exports = function (RED) {
         });
     }
 
-    RED.nodes.registerType("ecovacs-deebot", EcovacsDeebot);
+    RED.nodes.registerType('ecovacs-deebot', EcovacsDeebot);
 }
