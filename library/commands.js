@@ -13,17 +13,17 @@ module.exports = {
     },
     "LifeSpan_filter": {
         label: "LifeSpan (filter)",
-        payload: "LifeSpan",
+        payload: "GetLifeSpan",
         arg: "filter"
     },
     "LifeSpan_main_brush": {
         label: "LifeSpan (main brush)",
-        payload: "LifeSpan",
+        payload: "GetLifeSpan",
         arg: "main_brush"
     },
     "LifeSpan_side_brush": {
         label: "LifeSpan (side brush)",
-        payload: "LifeSpan",
+        payload: "GetLifeSpan",
         arg: "side_brush"
     }
 }
