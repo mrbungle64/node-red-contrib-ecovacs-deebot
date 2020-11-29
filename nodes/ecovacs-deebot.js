@@ -153,7 +153,9 @@ module.exports = function (RED) {
             text: 'Not connected yet',
         });
 
-        connect(node);
+        if (node.config.connectOnStartup) {
+            connect(node);
+        }
 
         node.on('input', (msg) => {
             if (msg.payload === 'connect') {

@@ -15,6 +15,10 @@
             deviceNumber: {
                 value: "0",
                 required: true
+            },
+            connectOnStartup: {
+                value: false,
+                required: true
             }
         },
         inputs: 1,
@@ -38,6 +42,10 @@
     <div class="form-row">
         <label for="node-input-deviceNumber"><i class="icon-tag"></i> Device number</label>
         <input type="text" id="node-input-deviceNumber">
+    </div>
+    <div class="form-row">
+        <label for="node-input-connectOnStartup"><i class="icon-tag"></i> Connect on startup</label>
+        <input type="checkbox" id="node-input-connectOnStartup">
     </div>
 </script>
 
