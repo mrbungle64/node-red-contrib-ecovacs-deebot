@@ -11,7 +11,8 @@
     "node-red": {
         "nodes": {
             "ecovacs-account": "nodes/ecovacs-account.js",
-            "ecovacs-deebot": "nodes/ecovacs-deebot.js"
+            "ecovacs-deebot": "nodes/ecovacs-deebot.js",
+            "ecovacs-deebot-command": "nodes/deebot-command.js"
         }
     },
     "dependencies": {
