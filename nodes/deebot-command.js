@@ -13,11 +13,11 @@ module.exports = function (RED) {
 
         function sendCommand(node, msg) {
             const command = commands[node.config.command];
-            if (command && command.payload) {
+            if (command) {
                 node.send({
                     payload: command.payload,
                     arg: msg.arg ? msg.arg : command.arg,
-                    arg2: msg.arg2 ? msg.arg2 : command.arg
+                    arg2: msg.arg2 ? msg.arg2 : command.arg2
                 });
             } else {
                 node.send({
