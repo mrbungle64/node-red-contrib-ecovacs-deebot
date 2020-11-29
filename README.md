@@ -50,6 +50,10 @@ It is possible to receive the following events:
 - `DustCaseInfo`
 - `SleepStatus`
 - `CleanSpeed`
+- `CleanSum_totalSquareMeters`
+- `CleanSum_squareMeters`
+- `CleanSum_totalSeconds`
+- `CleanSum_totalNumber`
 - `Error`
 - `ErrorCode`
 
