@@ -6,8 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "GyOmE",
-    "license": "ISC",
+    "author": "Sascha Hölzel",
+    "license": "GPL-3.0",
     "node-red": {
         "nodes": {
             "ecovacs-account": "ecovacs-account.js",
