@@ -11,9 +11,7 @@ module.exports = function (RED) {
 
         function sendCommand(node) {
             node.send({
-                payload: {
-                    payload: node.config.command
-                }
+                payload: node.config.command
             })
         }
     }
