@@ -29,7 +29,19 @@ module.exports = function (RED) {
                         shape: 'dot',
                         text: 'Connected',
                     });
-                    node.vacbot.run('BatteryState');
+
+                    node.vacbot.run('GetBatteryState');
+                    node.vacbot.run('GetCleanState');
+                    node.vacbot.run('GetChargeState');
+                    node.vacbot.run('GetSleepStatus');
+                    node.vacbot.run('GetCleanSpeed');
+                    node.vacbot.run('GetCleanSum');
+
+                    if (node.vacbot.hasMoppingSystem()) {
+                        node.vacbot.run('GetWaterBoxInfo','');
+                        node.vacbot.run('GetWaterLevel','');
+                    }
+
                     node.vacbot.on('disconnect', () => {
                         node.status({
                             fill: 'gray',
