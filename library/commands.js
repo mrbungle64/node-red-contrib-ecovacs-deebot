@@ -11,19 +11,26 @@ module.exports = {
     "Charge": {
         payload: "Charge"
     },
-    "LifeSpan_filter": {
-        label: "LifeSpan (filter)",
+    "GetLifeSpan": {
+        payload: "GetLifeSpan"
+    },
+    "GetLifeSpan_filter": {
+        label: "GetLifeSpan (filter)",
         payload: "GetLifeSpan",
         arg: "filter"
     },
-    "LifeSpan_main_brush": {
-        label: "LifeSpan (main brush)",
+    "GetLifeSpan_main_brush": {
+        label: "GetLifeSpan (main brush)",
         payload: "GetLifeSpan",
         arg: "main_brush"
     },
-    "LifeSpan_side_brush": {
-        label: "LifeSpan (side brush)",
+    "GetLifeSpan_side_brush": {
+        label: "GetLifeSpan (side brush)",
         payload: "GetLifeSpan",
         arg: "side_brush"
+    },
+    "SpotArea": {
+        payload: "SpotArea",
+        arg: "start"
     }
 }

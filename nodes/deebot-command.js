@@ -8,16 +8,16 @@ module.exports = function (RED) {
         let node = this;
         node.config = config;
         node.on('input', (msg) => {
-            sendCommand(node);
+            sendCommand(node, msg);
         });
 
-        function sendCommand(node) {
+        function sendCommand(node, msg) {
             const command = commands[node.config.command];
             if (command && command.payload) {
                 node.send({
                     payload: command.payload,
-                    arg: command.arg,
-                    arg2: command.arg2
+                    arg: msg.arg ? msg.arg : command.arg,
+                    arg2: msg.arg2 ? msg.arg2 : command.arg
                 })
             }
         }
