@@ -50,7 +50,7 @@ module.exports = function (RED) {
                         });
                     });
                     node.vacbot.on('BatteryInfo', (value) => {
-                        const msg = createMsgObject('BatteryInfo', value, '%');
+                        const msg = createMsgObject('BatteryInfo', value , null, '%');
                         node.send(msg);
                     });
                     node.vacbot.on('CleanReport', (value) => {
@@ -62,15 +62,15 @@ module.exports = function (RED) {
                         node.send(msg);
                     });
                     node.vacbot.on('LifeSpan_filter', (value) => {
-                        const msg = createMsgObject('LifeSpan_filter', Math.round(value), '%');
+                        const msg = createMsgObject('LifeSpan', Math.round(value), 'filter', '%');
                         node.send(msg);
                     });
                     node.vacbot.on('LifeSpan_main_brush', (value) => {
-                        const msg = createMsgObject('LifeSpan_main_brush', Math.round(value), '%');
+                        const msg = createMsgObject('LifeSpan', Math.round(value), 'main_brush', '%');
                         node.send(msg);
                     });
                     node.vacbot.on('LifeSpan_side_brush', (value) => {
-                        const msg = createMsgObject('LifeSpan_side_brush', Math.round(value), '%');
+                        const msg = createMsgObject('LifeSpan', Math.round(value), 'side_brush', '%');
                         node.send(msg);
                     });
                     node.vacbot.on('WaterLevel', (value) => {
@@ -94,19 +94,19 @@ module.exports = function (RED) {
                         node.send(msg);
                     });
                     node.vacbot.on('CleanSum_totalSquareMeters', (value) => {
-                        const msg = createMsgObject('CleanSum_totalSquareMeters', value);
+                        const msg = createMsgObject('CleanSum', value, 'totalSquareMeters');
                         node.send(msg);
                     });
                     node.vacbot.on('CleanSum_squareMeters', (value) => {
-                        const msg = createMsgObject('CleanSum_squareMeters', value);
+                        const msg = createMsgObject('CleanSum', value, 'squareMeters');
                         node.send(msg);
                     });
                     node.vacbot.on('CleanSum_totalSeconds', (value) => {
-                        const msg = createMsgObject('CleanSum_totalSeconds', value);
+                        const msg = createMsgObject('CleanSum', value, 'totalSeconds');
                         node.send(msg);
                     });
                     node.vacbot.on('CleanSum_totalNumber', (value) => {
-                        const msg = createMsgObject('CleanSum_totalNumber', value);
+                        const msg = createMsgObject('CleanSum', value, 'totalNumber');
                         node.send(msg);
                     });
                     node.vacbot.on('Error', (value) => {
@@ -130,7 +130,17 @@ module.exports = function (RED) {
         });
     }
 
-    function createMsgObject(type, value, unit = null) {
+    function createMsgObject(type, value, component = null, unit = null) {
+        const output = {
+            type: type,
+            value: value
+        };
+        if (component) {
+            Object.assign(output, {component: component});
+        }
+        if (unit) {
+            Object.assign(output, {unit: unit});
+        }
         return {
             payload: {
                 type: type,
