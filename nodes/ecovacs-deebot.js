@@ -142,11 +142,7 @@ module.exports = function (RED) {
             Object.assign(output, {unit: unit});
         }
         return {
-            payload: {
-                type: type,
-                value: value,
-                unit: unit
-            }
+            payload: output
         };
     }
 
