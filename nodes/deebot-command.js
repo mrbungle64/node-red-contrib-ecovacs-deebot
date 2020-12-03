@@ -13,16 +13,23 @@ module.exports = function (RED) {
 
         function sendCommand(node, msg) {
             const command = commands[node.config.command];
-            if (command) {
-                node.send({
-                    payload: command.payload,
-                    arg: msg.arg ? msg.arg : command.arg,
-                    arg2: msg.arg2 ? msg.arg2 : command.arg2
-                });
-            } else {
-                node.send({
-                    payload: node.config.command
-                });
+
+            const output = {};
+            const payload = command.payload ? command.payload : msg.payload;
+            if (payload) {
+                Object.assign(output, {payload: payload});
+            }
+            const arg = msg.arg ? msg.arg : command.arg;
+            if (arg) {
+                Object.assign(output, {arg: arg});
+            }
+            const arg2 = msg.arg2 ? msg.arg2 : command.arg2;
+            if (arg2) {
+                Object.assign(output, {arg2: arg2});
+            }
+
+            if (output) {
+                node.send(output);
             }
         }
     }
