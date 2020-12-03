@@ -15,7 +15,7 @@ module.exports = function (RED) {
             const command = commands[node.config.command];
 
             const output = {};
-            const payload = command.payload ? command.payload : msg.payload;
+            const payload = command ? command.payload : msg.payload;
             if (payload) {
                 Object.assign(output, {payload: payload});
             }
