@@ -3,13 +3,16 @@ module.exports = {
         payload: "Clean"
     },
     "Stop": {
-        payload: "Clean"
+        payload: "Stop"
     },
     "Pause": {
         payload: "Pause"
     },
     "Charge": {
         payload: "Charge"
+    },
+    "GetWaterLevel": {
+        payload: "GetWaterLevel"
     },
     "GetLifeSpan": {
         payload: "GetLifeSpan"
