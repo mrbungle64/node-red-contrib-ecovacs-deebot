@@ -10,52 +10,27 @@ This node uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-dee
 - Go to Node-RED directory
 - Run `npm i node-red-contrib-deebot`
 
-## How to use
-First you have to configure the Ecovacs account node:
-  - `Email`
-  - `Password`
-  - `Country code` (e.g. `DE`)
-  
-and also for every device:
-- `Name` of the Device
-- `Device number` (`0` for the first device)
+## Usage
 
-### Commands
-Some possible commands for `msg.payload` are:
-- `clean`
-- `stop`
-- `pause`
-- `resume`
-- `edge`
-- `spot`
-- `charge`
-- `playSound`
-- `GetCleanState`
-- `GetChargeState`
-- `GetCleanSpeed`
-- `GetLifeSpan` (`msg.arg` = `filter`)
-- `GetLifeSpan` (`msg.arg` = `main_brush`)
-- `GetLifeSpan` (`msg.arg` = `side_brush`)
+### Ecovacs account
 
-### Events
-It is possible to receive the following events:
-- `BatteryInfo`
-- `CleanReport`
-- `ChargeState`
-- `LifeSpan_filter`
-- `LifeSpan_main_brush`
-- `LifeSpan_side_brush`
-- `WaterLevel`
-- `WaterBoxInfo`
-- `DustCaseInfo`
-- `SleepStatus`
-- `CleanSpeed`
-- `CleanSum_totalSquareMeters`
-- `CleanSum_squareMeters`
-- `CleanSum_totalSeconds`
-- `CleanSum_totalNumber`
-- `Error`
-- `ErrorCode`
+First you have to configure the Ecovacs account:
+- "Email"
+- "Password"
+- "Country code" (e.g. `DE`, `UK`, `US`, `WW`)
+
+### Available nodes
+
+#### Device node
+
+- Ecovacs "Account"
+- "Name" of the Device
+- "Device number" (`0` for the first device)
+- "Connect on startup"
+
+#### Deebot command
+
+- "Command" (e.g. `Clean`, `Stop`, `GetLifeSpan`)
 
 ## Models
 
