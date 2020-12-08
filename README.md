@@ -57,6 +57,29 @@ It is possible to receive the following events:
 - `Error`
 - `ErrorCode`
 
+## Models
+
+### Supported models
+* Deebot 900/901
+* Deebot Ozmo 920
+* Deebot Ozmo 930
+* Deebot Ozmo 950
+
+### These models should work
+* Deebot M88
+* Deebot Slim 2
+* Deebot N79 series
+* Deebot 600/601
+* Deebot 605
+* Deebot 710/711
+* Deebot U2
+* Deebot U2 Pro/Power
+* Deebot Ozmo 610
+* Deebot Ozmo 900
+* Deebot Ozmo T8/T8+
+* Deebot Ozmo T8 AIVI
+* Deebot Ozmo Slim 10
+
 ## Changelog
 
 ### 0.0.1
