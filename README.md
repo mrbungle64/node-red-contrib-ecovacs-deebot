@@ -21,7 +21,7 @@ First you have to configure the Ecovacs account:
 
 ### Available nodes
 
-#### Device node
+#### Ecovacs Deebot
 
 - Ecovacs "Account"
 - "Name" of the Device
