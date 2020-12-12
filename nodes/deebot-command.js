@@ -21,13 +21,13 @@ module.exports = function (RED) {
                 Object.assign(output, {payload: msg.payload});
             }
 
-            if (command && command.arg) {
+            if (command && command.arg && (typeof command.arg !== 'object')) {
                 Object.assign(output, {arg: command.arg});
             } else if (msg && msg.arg) {
                 Object.assign(output, {arg: msg.arg});
             }
 
-            if (command && command.arg2) {
+            if (command && command.arg2 && (typeof command.arg2 !== 'object')) {
                 Object.assign(output, {arg2: command.arg2});
             } else if (msg && msg.arg2) {
                 Object.assign(output, {arg2: msg.arg2});
