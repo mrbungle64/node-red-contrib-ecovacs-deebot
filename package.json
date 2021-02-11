@@ -16,7 +16,7 @@
         }
     },
     "dependencies": {
-        "ecovacs-deebot": "^0.5.3",
+        "ecovacs-deebot": "^0.5.6",
         "node-machine-id": "^1.1.12"
     }
 }
