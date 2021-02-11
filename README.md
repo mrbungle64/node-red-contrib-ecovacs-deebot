@@ -23,6 +23,7 @@ First you have to configure the Ecovacs account:
 
 #### Ecovacs Deebot
 
+Available options: 
 - Ecovacs "Account"
 - "Name" of the Device
 - "Device number" (`0` for the first device)
@@ -30,6 +31,7 @@ First you have to configure the Ecovacs account:
 
 #### Deebot command
 
+Available option:
 - "Command" (e.g. `Clean`, `Stop`, `GetLifeSpan`)
 
 ## Models
@@ -77,4 +79,4 @@ I am in no way affiliated with ECOVACS.
 
 GNU GENERAL PUBLIC LICENSE
 
-Copyright (c) 2020 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
