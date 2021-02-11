@@ -35,25 +35,34 @@ First you have to configure the Ecovacs account:
 ## Models
 
 ### Supported models
-* Deebot 900/901
-* Deebot Ozmo 920
-* Deebot Ozmo 930
-* Deebot Ozmo 950
+* Deebot 901
+* Deebot OZMO 920
+* Deebot OZMO 930
+* Deebot OZMO 950
+
+### These models are known to work
+* Deebot Slim 2
+* Deebot N79 series
+* Deebot 601
+* Deebot 710/711 (see "Known issues")
+* Deebot 900
+* Deebot U2
+* Deebot OZMO 610
+* Deebot OZMO 900
+* Deebot OZMO T8 series
 
 ### These models should work
 * Deebot M88
-* Deebot Slim 2
-* Deebot N79 series
-* Deebot 600/601
-* Deebot 605
-* Deebot 710/711
-* Deebot U2
+* Deebot 600/605
+* Deebot OZMO T5
+* Deebot OZMO Slim 10
 * Deebot U2 Pro/Power
-* Deebot Ozmo 610
-* Deebot Ozmo 900
-* Deebot Ozmo T8/T8+
-* Deebot Ozmo T8 AIVI
-* Deebot Ozmo Slim 10
+
+## Known issues
+
+* There's a strange behavior of the battery value on Deebot 900/901. It's very likely that this is a firmware bug
+* Some cleaning commands may not work with Deebot 710/711/711s
+* "Edge" command does not work with Deebot U2 (starts auto clean instead)
 
 ## Changelog
 
