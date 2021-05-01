@@ -1,4 +1,10 @@
 module.exports = {
+    "Connect": {
+        payload: "Connect"
+    },
+    "Disconnect": {
+        payload: "Disconnect"
+    },
     "Clean": {
         payload: "Clean"
     },
