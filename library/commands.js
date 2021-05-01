@@ -74,9 +74,6 @@ module.exports = {
     "GetWaterBoxInfo": {
         payload: "GetWaterBoxInfo"
     },
-    "GetNetInfo": {
-        payload: "GetNetInfo"
-    },
     "GetChargerPos": {
         payload: "GetChargerPos"
     },
@@ -94,9 +91,6 @@ module.exports = {
     },
     "MoveRight": {
         payload: "MoveRight"
-    },
-    "MoveTurnAround": {
-        payload: "MoveTurnAround"
     },
     "ResetLifeSpan": {
         payload: "ResetLifeSpan"
