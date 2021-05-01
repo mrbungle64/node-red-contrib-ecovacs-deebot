@@ -50,8 +50,14 @@ module.exports = {
         payload: "PlaySound",
         arg: "30"
     },
+    "Relocate": {
+        payload: "Relocate"
+    },
     "Resume": {
         payload: "Resume"
+    },
+    "GetAutoEmpty": {
+        payload: "GetAutoEmpty"
     },
     "GetCleanState": {
         payload: "GetCleanState"
@@ -64,6 +70,9 @@ module.exports = {
     },
     "GetCleanSpeed": {
         payload: "GetCleanSpeed"
+    },
+    "GetNetInfo": {
+        payload: "GetNetInfo"
     },
     "GetWaterLevel": {
         payload: "GetWaterLevel"
@@ -94,6 +103,12 @@ module.exports = {
     },
     "ResetLifeSpan": {
         payload: "ResetLifeSpan"
+    },
+    "GetPosition": {
+        payload: "GetPosition"
+    },
+    "GetVolume": {
+        payload: "GetVolume"
     },
     "GetLifeSpan": {
         payload: "GetLifeSpan"

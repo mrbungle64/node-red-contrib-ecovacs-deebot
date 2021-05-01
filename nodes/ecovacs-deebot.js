@@ -121,6 +121,38 @@ module.exports = function (RED) {
                         const msg = createMsgObject('ErrorCode', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('DeebotPosition', (values) => {
+                        const msg = createMsgObject('DeebotPosition', values);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('ChargePosition', (values) => {
+                        const msg = createMsgObject('ChargePosition', values);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('CleanLog', (object) => {
+                        const msg = createMsgObject('CleanLog', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('LastCleanLogs', (object) => {
+                        const msg = createMsgObject('LastCleanLogs', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('NetworkInfo', (object) => {
+                        const msg = createMsgObject('NetworkInfo', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('CleanSum', (object) => {
+                        const msg = createMsgObject('CleanSum', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('Volume', (value) => {
+                        const msg = createMsgObject('Volume', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('AutoEmpty', (value) => {
+                        const msg = createMsgObject('AutoEmpty', value);
+                        node.send(msg);
+                    });
                 });
                 node.vacbot.connect_and_wait_until_ready();
             });
