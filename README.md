@@ -6,10 +6,6 @@ Node-RED node for running Ecovacs Deebot vacuum cleaner robots
 
 This node uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
 
-## Installation
-- Go to Node-RED directory
-- Run `npm i node-red-contrib-deebot`
-
 ## Usage
 
 ### Ecovacs account
@@ -38,10 +34,9 @@ Available option:
 
 ### Supported models
 
-* Deebot 901
-* Deebot OZMO 920
+* Deebot 900/901
 * Deebot OZMO 930
-* Deebot OZMO 950
+* Deebot OZMO 920/950
 
 ### These models should work properly or at least partially
 
@@ -50,12 +45,12 @@ Available option:
 * Deebot M88
 * Deebot 600/601/605
 * Deebot 710/711/711s
-* Deebot 900
 * Deebot OZMO 610
-* Deebot OZMO 900
+* Deebot OZMO 900/905
+* Deebot OZMO Slim 10
 * Deebot OZMO T5
 * Deebot OZMO T8 series
-* Deebot OZMO Slim 10
+* Deebot OZMO T9 series
 * Deebot N3 MAX
 * Deebot N7
 * Deebot N8 series

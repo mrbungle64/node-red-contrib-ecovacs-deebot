@@ -1,0 +1,11 @@
+.git
+.idea
+node_modules/
+tsconfig.json
+.eslintrc.json
+.eslintrc.js
+.vs/*
+.vscode/*
+
+# npm package files
+package-lock.json
