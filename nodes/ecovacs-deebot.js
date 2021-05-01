@@ -61,6 +61,10 @@ module.exports = function (RED) {
                         const msg = createMsgObject('ChargeState', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('LifeSpan', (object) => {
+                        const msg = createMsgObject('LifeSpan', object);
+                        node.send(msg);
+                    });
                     node.vacbot.on('LifeSpan_filter', (value) => {
                         const msg = createMsgObject('LifeSpan', Math.round(value), 'filter', '%');
                         node.send(msg);

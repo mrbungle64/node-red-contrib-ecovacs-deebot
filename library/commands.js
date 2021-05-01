@@ -96,11 +96,7 @@ module.exports = {
         payload: "ResetLifeSpan"
     },
     "GetLifeSpan": {
-        payload: "GetLifeSpan",
-        arg: {
-            type: "string",
-            required: true
-        }
+        payload: "GetLifeSpan"
     },
     "GetLifeSpan_filter": {
         label: "GetLifeSpan (filter)",
