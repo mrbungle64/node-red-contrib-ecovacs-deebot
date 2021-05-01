@@ -77,13 +77,6 @@ module.exports = {
     "GetCleanSum": {
         payload: "GetCleanSum"
     },
-    "Move": {
-        payload: "Move",
-        arg: {
-            type: "string",
-            required: true
-        }
-    },
     "MoveBackward": {
         payload: "MoveBackward"
     },
@@ -124,21 +117,7 @@ module.exports = {
         payload: "GetLifeSpan",
         arg: "side_brush"
     },
-    "GetLogs": {
-        payload: "GetLogs",
-        arg: {
-            type: "string",
-            required: false
-        }
-    },
     "GetCleanLogs": {
-        payload: "GetCleanLogs",
-        arg: {
-            type: "string",
-            required: false
-        }
-    },
-    "GetLogApiCleanLogs": {
-        payload: "GetLogApiCleanLogs"
-    },
+        payload: "GetCleanLogs"
+    }
 }
