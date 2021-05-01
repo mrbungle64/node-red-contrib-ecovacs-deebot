@@ -2,9 +2,15 @@
     RED.nodes.registerType('ecovacs-account', {
         category: 'config',
         defaults: {
-            email: {value: "", required: true},
-            password: {value: "", required: true},
             countryCode: {value: "DE", required: true}
+        },
+        credentials: {
+            email: {
+                type: "text"
+            },
+            password: {
+                type: "password"
+            }
         },
         label: function () {
             return this.mail || "ecovacs-account";
