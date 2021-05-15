@@ -66,15 +66,15 @@ module.exports = function (RED) {
                         node.send(msg);
                     });
                     node.vacbot.on('LifeSpan_filter', (value) => {
-                        const msg = createMsgObject('LifeSpan', Math.round(value), 'filter', '%');
+                        const msg = createMsgObject('LifeSpan', value, 'filter', '%');
                         node.send(msg);
                     });
                     node.vacbot.on('LifeSpan_main_brush', (value) => {
-                        const msg = createMsgObject('LifeSpan', Math.round(value), 'main_brush', '%');
+                        const msg = createMsgObject('LifeSpan', value, 'main_brush', '%');
                         node.send(msg);
                     });
                     node.vacbot.on('LifeSpan_side_brush', (value) => {
-                        const msg = createMsgObject('LifeSpan', Math.round(value), 'side_brush', '%');
+                        const msg = createMsgObject('LifeSpan', value, 'side_brush', '%');
                         node.send(msg);
                     });
                     node.vacbot.on('WaterLevel', (value) => {
