@@ -33,6 +33,12 @@ module.exports = function (RED) {
                 Object.assign(output, {arg2: msg.arg2});
             }
 
+            if (command && command.arg3 && (typeof command.arg3 !== 'object')) {
+                Object.assign(output, {arg3: command.arg3});
+            } else if (msg && msg.arg3) {
+                Object.assign(output, {arg3: msg.arg3});
+            }
+
             if (output) {
                 node.send(output);
             }
