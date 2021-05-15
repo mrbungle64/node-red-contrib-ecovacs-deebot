@@ -13,7 +13,7 @@
         outputs: 1,
         icon: "file.png",
         label: function () {
-            return this.command || "ecovacs-deebot-command";
+            return  this.commands[this.command].label || this.command || "ecovacs-deebot-command";
         }
     });
 </script>
@@ -22,41 +22,77 @@
     <div class="form-row">
         <label for="node-input-command"><i class="icon-tag"></i>Command</label>
         <select id="node-input-command" style="width:100%">
+            <option value="">--- Connection handling ---</option>
             <option value="Connect">Connect</option>
             <option value="Disconnect">Disconnect</option>
+            <option value="">--- Cleaning ---</option>
             <option value="Clean">Clean</option>
-            <option value="Stop">Stop</option>
-            <option value="Pause">Pause</option>
+            <!--<option value="CustomArea">CustomArea</option> *Disabled because 3 arguments are currently not supported* -->
+            <option value="Edge">Edge</option>
+            <option value="Spot">Spot</option>
+            <option value="SpotArea">SpotArea</option>
+            <option value="">--- Various control commands ---</option>
             <option value="Charge">Charge</option>
-            <option value="Relocate">Relocate</option>
+            <option value="Pause">Pause</option>
             <option value="Resume">Resume</option>
-            <option value="GetAutoEmpty">GetAutoEmpty</option>
-            <option value="GetBatteryState">GetBatteryState</option>
-            <option value="GetChargerPos">GetChargerPos</option>
-            <option value="GetChargeState">GetChargeState</option>
-            <option value="GetCleanLogs">GetCleanLogs</option>
-            <option value="GetCleanSpeed">GetCleanSpeed</option>
-            <option value="GetCleanState">GetCleanState</option>
-            <option value="GetCleanSum">GetCleanSum</option>
-            <option value="GetLifeSpan_filter">GetLifeSpan (filter)</option>
-            <option value="GetLifeSpan_main_brush">GetLifeSpan (main brush)</option>
-            <option value="GetLifeSpan_side_brush">GetLifeSpan (side brush)</option>
-            <option value="GetLifeSpan">GetLifeSpan</option>
-            <option value="GetNetInfo">GetNetInfo</option>
-            <option value="GetPosition">GetPosition</option>
-            <option value="GetVolume">GetVolume</option>
-            <option value="GetWaterBoxInfo">GetWaterBoxInfo</option>
-            <option value="GetWaterLevel">GetWaterLevel</option>
+            <option value="Stop">Stop</option>
+            <option value="">--- Manual control ---</option>
             <option value="MoveBackward">MoveBackward</option>
             <option value="MoveForward">MoveForward</option>
             <option value="MoveLeft">MoveLeft</option>
             <option value="MoveRight">MoveRight</option>
-            <option value="Edge">Edge</option>
-            <option value="Spot">Spot</option>
-            <option value="SpotArea">SpotArea</option>
-            <option value="CustomArea">CustomArea</option>
-            <option value="PlaySound">PlaySound</option>
+            <option value="">--- Retrieve states ---</option>
+            <option value="GetBatteryState">GetBatteryState</option>
+            <option value="GetChargeState">GetChargeState</option>
+            <option value="GetCleanState">GetCleanState</option>
+            <option value="GetSleepStatus">GetSleepStatus</option>
+            <option value="">--- Cleaning log and consumable ---</option>
+            <option value="GetCleanLogs">GetCleanLogs</option>
+            <option value="GetCleanSum">GetCleanSum</option>
+            <option value="GetLifeSpan">GetLifeSpan</option>
+            <option value="ResetLifeSpan_filter">ResetLifeSpan (filter)</option>
+            <option value="ResetLifeSpan_main_brush">ResetLifeSpan (main brush)</option>
+            <option value="ResetLifeSpan_side_brush">ResetLifeSpan (side brush)</option>
+            <option value="">--- Voice and sound ---</option>
             <option value="FindMe">FindMe</option>
+            <option value="PlaySound">PlaySound</option>
+            <option value="PlaySound_custom">PlaySound (soundID)</option>
+            <option value="GetVolume">GetVolume</option>
+            <option value="SetVolume">SetVolume</option>
+            <option value="">--- Position ---</option>
+            <option value="GetChargerPos">GetChargerPos</option>
+            <option value="GetPosition">GetPosition</option>
+            <option value="Relocate">Relocate</option>
+            <option value="">--- Map data, spot areas and virtual boundaries ---</option>
+            <option value="GetMapImage">GetMapImage</option>
+            <option value="GetMaps">GetMaps</option>
+            <option value="GetSpotAreas">GetSpotAreas</option>
+            <option value="GetVirtualBoundaries">GetVirtualBoundaries</option>
+            <option value="">--- Spot areas ---</option>
+            <option value="GetSpotAreaInfo">GetSpotAreaInfo</option>
+            <!--<option value="RenameSpotArea">RenameSpotArea</option> *Disabled because 3 arguments are currently not supported* -->
+            <!--<option value="">--- Virtual boundaries ---</option> *Disabled because no option is currenty supported* -->
+            <!--<option value="AddVirtualBoundary">AddVirtualBoundary</option> *Disabled because 3 arguments are currently not supported* -->
+            <!--<option value="DeleteVirtualBoundary">DeleteVirtualBoundary</option> *Disabled because 3 arguments are currently not supported* -->
+            <!--<option value="GetVirtualBoundaryInfo">GetVirtualBoundaryInfo</option> *Disabled because 3 arguments are currently not supported* -->
+            <option value="">--- Vacuum power ---</option>
+            <option value="GetCleanSpeed">GetCleanSpeed</option>
+            <option value="SetCleanSpeed">SetCleanSpeed</option>
+            <option value="">--- Mopping and waterbox ---</option>
+            <option value="GetWaterBoxInfo">GetWaterBoxInfo</option>
+            <option value="GetWaterLevel">GetWaterLevel</option>
+            <option value="SetWaterLevel">SetWaterLevel</option>
+            <option value="">--- Various other commands ---</option>
+            <option value="GetNetInfo">GetNetInfo</option>
+            <option value="GetOnOff_do_not_disturb">GetOnOff (do not disturb)</option>
+            <option value="GetOnOff_continuous_cleaning">GetOnOff (continuous cleaning)</option>
+            <option value="GetOnOff_silence_voice_report">GetOnOff (silence voice report)</option>
+            <option value="SetOnOff_do_not_disturb">SetOnOff (do not disturb)</option>
+            <option value="SetOnOff_continuous_cleaning">SetOnOff (continuous cleaning)</option>
+            <option value="SetOnOff_silence_voice_report">SetOnOff (silence voice report)</option>
+            <option value="">--- Auto empty station ---</option>
+            <option value="GetAutoEmpty">GetAutoEmpty</option>
+            <option value="SetAutoEmpty">SetAutoEmpty</option>
         </select>
     </div>
 </script>

@@ -38,7 +38,6 @@ module.exports = function (RED) {
                     node.vacbot.run('GetCleanSum');
 
                     if (node.vacbot.hasMoppingSystem()) {
-                        node.vacbot.run('GetWaterBoxInfo','');
                         node.vacbot.run('GetWaterLevel','');
                     }
 
@@ -65,24 +64,20 @@ module.exports = function (RED) {
                         const msg = createMsgObject('LifeSpan', object);
                         node.send(msg);
                     });
-                    node.vacbot.on('LifeSpan_filter', (value) => {
-                        const msg = createMsgObject('LifeSpan', value, 'filter', '%');
+                    node.vacbot.on('Position', (object) => {
+                        const msg = createMsgObject('Position', object);
                         node.send(msg);
                     });
-                    node.vacbot.on('LifeSpan_main_brush', (value) => {
-                        const msg = createMsgObject('LifeSpan', value, 'main_brush', '%');
+                    node.vacbot.on('ChargingPosition', (object) => {
+                        const msg = createMsgObject('ChargingPosition', object);
                         node.send(msg);
                     });
-                    node.vacbot.on('LifeSpan_side_brush', (value) => {
-                        const msg = createMsgObject('LifeSpan', value, 'side_brush', '%');
+                    node.vacbot.on('LastError', (object) => {
+                        const msg = createMsgObject('LastError', object);
                         node.send(msg);
                     });
-                    node.vacbot.on('WaterLevel', (value) => {
-                        const msg = createMsgObject('WaterLevel', value);
-                        node.send(msg);
-                    });
-                    node.vacbot.on('WaterBoxInfo', (value) => {
-                        const msg = createMsgObject('WaterBoxInfo', value);
+                    node.vacbot.on('MoppingSystemInfo', (object) => {
+                        const msg = createMsgObject('MoppingSystemInfo', object);
                         node.send(msg);
                     });
                     node.vacbot.on('DustCaseInfo', (value) => {
@@ -95,38 +90,6 @@ module.exports = function (RED) {
                     });
                     node.vacbot.on('CleanSpeed', (value) => {
                         const msg = createMsgObject('CleanSpeed', value);
-                        node.send(msg);
-                    });
-                    node.vacbot.on('CleanSum_totalSquareMeters', (value) => {
-                        const msg = createMsgObject('CleanSum', value, 'totalSquareMeters');
-                        node.send(msg);
-                    });
-                    node.vacbot.on('CleanSum_squareMeters', (value) => {
-                        const msg = createMsgObject('CleanSum', value, 'squareMeters');
-                        node.send(msg);
-                    });
-                    node.vacbot.on('CleanSum_totalSeconds', (value) => {
-                        const msg = createMsgObject('CleanSum', value, 'totalSeconds');
-                        node.send(msg);
-                    });
-                    node.vacbot.on('CleanSum_totalNumber', (value) => {
-                        const msg = createMsgObject('CleanSum', value, 'totalNumber');
-                        node.send(msg);
-                    });
-                    node.vacbot.on('Error', (value) => {
-                        const msg = createMsgObject('Error', value);
-                        node.send(msg);
-                    });
-                    node.vacbot.on('ErrorCode', (value) => {
-                        const msg = createMsgObject('ErrorCode', value);
-                        node.send(msg);
-                    });
-                    node.vacbot.on('DeebotPosition', (values) => {
-                        const msg = createMsgObject('DeebotPosition', values);
-                        node.send(msg);
-                    });
-                    node.vacbot.on('ChargePosition', (values) => {
-                        const msg = createMsgObject('ChargePosition', values);
                         node.send(msg);
                     });
                     node.vacbot.on('CleanLog', (object) => {
@@ -153,8 +116,42 @@ module.exports = function (RED) {
                         const msg = createMsgObject('AutoEmpty', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('DoNotDisturbEnabled', (value) => {
+                        const doNotDisturb = (parseInt(value) === 1);
+                        const msg = createMsgObject('DoNotDisturbEnabled', doNotDisturb);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('ContinuousCleaningEnabled', (value) => {
+                        const continuousCleaning = (parseInt(value) === 1);
+                        const msg = createMsgObject('ContinuousCleaningEnabled', continuousCleaning);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('LastUsedAreaValues', (value) => {
+                        const msg = createMsgObject('LastUsedAreaValues', value);
+                        node.send(msg);
+                    });
                     node.vacbot.on('MapDataObject', (object) => {
                         const msg = createMsgObject('MapDataObject', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('MapImage', (object) => {
+                        const msg = createMsgObject('MapImage', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('CurrentMapName', (value) => {
+                        const msg = createMsgObject('CurrentMapName', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('CurrentMapMID', (value) => {
+                        const msg = createMsgObject('CurrentMapMID', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('CurrentMapIndex', (value) => {
+                        const msg = createMsgObject('CurrentMapIndex', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('DeebotPositionCurrentSpotAreaID', (value) => {
+                        const msg = createMsgObject('CurrentSpotAreaID', value);
                         node.send(msg);
                     });
                 });
@@ -223,6 +220,8 @@ module.exports = function (RED) {
                         shape: 'dot',
                         text: 'Disconnected'
                     });
+                } else if (msg.arg && msg.arg2 && msg.arg3) {
+                    node.vacbot.run(msg.payload, msg.arg, msg.arg2, msg.arg3);
                 } else if (msg.arg && msg.arg2) {
                     node.vacbot.run(msg.payload, msg.arg, msg.arg2);
                 } else if (msg.arg) {
