@@ -153,6 +153,10 @@ module.exports = function (RED) {
                         const msg = createMsgObject('AutoEmpty', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('MapDataObject', (object) => {
+                        const msg = createMsgObject('MapDataObject', object);
+                        node.send(msg);
+                    });
                 });
                 node.vacbot.connect_and_wait_until_ready();
             });
