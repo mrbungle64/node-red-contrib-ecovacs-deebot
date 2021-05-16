@@ -1,9 +1,12 @@
 module.exports = function (RED) {
-    const commands = require('../library/commands');
+    const {commands} = require('../resources/commands');
 
     function EcovacsDeebotCommandNode(config) {
         RED.nodes.createNode(this, config);
         this.command = config.command;
+        this.arg = config.arg;
+        this.arg2 = config.arg2;
+        this.arg3 = config.arg3;
 
         let node = this;
         node.config = config;

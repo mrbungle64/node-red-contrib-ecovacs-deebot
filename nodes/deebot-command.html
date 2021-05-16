@@ -1,3 +1,4 @@
+<script src="resources/node-red-contrib-ecovacs-deebot/commands.js"></script>
 <script type="text/javascript">
     RED.nodes.registerType('ecovacs-deebot-command', {
         paletteLabel: 'Deebot command',
@@ -7,27 +8,133 @@
             command: {
                 value: "",
                 required: true
+            },
+            arg: {
+                value: ""
+            },
+            arg2: {
+                value: ""
+            },
+            arg3: {
+                value: ""
             }
         },
         inputs: 1,
         outputs: 1,
         icon: "file.png",
         label: function () {
-            return this.command || "ecovacs-deebot-command";
+            return commands[this.command].label || this.command || "ecovacs-deebot-command";
+        },
+        oneditprepare: function () {
+            var node = this;
+            var inputName = '#node-input-arg';
+            var labelSuffix = '-row label';
+
+            if (node.command) {
+                $('#node-input-command').val(node.command);
+            }
+
+            if (node.arg) {
+                $(inputName).val(node.arg);
+            }
+
+            if (node.arg2) {
+                $(inputName + '2').val(node.arg2);
+            }
+
+            if (node.arg3) {
+                $(inputName + '3').val(node.arg3);
+            }
+
+            $('#node-input-command').change(function () {
+                var selectedCommand = $('#node-input-command').val();
+                if (selectedCommand == ""){
+                    resetArg(1);
+                    resetArg(2);
+                    resetArg(3);
+                    return;
+                }
+                var myCommand = commands[selectedCommand];
+                setArgs(myCommand, 3);
+                setArgs(myCommand, 2);
+                setArgs(myCommand, 1);
+                if (myCommand.hasOwnProperty('description') && myCommand['description'] !== ""){
+                    $('#node-input-arguments').html(myCommand['description']);
+                    $('#form-tips').show();
+                }else{
+                    $('#form-tips').hide();
+                    $('#node-input-arguments').html(myCommand['description']);
+                }
+            });
+
+            function getSuffix(argNumber) {
+                if(argNumber > 1){
+                    return argNumber;
+                }
+                return '';
+            }
+
+            function invalidArgNumber(argNumber) {
+                return ((argNumber < 0) || (argNumber > 3));
+            }
+
+            function setArgs(myCommand, argNumber) {
+                if(invalidArgNumber(argNumber)) { return; }
+
+                var suffix = getSuffix(argNumber);
+                if (myCommand.hasOwnProperty('arg' + suffix)){
+                    if(typeof myCommand['arg' + suffix] === "object"){
+                        if(myCommand['arg' + suffix].hasOwnProperty('name')){
+                            setLabel(argNumber, myCommand['arg' + suffix]['name']);
+                        }else{
+                            setLabel(argNumber);
+                        }
+                        $(inputName + suffix).show();
+                        $(inputName + suffix + labelSuffix).show();
+                    }else{
+                        $(inputName + suffix).val(myCommand['arg' + suffix]);
+                        $(inputName + suffix).hide();
+                        setLabel(argNumber);
+                        $(inputName + suffix + labelSuffix).hide();
+                    }
+                }else{
+                    resetArg(argNumber);
+                }
+            }
+
+            function setLabel(argNumber, value = "") {
+                if(invalidArgNumber(argNumber)) { return; }
+
+                var suffix = getSuffix(argNumber);
+                if (value == "") {
+                    value = 'Argument ' + argNumber;
+                }
+                $(inputName + suffix + labelSuffix).text(value);
+            }
+
+            function resetArg(argNumber) {
+                if(invalidArgNumber(argNumber)) { return; }
+
+                var suffix = getSuffix(argNumber);
+                $(inputName + suffix).val('');
+                $(inputName + suffix).hide();
+                setLabel(argNumber);
+                $(inputName + suffix + labelSuffix).hide();
+            }
         }
     });
 </script>
 
 <script type="text/html" data-template-name="ecovacs-deebot-command">
-    <div class="form-row">
-        <label for="node-input-command"><i class="icon-tag"></i>Command</label>
-        <select id="node-input-command" style="width:100%">
+    <div class="form-row" id="node-input-command-row">
+        <label for="node-input-command" name="node-input-command-label"><i class="icon-tag"></i>Command</label>
+        <select id="node-input-command" name="node-input-command" style="width:100%">
             <option value="">--- Connection handling ---</option>
             <option value="Connect">Connect</option>
             <option value="Disconnect">Disconnect</option>
             <option value="">--- Cleaning ---</option>
             <option value="Clean">Clean</option>
-            <!--<option value="CustomArea">CustomArea</option> *Disabled because 3 arguments are currently not supported* -->
+            <option value="CustomArea">CustomArea</option>
             <option value="Edge">Edge</option>
             <option value="Spot">Spot</option>
             <option value="SpotArea">SpotArea</option>
@@ -70,11 +177,11 @@
             <option value="GetVirtualBoundaries">GetVirtualBoundaries</option>
             <option value="">--- Spot areas ---</option>
             <option value="GetSpotAreaInfo">GetSpotAreaInfo</option>
-            <!--<option value="RenameSpotArea">RenameSpotArea</option> *Disabled because 3 arguments are currently not supported* -->
-            <!--<option value="">--- Virtual boundaries ---</option> *Disabled because no option is currenty supported* -->
-            <!--<option value="AddVirtualBoundary">AddVirtualBoundary</option> *Disabled because 3 arguments are currently not supported* -->
-            <!--<option value="DeleteVirtualBoundary">DeleteVirtualBoundary</option> *Disabled because 3 arguments are currently not supported* -->
-            <!--<option value="GetVirtualBoundaryInfo">GetVirtualBoundaryInfo</option> *Disabled because 3 arguments are currently not supported* -->
+            <option value="RenameSpotArea">RenameSpotArea</option>
+            <option value="">--- Virtual boundaries ---</option>
+            <option value="AddVirtualBoundary">AddVirtualBoundary</option>
+            <option value="DeleteVirtualBoundary">DeleteVirtualBoundary</option>
+            <option value="GetVirtualBoundaryInfo">GetVirtualBoundaryInfo</option>
             <option value="">--- Vacuum power ---</option>
             <option value="GetCleanSpeed">GetCleanSpeed</option>
             <option value="SetCleanSpeed">SetCleanSpeed</option>
@@ -95,8 +202,24 @@
             <option value="SetAutoEmpty">SetAutoEmpty</option>
         </select>
     </div>
+    <div class="form-row" id="node-input-arg-row">
+        <label for="node-input-arg" name="node-input-arg-label"><i class="icon-tag"></i>Arg</label>
+        <input type="text" id="node-input-arg" name="node-input-arg" style="width:100%">
+    </div>
+    <div class="form-row" id="node-input-arg2-row">
+        <label for="node-input-arg2" name="node-input-arg2-label"><i class="icon-tag"></i>Arg2</label>
+        <input type="text" id="node-input-arg2" name="node-input-arg2" style="width:100%">
+    </div>
+    <div class="form-row" id="node-input-arg3-row">
+        <label for="node-input-arg3" name="node-input-arg3-label"><i class="icon-tag"></i>Arg3</label>
+        <input type="text" id="node-input-arg3" name="node-input-arg3" style="width:100%">
+    </div>
+    <div class="form-tips" id="form-tips">
+      <!--Use the msg.payload to pass the arguments in the form of. Required arguments are:-->
+      <pre id="node-input-arguments"></pre>
+    </div>
 </script>
 
-<script type="text/html" data-help-name="ecovacs-deebot">
+<script type="text/html" data-help-name="ecovacs-deebot-command">
     <p>Node for sending commands to Ecovacs Deebot node</p>
 </script>

@@ -1,4 +1,4 @@
-module.exports = {
+var commands = {
     "AddVirtualBoundary": {
         arg: {
             name: "mapID",
@@ -24,6 +24,7 @@ module.exports = {
         payload: "Clean"
     },
     "Connect": {
+        description: "Connect to robot.",
         payload: "Connect"
     },
     "CustomArea": {
@@ -59,9 +60,11 @@ module.exports = {
         payload: "DeleteVirtualBoundary"
     },
     "Disconnect": {
+        description: "Disconnect from robot.",
         payload: "Disconnect"
     },
     "Edge": {
+        description: "",
         payload: "Edge"
     },
     "FindMe": {
@@ -356,4 +359,6 @@ module.exports = {
     "Stop": {
         payload: "Stop"
     }
-}
+};
+
+module.exports = {commands};
