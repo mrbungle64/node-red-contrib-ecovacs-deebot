@@ -36,9 +36,15 @@ module.exports = function (RED) {
                     node.vacbot.run('GetSleepStatus');
                     node.vacbot.run('GetCleanSpeed');
                     node.vacbot.run('GetCleanSum');
-
-                    if (node.vacbot.hasMoppingSystem()) {
-                        node.vacbot.run('GetWaterLevel','');
+                    node.vacbot.run('GetCleanLogs');
+                    node.vacbot.run('GetLifespan');
+                    if (node.vacbot.hasSpotAreas()) {
+                        node.vacbot.run('GetPosition');
+                        node.vacbot.run('GetChargerPos');
+                    }
+                    if (node.vacbot.vacbot.hasMoppingSystem()) {
+                        node.vacbot.run('GetWaterBoxInfo');
+                        node.vacbot.run('GetWaterLevel');
                     }
 
                     node.vacbot.on('disconnect', () => {
