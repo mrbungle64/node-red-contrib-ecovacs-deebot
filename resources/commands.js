@@ -1,4 +1,4 @@
-var commands = {
+const commands = {
     "AddVirtualBoundary": {
         arg: {
             name: "mapID",
