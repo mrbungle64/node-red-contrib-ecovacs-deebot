@@ -32,23 +32,19 @@
 
 <script type="text/html" data-template-name="ecovacs-deebot">
     <div class="form-row">
-        <label for="node-input-account"><i class="fa fa-globe"></i> Account</label>
+        <label for="node-input-account"><i class="fa fa-globe"></i> <span data-i18n="ecovacs-deebot.account.label"></span></label>
         <input type="text" id="node-input-account">
     </div>
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="ecovacs-deebot.name.label"></span></label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-deviceNumber"><i class="icon-tag"></i> Device number</label>
-        <input type="text" id="node-input-deviceNumber">
+        <label for="node-input-deviceNumber"><i class="fa fa-tag"></i> <span data-i18n="ecovacs-deebot.deviceNumber.label"></span></label>
+        <input type="text" id="node-input-deviceNumber" data-i18n="[placeholder]ecovacs-deebot.deviceNumber.placeholder">
     </div>
     <div class="form-row">
-        <label for="node-input-connectOnStartup"><i class="icon-tag"></i> Connect on startup</label>
+        <label for="node-input-connectOnStartup"><i class="fa fa-tag"></i> <span data-i18n="ecovacs-deebot.connectOnStartup.label"></span></label>
         <input type="checkbox" id="node-input-connectOnStartup">
     </div>
-</script>
-
-<script type="text/html" data-help-name="ecovacs-deebot">
-    <p>Node for running Ecovacs Deebot vacuum cleaner robots</p>
 </script>

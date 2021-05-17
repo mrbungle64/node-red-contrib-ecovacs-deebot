@@ -24,7 +24,6 @@ var commands = {
         payload: "Clean"
     },
     "Connect": {
-        description: "Connect to robot.",
         payload: "Connect"
     },
     "CustomArea": {
@@ -60,11 +59,9 @@ var commands = {
         payload: "DeleteVirtualBoundary"
     },
     "Disconnect": {
-        description: "Disconnect from robot.",
         payload: "Disconnect"
     },
     "Edge": {
-        description: "",
         payload: "Edge"
     },
     "FindMe": {
@@ -241,10 +238,6 @@ var commands = {
     },
     "Relocate": {
         payload: "Relocate"
-    },
-    "ResetLifeSpan": {
-        label: "GetLifeSpan (filter)",
-        payload: "ResetLifeSpan"
     },
     "RenameSpotArea": {
         arg: {

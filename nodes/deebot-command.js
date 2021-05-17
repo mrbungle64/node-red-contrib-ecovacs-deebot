@@ -3,6 +3,7 @@ module.exports = function (RED) {
 
     function EcovacsDeebotCommandNode(config) {
         RED.nodes.createNode(this, config);
+        this.name = config.name;
         this.command = config.command;
         this.arg = config.arg;
         this.arg2 = config.arg2;
