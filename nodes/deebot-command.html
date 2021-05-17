@@ -5,6 +5,10 @@
         category: 'ecovacs-deebot',
         color: '#1E90FF',
         defaults: {
+            name: {
+                value: "",
+                required: false
+            },
             command: {
                 value: "",
                 required: true
@@ -23,7 +27,13 @@
         outputs: 1,
         icon: "file.png",
         label: function () {
-            return commands[this.command].label || this.command || "ecovacs-deebot-command";
+            if (this._("ecovacs-deebot-command.description_" + this.command) !== "ecovacs-deebot-command.description_" + this.command){
+                    return this._("ecovacs-deebot-command.description_" + this.command);
+            }
+            return this.name ||
+                    commands[this.command].label ||
+                    this.command ||
+                    "ecovacs-deebot-command";
         },
         oneditprepare: function () {
             var node = this;
@@ -52,18 +62,18 @@
                     resetArg(1);
                     resetArg(2);
                     resetArg(3);
+                    hideDescription();
                     return;
                 }
                 var myCommand = commands[selectedCommand];
                 setArgs(myCommand, 3);
                 setArgs(myCommand, 2);
                 setArgs(myCommand, 1);
-                if (myCommand.hasOwnProperty('description') && myCommand['description'] !== ""){
-                    $('#node-input-arguments').html(myCommand['description']);
+                if (node._("ecovacs-deebot-command.description_" + selectedCommand) !== "ecovacs-deebot-command.description_" + selectedCommand){
+                    $('#node-input-description').html(node._("ecovacs-deebot-command.description_" + selectedCommand));
                     $('#form-tips').show();
                 }else{
-                    $('#form-tips').hide();
-                    $('#node-input-arguments').html(myCommand['description']);
+                    hideDescription();
                 }
             });
 
@@ -72,6 +82,11 @@
                     return argNumber;
                 }
                 return '';
+            }
+
+            function hideDescription() {
+                $('#form-tips').hide();
+                $('#node-input-description').html("");
             }
 
             function invalidArgNumber(argNumber) {
@@ -109,7 +124,7 @@
                 if (value == "") {
                     value = 'Argument ' + argNumber;
                 }
-                $(inputName + suffix + labelSuffix).text(value);
+                $(inputName + suffix + labelSuffix + " span").html(node._("ecovacs-deebot-command.label_" + value));
             }
 
             function resetArg(argNumber) {
@@ -126,100 +141,100 @@
 </script>
 
 <script type="text/html" data-template-name="ecovacs-deebot-command">
+    <div class="form-row">
+        <label for="node-input-name"><span data-i18n="ecovacs-deebot-command.label_name"></span></label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
     <div class="form-row" id="node-input-command-row">
-        <label for="node-input-command" name="node-input-command-label"><i class="icon-tag"></i>Command</label>
-        <select id="node-input-command" name="node-input-command" style="width:100%">
-            <option value="">--- Connection handling ---</option>
-            <option value="Connect">Connect</option>
-            <option value="Disconnect">Disconnect</option>
-            <option value="">--- Cleaning ---</option>
-            <option value="Clean">Clean</option>
-            <option value="CustomArea">CustomArea</option>
-            <option value="Edge">Edge</option>
-            <option value="Spot">Spot</option>
-            <option value="SpotArea">SpotArea</option>
-            <option value="">--- Various control commands ---</option>
-            <option value="Charge">Charge</option>
-            <option value="Pause">Pause</option>
-            <option value="Resume">Resume</option>
-            <option value="Stop">Stop</option>
-            <option value="">--- Manual control ---</option>
-            <option value="MoveBackward">MoveBackward</option>
-            <option value="MoveForward">MoveForward</option>
-            <option value="MoveLeft">MoveLeft</option>
-            <option value="MoveRight">MoveRight</option>
-            <option value="">--- Retrieve states ---</option>
-            <option value="GetBatteryState">GetBatteryState</option>
-            <option value="GetChargeState">GetChargeState</option>
-            <option value="GetCleanState">GetCleanState</option>
-            <option value="GetSleepStatus">GetSleepStatus</option>
-            <option value="">--- Cleaning log and consumable ---</option>
-            <option value="GetCleanLogs">GetCleanLogs</option>
-            <option value="GetCleanSum">GetCleanSum</option>
-            <option value="GetLifeSpan">GetLifeSpan</option>
-            <option value="ResetLifeSpan_filter">ResetLifeSpan (filter)</option>
-            <option value="ResetLifeSpan_main_brush">ResetLifeSpan (main brush)</option>
-            <option value="ResetLifeSpan_side_brush">ResetLifeSpan (side brush)</option>
-            <option value="">--- Voice and sound ---</option>
-            <option value="FindMe">FindMe</option>
-            <option value="PlaySound">PlaySound</option>
-            <option value="PlaySound_custom">PlaySound (soundID)</option>
-            <option value="GetVolume">GetVolume</option>
-            <option value="SetVolume">SetVolume</option>
-            <option value="">--- Position ---</option>
-            <option value="GetChargerPos">GetChargerPos</option>
-            <option value="GetPosition">GetPosition</option>
-            <option value="Relocate">Relocate</option>
-            <option value="">--- Map data, spot areas and virtual boundaries ---</option>
-            <option value="GetMapImage">GetMapImage</option>
-            <option value="GetMaps">GetMaps</option>
-            <option value="GetSpotAreas">GetSpotAreas</option>
-            <option value="GetVirtualBoundaries">GetVirtualBoundaries</option>
-            <option value="">--- Spot areas ---</option>
-            <option value="GetSpotAreaInfo">GetSpotAreaInfo</option>
-            <option value="RenameSpotArea">RenameSpotArea</option>
-            <option value="">--- Virtual boundaries ---</option>
-            <option value="AddVirtualBoundary">AddVirtualBoundary</option>
-            <option value="DeleteVirtualBoundary">DeleteVirtualBoundary</option>
-            <option value="GetVirtualBoundaryInfo">GetVirtualBoundaryInfo</option>
-            <option value="">--- Vacuum power ---</option>
-            <option value="GetCleanSpeed">GetCleanSpeed</option>
-            <option value="SetCleanSpeed">SetCleanSpeed</option>
-            <option value="">--- Mopping and waterbox ---</option>
-            <option value="GetWaterBoxInfo">GetWaterBoxInfo</option>
-            <option value="GetWaterLevel">GetWaterLevel</option>
-            <option value="SetWaterLevel">SetWaterLevel</option>
-            <option value="">--- Various other commands ---</option>
-            <option value="GetNetInfo">GetNetInfo</option>
-            <option value="GetOnOff_do_not_disturb">GetOnOff (do not disturb)</option>
-            <option value="GetOnOff_continuous_cleaning">GetOnOff (continuous cleaning)</option>
-            <option value="GetOnOff_silence_voice_report">GetOnOff (silence voice report)</option>
-            <option value="SetOnOff_do_not_disturb">SetOnOff (do not disturb)</option>
-            <option value="SetOnOff_continuous_cleaning">SetOnOff (continuous cleaning)</option>
-            <option value="SetOnOff_silence_voice_report">SetOnOff (silence voice report)</option>
-            <option value="">--- Auto empty station ---</option>
-            <option value="GetAutoEmpty">GetAutoEmpty</option>
-            <option value="SetAutoEmpty">SetAutoEmpty</option>
-        </select>
+        <div><label for="node-input-command" name="node-input-command-label" style="width:100%"><i class="fa fa-tag"></i> <span data-i18n="ecovacs-deebot-command.label_command"></span></label></div>
+        <div><select id="node-input-command" name="node-input-command" style="width:100%">
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_connection_handling"></option>
+            <option value="Connect" data-i18n="ecovacs-deebot-command.Connect"></option>
+            <option value="Disconnect" data-i18n="ecovacs-deebot-command.Disconnect"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_cleaning"></option>
+            <option value="Clean" data-i18n="ecovacs-deebot-command.Clean"></option>
+            <option value="CustomArea" data-i18n="ecovacs-deebot-command.CustomArea"></option>
+            <option value="Edge" data-i18n="ecovacs-deebot-command.Edge"></option>
+            <option value="Spot" data-i18n="ecovacs-deebot-command.Spot"></option>
+            <option value="SpotArea" data-i18n="ecovacs-deebot-command.SpotArea"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_various_control_commands"></option>
+            <option value="Charge" data-i18n="ecovacs-deebot-command.Charge"></option>
+            <option value="Pause" data-i18n="ecovacs-deebot-command.Pause"></option>
+            <option value="Resume" data-i18n="ecovacs-deebot-command.Resume"></option>
+            <option value="Stop" data-i18n="ecovacs-deebot-command.Stop"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_manual_control"></option>
+            <option value="MoveBackward" data-i18n="ecovacs-deebot-command.MoveBackward"></option>
+            <option value="MoveForward" data-i18n="ecovacs-deebot-command.MoveForward"></option>
+            <option value="MoveLeft" data-i18n="ecovacs-deebot-command.MoveLeft"></option>
+            <option value="MoveRight" data-i18n="ecovacs-deebot-command.MoveRight"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_retrieve_states"></option>
+            <option value="GetBatteryState" data-i18n="ecovacs-deebot-command.GetBatteryState"></option>
+            <option value="GetChargeState" data-i18n="ecovacs-deebot-command.GetChargeState"></option>
+            <option value="GetCleanState" data-i18n="ecovacs-deebot-command.GetCleanState"></option>
+            <option value="GetSleepStatus" data-i18n="ecovacs-deebot-command.GetSleepStatus"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_cleaning_log"></option>
+            <option value="GetCleanLogs" data-i18n="ecovacs-deebot-command.GetCleanLogs"></option>
+            <option value="GetCleanSum" data-i18n="ecovacs-deebot-command.GetCleanSum"></option>
+            <option value="GetLifeSpan" data-i18n="ecovacs-deebot-command.GetLifeSpan"></option>
+            <option value="ResetLifeSpan_filter" data-i18n="ecovacs-deebot-command.ResetLifeSpan_filter"></option>
+            <option value="ResetLifeSpan_main_brush" data-i18n="ecovacs-deebot-command.ResetLifeSpan_main_brush"></option>
+            <option value="ResetLifeSpan_side_brush" data-i18n="ecovacs-deebot-command.ResetLifeSpan_side_brush"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_voice_and_sound"></option>
+            <option value="FindMe" data-i18n="ecovacs-deebot-command.FindMe"></option>
+            <option value="PlaySound" data-i18n="ecovacs-deebot-command.PlaySound"></option>
+            <option value="PlaySound_custom" data-i18n="ecovacs-deebot-command.PlaySound_custom"></option>
+            <option value="GetVolume" data-i18n="ecovacs-deebot-command.GetVolume"></option>
+            <option value="SetVolume" data-i18n="ecovacs-deebot-command.SetVolume"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_position"></option>
+            <option value="GetChargerPos" data-i18n="ecovacs-deebot-command.GetChargerPos"></option>
+            <option value="GetPosition" data-i18n="ecovacs-deebot-command.GetPosition"></option>
+            <option value="Relocate" data-i18n="ecovacs-deebot-command.Relocate"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_map_data"></option>
+            <option value="GetMapImage" data-i18n="ecovacs-deebot-command.GetMapImage"></option>
+            <option value="GetMaps" data-i18n="ecovacs-deebot-command.GetMaps"></option>
+            <option value="GetSpotAreas" data-i18n="ecovacs-deebot-command.GetSpotAreas"></option>
+            <option value="GetVirtualBoundaries" data-i18n="ecovacs-deebot-command.GetVirtualBoundaries"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_spot_areas"></option>
+            <option value="GetSpotAreaInfo" data-i18n="ecovacs-deebot-command.GetSpotAreaInfo"></option>
+            <option value="RenameSpotArea" data-i18n="ecovacs-deebot-command.RenameSpotArea"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_virtual_boundaries"></option>
+            <option value="AddVirtualBoundary" data-i18n="ecovacs-deebot-command.AddVirtualBoundary"></option>
+            <option value="DeleteVirtualBoundary" data-i18n="ecovacs-deebot-command.DeleteVirtualBoundary"></option>
+            <option value="GetVirtualBoundaryInfo" data-i18n="ecovacs-deebot-command.GetVirtualBoundaryInfo"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_vacuum_power"></option>
+            <option value="GetCleanSpeed" data-i18n="ecovacs-deebot-command.GetCleanSpeed"></option>
+            <option value="SetCleanSpeed" data-i18n="ecovacs-deebot-command.SetCleanSpeed"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_mopping"></option>
+            <option value="GetWaterBoxInfo" data-i18n="ecovacs-deebot-command.GetWaterBoxInfo"></option>
+            <option value="GetWaterLevel" data-i18n="ecovacs-deebot-command.GetWaterLevel"></option>
+            <option value="SetWaterLevel" data-i18n="ecovacs-deebot-command.SetWaterLevel"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_various_other_commands"></option>
+            <option value="GetNetInfo" data-i18n="ecovacs-deebot-command.GetNetInfo"></option>
+            <option value="GetOnOff_do_not_disturb" data-i18n="ecovacs-deebot-command.GetOnOff_do_not_disturb"></option>
+            <option value="GetOnOff_continuous_cleaning" data-i18n="ecovacs-deebot-command.GetOnOff_continuous_cleaning"></option>
+            <option value="GetOnOff_silence_voice_report" data-i18n="ecovacs-deebot-command.GetOnOff_silence_voice_report"></option>
+            <option value="SetOnOff_do_not_disturb" data-i18n="ecovacs-deebot-command.SetOnOff_do_not_disturb"></option>
+            <option value="SetOnOff_continuous_cleaning" data-i18n="ecovacs-deebot-command.SetOnOff_continuous_cleaning"></option>
+            <option value="SetOnOff_silence_voice_report" data-i18n="ecovacs-deebot-command.SetOnOff_silence_voice_report"></option>
+            <option value="" data-i18n="ecovacs-deebot-command.dummy_auto_empty_station"></option>
+            <option value="GetAutoEmpty" data-i18n="ecovacs-deebot-command.GetAutoEmpty"></option>
+            <option value="SetAutoEmpty" data-i18n="ecovacs-deebot-command.SetAutoEmpty"></option>
+        </select></div>
     </div>
     <div class="form-row" id="node-input-arg-row">
-        <label for="node-input-arg" name="node-input-arg-label"><i class="icon-tag"></i>Arg</label>
-        <input type="text" id="node-input-arg" name="node-input-arg" style="width:100%">
+        <div><label for="node-input-arg" name="node-input-arg-label" style="width:100%"><i class="fa fa-tag"></i> <span></span></label></div>
+        <div><input type="text" id="node-input-arg" name="node-input-arg" style="width:100%"></div>
     </div>
     <div class="form-row" id="node-input-arg2-row">
-        <label for="node-input-arg2" name="node-input-arg2-label"><i class="icon-tag"></i>Arg2</label>
-        <input type="text" id="node-input-arg2" name="node-input-arg2" style="width:100%">
+        <div><label for="node-input-arg2" name="node-input-arg2-label" style="width:100%"><i class="fa fa-tag"></i> <span></span></label></div>
+        <div><input type="text" id="node-input-arg2" name="node-input-arg2" style="width:100%"></div>
     </div>
     <div class="form-row" id="node-input-arg3-row">
-        <label for="node-input-arg3" name="node-input-arg3-label"><i class="icon-tag"></i>Arg3</label>
-        <input type="text" id="node-input-arg3" name="node-input-arg3" style="width:100%">
+        <div><label for="node-input-arg3" name="node-input-arg3-label" style="width:100%"><i class="fa fa-tag"></i> <span></span></label></div>
+        <div><input type="text" id="node-input-arg3" name="node-input-arg3" style="width:100%"></div>
     </div>
     <div class="form-tips" id="form-tips">
       <!--Use the msg.payload to pass the arguments in the form of. Required arguments are:-->
-      <pre id="node-input-arguments"></pre>
+      <pre id="node-input-description"></pre>
     </div>
-</script>
-
-<script type="text/html" data-help-name="ecovacs-deebot-command">
-    <p>Node for sending commands to Ecovacs Deebot node</p>
 </script>

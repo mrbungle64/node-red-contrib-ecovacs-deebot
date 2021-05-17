@@ -1,0 +1,16 @@
+{
+    "ecovacs-account" : {
+        "countryCode": {
+            "label": "Länder-Code",
+            "placeholder": "Bitte 2-stelligen Ländercode hier eingeben"
+        },
+        "email": {
+            "label": "E-Mail-Adresse / Ecovacs ID",
+            "placeholder": "E-Mail-Adresse oder ID ihres Ecovacs Kontos"
+        },
+        "password": {
+            "label": "Passwort",
+            "placeholder": "Passwort ihres Ecovacs Kontos hier eingeben"
+        }
+    }
+}

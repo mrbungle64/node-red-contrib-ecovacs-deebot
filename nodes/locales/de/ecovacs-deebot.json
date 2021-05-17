@@ -1,0 +1,17 @@
+{
+    "ecovacs-deebot" : {
+        "account": {
+            "label": "Konto"
+        },
+        "connectOnStartup": {
+            "label": "Beim Starten verbinden"
+        },
+        "deviceNumber": {
+            "label": "Gerätenummer",
+            "placeholder": "Gerätenummer eingeben"
+        },
+        "name": {
+            "label": "Name"
+        }
+    }
+}
