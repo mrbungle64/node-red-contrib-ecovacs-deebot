@@ -280,10 +280,6 @@ const commands = {
         description: "Relocate the location",
         payload: "Relocate"
     },
-    "ResetLifeSpan": {
-        label: "GetLifeSpan (filter)",
-        payload: "ResetLifeSpan"
-    },
     "RenameSpotArea": {
         description: "Rename the given spot area",
         arg: {
