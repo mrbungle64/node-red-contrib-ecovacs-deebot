@@ -42,7 +42,7 @@ module.exports = function (RED) {
                         node.vacbot.run('GetPosition');
                         node.vacbot.run('GetChargerPos');
                     }
-                    if (node.vacbot.vacbot.hasMoppingSystem()) {
+                    if (node.vacbot.hasMoppingSystem()) {
                         node.vacbot.run('GetWaterBoxInfo');
                         node.vacbot.run('GetWaterLevel');
                     }
