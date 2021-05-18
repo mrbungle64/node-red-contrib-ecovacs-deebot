@@ -19,28 +19,17 @@ module.exports = function (RED) {
             const command = commands[node.config.command];
             const output = {};
 
-            if (command) {
-                Object.assign(output, {payload: command.payload});
-            } else if (msg && msg.payload) {
-                Object.assign(output, {payload: msg.payload});
-            }
-
-            if (command && command.arg && (typeof command.arg !== 'object')) {
-                Object.assign(output, {arg: command.arg});
-            } else if (msg && msg.arg) {
-                Object.assign(output, {arg: msg.arg});
-            }
-
-            if (command && command.arg2 && (typeof command.arg2 !== 'object')) {
-                Object.assign(output, {arg2: command.arg2});
-            } else if (msg && msg.arg2) {
-                Object.assign(output, {arg2: msg.arg2});
-            }
-
-            if (command && command.arg3 && (typeof command.arg3 !== 'object')) {
-                Object.assign(output, {arg3: command.arg3});
-            } else if (msg && msg.arg3) {
-                Object.assign(output, {arg3: msg.arg3});
+            if (msg && commands.hasOwnProperty(node.config.command) ) {
+                Object.assign(output, {payload: commands[node.config.command].payload});
+                if (commands[node.config.command].hasOwnProperty("arg")) {
+                    Object.assign(output, {arg: node.config.arg});
+                    if (commands[node.config.command].hasOwnProperty("arg2")) {
+                        Object.assign(output, {arg2: node.config.arg2});
+                        if (commands[node.config.command].hasOwnProperty("arg3")) {
+                            Object.assign(output, {arg3: node.config.arg3});
+                        }
+                    }
+                }
             }
 
             if (output) {
