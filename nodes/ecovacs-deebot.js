@@ -132,6 +132,11 @@ module.exports = function (RED) {
                         const msg = createMsgObject('ContinuousCleaningEnabled', continuousCleaning);
                         node.send(msg);
                     });
+                    node.vacbot.on('VoiceReportDisabled', (value) => {
+                        const voiceReportDisabled = (parseInt(value) === 1);
+                        const msg = createMsgObject('VoiceReportDisabled', voiceReportDisabled);
+                        node.send(msg);
+                    });
                     node.vacbot.on('LastUsedAreaValues', (value) => {
                         const msg = createMsgObject('LastUsedAreaValues', value);
                         node.send(msg);
@@ -160,6 +165,121 @@ module.exports = function (RED) {
                         const msg = createMsgObject('CurrentSpotAreaID', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('RelocationState', (value) => {
+                        const msg = createMsgObject('RelocationState', value);
+                        node.send(msg);
+                    });
+                    // Activate additional simple events if enabled
+                    if (node.config.enableSimpleEvents) {
+                        node.vacbot.on('ChargePosition', (value) => {
+                            const msg = createMsgObject('ChargePosition', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanLog_lastImageTimestamp', (value) => {
+                            const msg = createMsgObject('CleanLog_lastImageTimestamp', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanLog_lastImageUrl', (value) => {
+                            const msg = createMsgObject('CleanLog_lastImageUrl', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanLog_lastSquareMeters', (value) => {
+                            const msg = createMsgObject('CleanLog_lastSquareMeters', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanLog_lastTimestamp', (value) => {
+                            const msg = createMsgObject('CleanLog_lastTimestamp', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanLog_lastTotalTimeString', (value) => {
+                            const msg = createMsgObject('CleanLog_lastTotalTimeString', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanSum_totalNumber', (value) => {
+                            const msg = createMsgObject('CleanSum_totalNumber', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanSum_totalSeconds', (value) => {
+                            const msg = createMsgObject('CleanSum_totalSeconds', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('CleanSum_totalSquareMeters', (value) => {
+                            const msg = createMsgObject('CleanSum_totalSquareMeters', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('DeebotPosition', (value) => {
+                            const msg = createMsgObject('DeebotPosition', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('DeebotPositionIsInvalid', (value) => {
+                            const msg = createMsgObject('DeebotPositionIsInvalid', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('Error', (value) => {
+                            const msg = createMsgObject('Error', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('ErrorCode', (value) => {
+                            const msg = createMsgObject('ErrorCode', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('LifeSpan_filter', (value) => {
+                            const msg = createMsgObject('LifeSpan_filter', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('LifeSpan_main_brush', (value) => {
+                            const msg = createMsgObject('LifeSpan_main_brush', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('LifeSpan_side_brush', (value) => {
+                            const msg = createMsgObject('LifeSpan_side_brush', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('Maps', (object) => {
+                            const msg = createMsgObject('Maps', object);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('MapSpotAreas', (object) => {
+                            const msg = createMsgObject('MapSpotAreas', object);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('MapSpotAreaInfo', (object) => {
+                            const msg = createMsgObject('MapSpotAreaInfo', object);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('MapVirtualBoundaries', (object) => {
+                            const msg = createMsgObject('MapVirtualBoundaries', object);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('MapVirtualBoundaryInfo', (object) => {
+                            const msg = createMsgObject('MapVirtualBoundaryInfo', object);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('NetInfoIP', (value) => {
+                            const msg = createMsgObject('NetInfoIP', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('NetInfoMAC', (value) => {
+                            const msg = createMsgObject('NetInfoMAC', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('NetInfoWifiSignal', (value) => {
+                            const msg = createMsgObject('NetInfoWifiSignal', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('NetInfoWifiSSID', (value) => {
+                            const msg = createMsgObject('NetInfoWifiSSID', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('WaterBoxInfo', (value) => {
+                            const msg = createMsgObject('WaterBoxInfo', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('WaterLevel', (value) => {
+                            const msg = createMsgObject('WaterLevel', value);
+                            node.send(msg);
+                        });
+                    }
                 });
                 node.vacbot.connect_and_wait_until_ready();
             });

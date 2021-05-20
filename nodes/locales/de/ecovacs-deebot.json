@@ -10,6 +10,9 @@
             "label": "Gerätenummer",
             "placeholder": "Gerätenummer eingeben"
         },
+        "enableSimpleEvents": {
+            "label": "Ausgabe einfache Events aktivieren (zusätzliche zu kombinierten Events)"
+        },
         "name": {
             "label": "Name"
         }

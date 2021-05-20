@@ -8,6 +8,9 @@
             "label": "Email / Ecovacs ID",
             "placeholder": "Insert email address or ID of your Ecovacs accont"
         },
+        "name": {
+            "label": "Name"
+        },
         "password": {
             "label": "Password",
             "placeholder": "Insert password of your Ecovacs accont"

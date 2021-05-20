@@ -10,6 +10,9 @@
             "label": "Device number",
             "placeholder": "Insert number of device here"
         },
+        "enableSimpleEvents": {
+            "label": "Enable output of simple events (additional to combined event output)"
+        },
         "name": {
             "label": "Name"
         }
