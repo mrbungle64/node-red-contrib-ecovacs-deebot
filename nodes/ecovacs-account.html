@@ -2,23 +2,38 @@
     RED.nodes.registerType('ecovacs-account', {
         category: 'config',
         defaults: {
-            countryCode: {value: "DE", required: true}
+            countryCode: {
+                required: true,
+                validate: RED.validators.regex(/^[a-zA-Z]{2}$/),
+                value: "DE"
+            },
+            name: {
+                required: false,
+                value: ""
+            }
         },
         credentials: {
             email: {
-                type: "text"
+                required: true,
+                type: "text",
+                validate: (RED.validators.regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/) || RED.validators.regex(/^[a-zA-Z0-9]{8}$/))
             },
             password: {
-                type: "password"
+                type: "password",
+                required: true
             }
         },
         label: function () {
-            return this.mail || "ecovacs-account";
+            return this.name || "ecovacs-account";
         }
     });
 </script>
 
 <script type="text/html" data-template-name="ecovacs-account">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="ecovacs-account.name.label"></span></label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
     <div class="form-row">
         <label for="node-config-input-email"><i class="fa fa-user-o"></i> <span data-i18n="ecovacs-account.email.label"></span></label>
         <input type="text" id="node-config-input-email" data-i18n="[placeholder]ecovacs-account.email.placeholder">

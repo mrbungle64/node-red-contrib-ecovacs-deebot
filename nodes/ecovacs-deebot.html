@@ -5,24 +5,25 @@
         color: '#1E90FF',
         defaults: {
             account: {
-                type: "ecovacs-account",
-                required: true
+                required: true,
+                type: "ecovacs-account"
             },
             name: {
-                value: "Deebot",
-                required: true
+                required: true,
+                value: "Deebot"
             },
             deviceNumber: {
-                value: "0",
-                required: true
+                required: true,
+                validate: RED.validators.regex(/^[0-9]{0,2}$/),
+                value: "0"
             },
             connectOnStartup: {
                 value: false,
                 required: true
             },
             enableSimpleEvents: {
-                value: false,
-                required: true
+                required: true,
+                value: false
             }
         },
         inputs: 1,

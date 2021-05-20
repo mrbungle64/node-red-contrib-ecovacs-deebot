@@ -1,6 +1,7 @@
 module.exports = function(RED) {
     function EcovacsAccountNode(n) {
         RED.nodes.createNode(this,n);
+        this.name = n.name;
         this.email = this.credentials.email;
         this.password = this.credentials.password;
         this.countryCode = n.countryCode;
