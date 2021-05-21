@@ -410,4 +410,121 @@ const commands = {
     }
 };
 
+function getArgName(command, argNumber) {
+    if (! hasArg(command, argNumber)){
+        return "";
+    }
+    if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("name")){
+        return commands[command]["arg" + getSuffix(argNumber)]["name"];
+    }
+    return "";
+}
+
+function getArgType(command, argNumber) {
+    if (! hasArg(command, argNumber)){
+        return "string";
+    }
+    if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("type")){
+        return commands[command]["arg" + getSuffix(argNumber)]["type"];
+    }
+    return "string";
+}
+
+function getSuffix(argNumber) {
+    if (argNumber > 1) {
+        return argNumber;
+    }
+    return '';
+}
+
+function hasArg(command, argNumber) {
+    if (! isValidArgNumber || ! isValidCommand(command)){
+        return false;
+    }
+    if (commands[command].hasOwnProperty("arg" + getSuffix(argNumber))){
+        return true;
+    }
+    return false;
+}
+
+function isArgRequired(command, argNumber) {
+    if (! hasArg(command, argNumber)) {
+        return false;
+    }
+    if (typeof commands[command]['arg' + getSuffix(argNumber)] !== "object") {
+        return false;
+    }
+    if (commands[command]['arg' + getSuffix(argNumber)].hasOwnProperty("required")){
+        return commands[command]['arg' + getSuffix(argNumber)]["required"];
+    }
+    return true;
+}
+
+function isValidArg(command, argNumber, argValue) {
+    if (!hasArg(command, argNumber)) {
+        return true;
+    }
+    var myRegEx;
+    switch (getArgName(command, argNumber)) {
+        case "areas":
+            myRegEx = new RegExp('^[\\d\\,]+\\;?$');
+            break;
+        case "boundaryCoordinates":
+            myRegEx = new RegExp('^(((-?\\d+(\\.(\\d*))?)\\,(-?\\d+(\\.(\\d*))?))+\\,)*((-?\\d+(\\.(\\d*))?)\\,(-?\\d+(\\.(\\d*))?))+[\\;\\,]?$');
+            break;
+        case "boundaryID":
+        case "spotAreaID":
+            myRegEx = new RegExp('^\\d+$');
+            break;
+        case "boundaryType":
+            myRegEx = new RegExp('^(mw|vw)$');
+            break;
+        case "level":
+            myRegEx = new RegExp('^[1234]$');
+            break;
+        case "mapID":
+        case "mapSetID":
+            myRegEx = new RegExp('^\\d{7,}$');
+            break;
+        case "mapinfotype":
+            myRegEx = new RegExp('^(outline|wifiHeatMap|ai|workarea)$');
+            break;
+        case "numberOfCleanings":
+            myRegEx = new RegExp('^[12]$');
+            break;
+        case "soundID":
+            myRegEx = new RegExp('^(20[01]|(1?\\d)?\\d)$');
+            break;
+        case "value":
+            myRegEx = new RegExp('^[01]$');
+            break;
+        case "volume":
+            myRegEx = new RegExp('^(\\d|10)$');
+            break;
+        default:
+            switch (getArgType(command, argNumber)) {
+                default:
+                case "string":
+                    myRegEx = new RegExp('^[a-zA-Z\\d]+$');
+                    break;
+                case "number":
+                    myRegEx = new RegExp('^\\d+$');
+                    break;
+            }
+    }
+    return myRegEx.test(argValue);
+
+}
+
+function isValidArgNumber(argNumber) {
+    return (!(argNumber < 0) && !(argNumber > 3));
+}
+
+function isValidCommand(command) {
+    if (commands.hasOwnProperty(command)) {
+        return true;
+    }
+    return false;
+}
+
 module.exports = {commands};
