@@ -487,7 +487,7 @@ function isValidArg(command, argNumber, argValue) {
             myRegEx = new RegExp('^\\d{7,}$');
             break;
         case "mapinfotype":
-            myRegEx = new RegExp('^(outline|wifiHeatMap|ai|workarea)$');
+            myRegEx = new RegExp('^(outline|wifiHeatMap)$');
             break;
         case "numberOfCleanings":
             myRegEx = new RegExp('^[12]$');
