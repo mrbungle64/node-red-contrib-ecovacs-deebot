@@ -67,7 +67,7 @@
 
             $('#node-input-command').change(function () {
                 var selectedCommand = $('#node-input-command').val();
-                console.log("Selected command: "+ selectedCommand);
+
                 if (! isValidCommand(selectedCommand)) {
                     resetArg(1);
                     resetArg(2);
@@ -93,7 +93,7 @@
 
             function setArgs(myCommand, argNumber) {
                 if (!(isValidArgNumber(argNumber))) { return; }
-                console.log("get Arg " + argNumber + "for command " + myCommand);
+
                 if (hasArg(myCommand, argNumber)) {
                     var suffix = getSuffix(argNumber);
                     if (isArgRequired(myCommand, argNumber)) {
