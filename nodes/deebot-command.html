@@ -6,20 +6,29 @@
         color: '#1E90FF',
         defaults: {
             name: {
-                value: "",
-                required: false
+                required: false,
+                value: ""
             },
             command: {
-                value: "",
-                required: true
+                required: true,
+                value: ""
             },
             arg: {
+                validate: function() {
+                    return isValidArg($('#node-input-command').val(), 1, $('#node-input-arg').val())
+                },
                 value: ""
             },
             arg2: {
+                validate: function() {
+                    return isValidArg($('#node-input-command').val(), 2, $('#node-input-arg2').val())
+                },
                 value: ""
             },
             arg3: {
+                validate: function() {
+                    return isValidArg($('#node-input-command').val(), 3, $('#node-input-arg3').val())
+                },
                 value: ""
             }
         },
@@ -58,17 +67,17 @@
 
             $('#node-input-command').change(function () {
                 var selectedCommand = $('#node-input-command').val();
-                if (selectedCommand == "") {
+
+                if (! isValidCommand(selectedCommand)) {
                     resetArg(1);
                     resetArg(2);
                     resetArg(3);
                     hideDescription();
                     return;
                 }
-                var myCommand = commands[selectedCommand];
-                setArgs(myCommand, 3);
-                setArgs(myCommand, 2);
-                setArgs(myCommand, 1);
+                setArgs(selectedCommand, 3);
+                setArgs(selectedCommand, 2);
+                setArgs(selectedCommand, 1);
                 if (node._("ecovacs-deebot-command.description_" + selectedCommand) !== "ecovacs-deebot-command.description_" + selectedCommand) {
                     $('#node-input-description').html(node._("ecovacs-deebot-command.description_" + selectedCommand));
                     $('#form-tips').show();
@@ -77,37 +86,26 @@
                 }
             });
 
-            function getSuffix(argNumber) {
-                if (argNumber > 1) {
-                    return argNumber;
-                }
-                return '';
-            }
-
             function hideDescription() {
                 $('#form-tips').hide();
                 $('#node-input-description').html("");
             }
 
-            function invalidArgNumber(argNumber) {
-                return ((argNumber < 0) || (argNumber > 3));
-            }
-
             function setArgs(myCommand, argNumber) {
-                if (invalidArgNumber(argNumber)) { return; }
+                if (!(isValidArgNumber(argNumber))) { return; }
 
-                var suffix = getSuffix(argNumber);
-                if (myCommand.hasOwnProperty('arg' + suffix)) {
-                    if (typeof myCommand['arg' + suffix] === "object") {
-                        if (myCommand['arg' + suffix].hasOwnProperty('name')) {
-                            setLabel(argNumber, myCommand['arg' + suffix]['name']);
+                if (hasArg(myCommand, argNumber)) {
+                    var suffix = getSuffix(argNumber);
+                    if (isArgRequired(myCommand, argNumber)) {
+                        if (commands[myCommand]['arg' + suffix].hasOwnProperty('name')) {
+                            setLabel(argNumber, commands[myCommand]['arg' + suffix]['name']);
                         } else {
                             setLabel(argNumber);
                         }
                         $(inputName + suffix).show();
                         $(inputName + suffix + labelSuffix).show();
                     } else {
-                        $(inputName + suffix).val(myCommand['arg' + suffix]);
+                        $(inputName + suffix).val(commands[myCommand]['arg' + suffix]);
                         $(inputName + suffix).hide();
                         setLabel(argNumber);
                         $(inputName + suffix + labelSuffix).hide();
@@ -118,17 +116,18 @@
             }
 
             function setLabel(argNumber, value = "") {
-                if (invalidArgNumber(argNumber)) { return; }
+                if (! isValidArgNumber(argNumber)) { return; }
 
-                var suffix = getSuffix(argNumber);
                 if (value == "") {
                     value = 'Argument ' + argNumber;
                 }
+
+                var suffix = getSuffix(argNumber);
                 $(inputName + suffix + labelSuffix + " span").html(node._("ecovacs-deebot-command.label_" + value));
             }
 
             function resetArg(argNumber) {
-                if (invalidArgNumber(argNumber)) { return; }
+                if (! isValidArgNumber(argNumber)) { return; }
 
                 var suffix = getSuffix(argNumber);
                 $(inputName + suffix).val('');
