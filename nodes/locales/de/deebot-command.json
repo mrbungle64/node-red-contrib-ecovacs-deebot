@@ -63,6 +63,7 @@
         "info_suctionStation": "Nur Modelle mit Absaugstation",
         "info_experimental": "Experimenteller Status",
         "info_notWorking": "Wird von den meisten Modellen nicht unterstützt",
+        "info_worksOnlyOnce": "Funktioniert nur einmal in Folge",
         "label_areas": "Bereiche",
         "label_boundaryCoordinates": "Koordinaten der Grenze",
         "label_boundaryID": "ID der Grenze (boundaryID)",

@@ -219,23 +219,27 @@ const commands = {
         payload: "GetVolume"
     },
     "GetWaterBoxInfo": {
-        info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
+        info: ["moppingSystem"],
         payload: "GetWaterBoxInfo"
     },
     "GetWaterLevel": {
-        info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
+        info: ["moppingSystem"],
         payload: "GetWaterLevel"
     },
     "MoveBackward": {
+        info: ["worksOnlyOnce"],
         payload: "MoveBackward"
     },
     "MoveForward": {
+        info: ["worksOnlyOnce"],
         payload: "MoveForward"
     },
     "MoveLeft": {
+        info: ["worksOnlyOnce"],
         payload: "MoveLeft"
     },
     "MoveRight": {
+        info: ["worksOnlyOnce"],
         payload: "MoveRight"
     },
     "Pause": {
