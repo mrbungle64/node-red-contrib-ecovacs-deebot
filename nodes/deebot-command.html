@@ -36,11 +36,13 @@
         outputs: 1,
         icon: "file.png",
         label: function () {
-            if (this._("ecovacs-deebot-command.description_" + this.command) !== "ecovacs-deebot-command.description_" + this.command) {
-                    return this._("ecovacs-deebot-command.description_" + this.command);
+            if (this.name) {
+                return this.name;
             }
-            return this.name ||
-                    commands[this.command].label ||
+            if (this._("ecovacs-deebot-command." + this.command) !== "ecovacs-deebot-command." + this.command) {
+                    return this._("ecovacs-deebot-command." + this.command);
+            }
+            return commands[this.command].label ||
                     this.command ||
                     "ecovacs-deebot-command";
         },
@@ -78,9 +80,14 @@
                 setArgs(selectedCommand, 3);
                 setArgs(selectedCommand, 2);
                 setArgs(selectedCommand, 1);
+                var additional_output = "";
                 if (node._("ecovacs-deebot-command.description_" + selectedCommand) !== "ecovacs-deebot-command.description_" + selectedCommand) {
-                    $('#node-input-description').html(node._("ecovacs-deebot-command.description_" + selectedCommand));
+                    additional_output = node._("ecovacs-deebot-command.description_" + selectedCommand);
+                }
+                if (additional_output !== "") {
+                    $('#node-input-description').html(additional_output);
                     $('#form-tips').show();
+
                 } else {
                     hideDescription();
                 }
