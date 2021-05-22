@@ -458,6 +458,7 @@ function isValidArg(command, argNumber, argValue) {
             break;
         case "boundaryID":
         case "spotAreaID":
+        case "mapSetID":
             myRegEx = new RegExp('^\\d+$');
             break;
         case "boundaryType":
@@ -467,7 +468,6 @@ function isValidArg(command, argNumber, argValue) {
             myRegEx = new RegExp('^[1234]$');
             break;
         case "mapID":
-        case "mapSetID":
             myRegEx = new RegExp('^\\d{7,}$');
             break;
         case "mapinfotype":
