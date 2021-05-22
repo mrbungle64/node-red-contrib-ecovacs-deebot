@@ -3,7 +3,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "boundaryCoordinates",
@@ -46,7 +46,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "boundaryID",
@@ -121,7 +121,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "mapinfotype",
@@ -166,7 +166,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "spotAreaID",
@@ -180,7 +180,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         info: ["laserType"],
         payload: "GetSpotAreas"
@@ -189,7 +189,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         info: ["laserType"],
         payload: "GetVirtualBoundaries"
@@ -198,7 +198,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "boundaryID",
