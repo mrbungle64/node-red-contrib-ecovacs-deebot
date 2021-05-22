@@ -27,8 +27,9 @@ Available options:
 
 #### Deebot command
 
-Available option:
-- "Command" (e.g. `Clean`, `Stop`, `GetLifeSpan`)
+Available options:
+- "Command" (e.g. `Start automatic cleaning`, `Retrieve battery state`)
+- Command specific fields (e.g. `Map ID`, `Spot area ID`)
 
 ## Models
 
@@ -64,12 +65,17 @@ Available option:
 
 ## Changelog
 
-### 0.1.0
-* Initial release
+### 0.2.0-alpha
+* Initial npm release
+  * Added a lot of commands and events
+  * Using library version 0.6.1-alpha
+  * (unclej84) Added Multi-language support
+  * (unclej84) A lot of improvements for the node editor
+  * (unclej84) Use credentials for account data
 
 ## Disclaimer
 
-I am in no way affiliated with ECOVACS.
+We are in no way affiliated with ECOVACS.
 
 ## License
 
