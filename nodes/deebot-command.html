@@ -153,11 +153,16 @@
                         } else {
                             setLabel(argNumber);
                         }
+                        if (myCommand !== node.command) {
+                            $(inputName + suffix).typedInput('value', '');
+                            $(inputName + suffix).val('');
+                        }
                         $(inputName + suffix).show();
                         $(inputName + suffix + "-row").show();
                         setTypedInput(myCommand, argNumber);
                     } else {
                         setTypedInput(myCommand, argNumber);
+                        $(inputName + suffix).typedInput('value', commands[myCommand]['arg' + suffix]);
                         $(inputName + suffix).val(commands[myCommand]['arg' + suffix]);
                         $(inputName + suffix).hide();
                         $(inputName + suffix + "-row").hide();
@@ -183,10 +188,8 @@
                 if (! isValidArgNumber(argNumber)) { return; }
 
                 if (hasArg(command, argNumber)) {
-                    console.log(command + " has argNumber " + argNumber);
                     var suffix = getSuffix(argNumber);
                     if (commands[command]['arg' + suffix].hasOwnProperty('type')) {
-                        console.log(command + " has argNumber " + argNumber + " mit Typ " + commands[command]['arg' + suffix]['type']);
                         var type = "";
                         var typeDefinition = "";
                         switch (commands[command]['arg' + suffix]['type']) {
@@ -272,6 +275,7 @@
 
                 var suffix = getSuffix(argNumber);
                 setTypedInput("", argNumber);
+                $(inputName + suffix).typedInput('value', '');
                 $(inputName + suffix).val('');
                 $(inputName + suffix).hide();
                 $(inputName + suffix + "-row").hide();
