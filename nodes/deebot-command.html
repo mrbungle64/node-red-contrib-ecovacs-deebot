@@ -188,6 +188,7 @@
                     if (commands[command]['arg' + suffix].hasOwnProperty('type')) {
                         console.log(command + " has argNumber " + argNumber + " mit Typ " + commands[command]['arg' + suffix]['type']);
                         var type = "";
+                        var typeDefinition = "";
                         switch (commands[command]['arg' + suffix]['type']) {
                             case "boolean":
                                 type = "bool";
@@ -195,14 +196,72 @@
                             case "number":
                                 type = "num";
                                 break;
+                            case "number_cleanings":
+                                type = "number_cleanings";
+                                typeDefinition = {
+                                    value: "num",
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["1", "2"]
+                                };
+                                break;
+                            case "number_level":
+                                type = "number_level";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["1", "2", "3", "4"]
+                                };
+                                break;
+                            case "number_on_off":
+                                type = "number_on_off";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["0", "1"]
+                                };
+                                break;
+                            case "number_volume":
+                                type = "number_volume";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+                                };
+                                break;
                             default:
                             case "string":
                                 type = "str";
                                 break;
+                            case "string_boundaryType":
+                                type = "string_boundaryType";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "string",
+                                    icon: "red/images/typedInput/az.png",
+                                    options: ["vw","mw"]
+                                };
+                                break;
+                            case "string_mapinfotype":
+                                type = "string_mapinfotype";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "string",
+                                    icon: "red/images/typedInput/az.png",
+                                    options: ["outline","wifiHeatMap"]
+                                };
+                                break;
                         }
-                        if (type !== ""){
-                            $(inputName + suffix).typedInput('type',type);
-                            $(inputName + suffix).typedInput('types',[type]);
+                        if (type !== "" && typeDefinition === ""){
+                            $(inputName + suffix).typedInput('type', type);
+                            $(inputName + suffix).typedInput('types', [type]);
+                        }
+                        if (type !== "" && typeDefinition !== ""){
+                            $(inputName + suffix).typedInput('type', typeDefinition.value);
+                            $(inputName + suffix).typedInput('types', [typeDefinition]);
                         }
                     }
                 }

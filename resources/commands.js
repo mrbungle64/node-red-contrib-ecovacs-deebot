@@ -13,7 +13,7 @@ const commands = {
         arg3: {
             name: "boundaryType",
             required: true,
-            type: "string"
+            type: "string_boundaryType"
         },
         info: ["950Type", "laserType"],
         payload: "AddVirtualBoundary"
@@ -37,7 +37,7 @@ const commands = {
         arg3: {
             name: "numberOfCleanings",
             required: false,
-            type: "number"
+            type: "number_cleanings"
         },
         info: ["laserType"],
         payload: "CustomArea"
@@ -56,7 +56,7 @@ const commands = {
         arg3: {
             name: "boundaryType",
             required: true,
-            type: "string"
+            type: "string_boundaryType"
         },
         info: ["950Type", "laserType"],
         payload: "DeleteVirtualBoundary"
@@ -126,7 +126,7 @@ const commands = {
         arg2: {
             name: "mapinfotype",
             required: true,
-            type: "string"
+            type: "string_mapinfotype"
         },
         info: ["950Type", "laserType"],
         payload: "GetMapImage"
@@ -208,7 +208,7 @@ const commands = {
         arg3: {
             name: "boundaryType",
             required: true,
-            type: "string"
+            type: "string_boundaryType"
         },
         info: ["laserType"],
         payload: "GetVirtualBoundaryInfo"
@@ -299,7 +299,7 @@ const commands = {
         arg: {
             name: "value",
             required: true,
-            type: "number"
+            type: "number_on_off"
         },
         info: ["suctionStation"],
         payload: "SetAutoEmpty"
@@ -308,7 +308,7 @@ const commands = {
         arg: {
             name: "level",
             required: true,
-            type: "number"
+            type: "number_level"
         },
         payload: "SetCleanSpeed"
     },
@@ -317,7 +317,7 @@ const commands = {
         arg2: {
             name: "value",
             required: true,
-            type: "number"
+            type: "number_on_off"
         },
         label: "SetOnOff (continuous cleaning)",
         payload: "SetOnOff"
@@ -327,7 +327,7 @@ const commands = {
         arg2: {
             name: "value",
             required: true,
-            type: "number"
+            type: "number_on_off"
         },
         label: "SetOnOff (do not disturb)",
         payload: "SetOnOff"
@@ -337,7 +337,7 @@ const commands = {
         arg2: {
             name: "value",
             required: true,
-            type: "number"
+            type: "number_on_off"
         },
         label: "SetOnOff (silence voice report)",
         info: ["notWorking"],
@@ -347,7 +347,7 @@ const commands = {
         arg: {
             name: "volume",
             required: true,
-            type: "number"
+            type: "number_volume"
         },
         info: ["950Type"],
         payload: "SetVolume"
@@ -356,7 +356,7 @@ const commands = {
         arg: {
             name: "level",
             required: true,
-            type: "number"
+            type: "number_level"
         },
         info: ["moppingSystem"],
         payload: "SetWaterLevel"
@@ -511,4 +511,4 @@ function isValidCommand(command) {
     return false;
 }
 
-module.exports = {commands};
+module.exports = {commands, getArgType};

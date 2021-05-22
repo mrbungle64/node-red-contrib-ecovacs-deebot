@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-    const {commands} = require('../resources/commands');
+    const {commands, getArgType} = require('../resources/commands');
 
     function EcovacsDeebotCommandNode(config) {
         RED.nodes.createNode(this, config);
@@ -18,15 +18,31 @@ module.exports = function (RED) {
         function sendCommand(node, msg) {
             const command = commands[node.config.command];
             const output = {};
+            var argValue;
 
             if (msg && commands.hasOwnProperty(node.config.command) ) {
                 Object.assign(output, {payload: commands[node.config.command].payload});
                 if (commands[node.config.command].hasOwnProperty("arg")) {
-                    Object.assign(output, {arg: node.config.arg});
+                    if (getArgType(node.config.command, 1).substring(0, 6) === "number") {
+                        argValue = parseInt(node.config.arg);
+                    } else {
+                        argValue = node.config.arg;
+                    }
+                    Object.assign(output, {arg: argValue});
                     if (commands[node.config.command].hasOwnProperty("arg2")) {
-                        Object.assign(output, {arg2: node.config.arg2});
+                        if (getArgType(node.config.command, 2).substring(0, 6) === "number") {
+                            argValue = parseInt(node.config.arg2);
+                        } else {
+                            argValue = node.config.arg2;
+                        }
+                        Object.assign(output, {arg2: argValue});
                         if (commands[node.config.command].hasOwnProperty("arg3")) {
-                            Object.assign(output, {arg3: node.config.arg3});
+                            if (getArgType(node.config.command, 3).substring(0, 6) === "number") {
+                                argValue = parseInt(node.config.arg3);
+                            } else {
+                                argValue = node.config.arg3;
+                            }
+                            Object.assign(output, {arg3: argValue});
                         }
                     }
                 }
