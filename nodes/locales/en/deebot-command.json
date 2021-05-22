@@ -63,6 +63,7 @@
         "info_suctionStation": "Models with suction station only",
         "info_experimental": "Experimental",
         "info_notWorking": "Not supported by most models",
+        "info_worksOnlyOnce": "Works only once in sequence",
         "label_areas": "Areas",
         "label_boundaryCoordinates": "Boundary coordinates",
         "label_boundaryID": "Boundary ID",

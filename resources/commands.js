@@ -3,7 +3,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "boundaryCoordinates",
@@ -46,7 +46,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "boundaryID",
@@ -121,7 +121,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "mapinfotype",
@@ -166,7 +166,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "spotAreaID",
@@ -180,7 +180,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         info: ["laserType"],
         payload: "GetSpotAreas"
@@ -189,7 +189,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         info: ["laserType"],
         payload: "GetVirtualBoundaries"
@@ -198,7 +198,7 @@ const commands = {
         arg: {
             name: "mapID",
             required: true,
-            type: "string"
+            type: "string_mapID"
         },
         arg2: {
             name: "boundaryID",
@@ -219,23 +219,27 @@ const commands = {
         payload: "GetVolume"
     },
     "GetWaterBoxInfo": {
-        info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
+        info: ["moppingSystem"],
         payload: "GetWaterBoxInfo"
     },
     "GetWaterLevel": {
-        info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
+        info: ["moppingSystem"],
         payload: "GetWaterLevel"
     },
     "MoveBackward": {
+        info: ["worksOnlyOnce"],
         payload: "MoveBackward"
     },
     "MoveForward": {
+        info: ["worksOnlyOnce"],
         payload: "MoveForward"
     },
     "MoveLeft": {
+        info: ["worksOnlyOnce"],
         payload: "MoveLeft"
     },
     "MoveRight": {
+        info: ["worksOnlyOnce"],
         payload: "MoveRight"
     },
     "Pause": {
@@ -458,6 +462,7 @@ function isValidArg(command, argNumber, argValue) {
             break;
         case "boundaryID":
         case "spotAreaID":
+        case "mapSetID":
             myRegEx = new RegExp('^\\d+$');
             break;
         case "boundaryType":
@@ -467,7 +472,6 @@ function isValidArg(command, argNumber, argValue) {
             myRegEx = new RegExp('^[1234]$');
             break;
         case "mapID":
-        case "mapSetID":
             myRegEx = new RegExp('^\\d{7,}$');
             break;
         case "mapinfotype":
