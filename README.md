@@ -37,6 +37,7 @@ Available option:
 * Deebot 900/901
 * Deebot OZMO 930
 * Deebot OZMO 920/950
+* Deebot T9 series
 
 ### These models should work properly or at least partially
 
@@ -50,7 +51,6 @@ Available option:
 * Deebot OZMO Slim 10
 * Deebot OZMO T5
 * Deebot OZMO T8 series
-* Deebot OZMO T9 series
 * Deebot N3 MAX
 * Deebot N7
 * Deebot N8 series
@@ -64,8 +64,8 @@ Available option:
 
 ## Changelog
 
-### 0.0.1
-* (mrbungle64) Initial development release
+### 0.1.0
+* Initial release
 
 ## Disclaimer
 
