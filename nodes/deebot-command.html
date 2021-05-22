@@ -51,6 +51,14 @@
             var inputName = '#node-input-arg';
             var labelSuffix = '-row label';
 
+            if (node.name) {
+                $('#node-input-name').val(node.name);
+            }
+            $("#node-input-name").typedInput({
+                type:"str",
+                types:["str"]
+            });
+
             if (node.command) {
                 $('#node-input-command').val(node.command);
             }
@@ -58,14 +66,26 @@
             if (node.arg) {
                 $(inputName).val(node.arg);
             }
+            $(inputName).typedInput({
+                type:"str",
+                types:["str"]
+            });
 
             if (node.arg2) {
                 $(inputName + '2').val(node.arg2);
             }
+            $(inputName + '2').typedInput({
+                type:"str",
+                types:["str"]
+            });
 
             if (node.arg3) {
                 $(inputName + '3').val(node.arg3);
             }
+            $(inputName + '3').typedInput({
+                type:"str",
+                types:["str"]
+            });
 
             $('#node-input-command').change(function () {
                 var selectedCommand = $('#node-input-command').val();
@@ -127,19 +147,21 @@
 
                 if (hasArg(myCommand, argNumber)) {
                     var suffix = getSuffix(argNumber);
-                    if (isArgRequired(myCommand, argNumber)) {
+                    if (isArgRequired(myCommand, argNumber, true)) {
                         if (commands[myCommand]['arg' + suffix].hasOwnProperty('name')) {
                             setLabel(argNumber, commands[myCommand]['arg' + suffix]['name']);
                         } else {
                             setLabel(argNumber);
                         }
                         $(inputName + suffix).show();
-                        $(inputName + suffix + labelSuffix).show();
+                        $(inputName + suffix + "-row").show();
+                        setTypedInput(myCommand, argNumber);
                     } else {
+                        setTypedInput(myCommand, argNumber);
                         $(inputName + suffix).val(commands[myCommand]['arg' + suffix]);
                         $(inputName + suffix).hide();
+                        $(inputName + suffix + "-row").hide();
                         setLabel(argNumber);
-                        $(inputName + suffix + labelSuffix).hide();
                     }
                 } else {
                     resetArg(argNumber);
@@ -157,14 +179,103 @@
                 $(inputName + suffix + labelSuffix + " span").html(getTranslation(node, "label_" + value));
             }
 
+            function setTypedInput(command, argNumber) {
+                if (! isValidArgNumber(argNumber)) { return; }
+
+                if (hasArg(command, argNumber)) {
+                    console.log(command + " has argNumber " + argNumber);
+                    var suffix = getSuffix(argNumber);
+                    if (commands[command]['arg' + suffix].hasOwnProperty('type')) {
+                        console.log(command + " has argNumber " + argNumber + " mit Typ " + commands[command]['arg' + suffix]['type']);
+                        var type = "";
+                        var typeDefinition = "";
+                        switch (commands[command]['arg' + suffix]['type']) {
+                            case "boolean":
+                                type = "bool";
+                                break;
+                            case "number":
+                                type = "num";
+                                break;
+                            case "number_cleanings":
+                                type = "number_cleanings";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["1", "2"]
+                                };
+                                break;
+                            case "number_level":
+                                type = "number_level";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["1", "2", "3", "4"]
+                                };
+                                break;
+                            case "number_on_off":
+                                type = "number_on_off";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["0", "1"]
+                                };
+                                break;
+                            case "number_volume":
+                                type = "number_volume";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "number",
+                                    icon: "red/images/typedInput/09.png",
+                                    options: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+                                };
+                                break;
+                            default:
+                            case "string":
+                                type = "str";
+                                break;
+                            case "string_boundaryType":
+                                type = "string_boundaryType";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "string",
+                                    icon: "red/images/typedInput/az.png",
+                                    options: ["vw","mw"]
+                                };
+                                break;
+                            case "string_mapinfotype":
+                                type = "string_mapinfotype";
+                                typeDefinition = {
+                                    value: type,
+                                    label: "string",
+                                    icon: "red/images/typedInput/az.png",
+                                    options: ["outline","wifiHeatMap"]
+                                };
+                                break;
+                        }
+                        if (type !== "" && typeDefinition === ""){
+                            $(inputName + suffix).typedInput('type', type);
+                            $(inputName + suffix).typedInput('types', [type]);
+                        }
+                        if (type !== "" && typeDefinition !== ""){
+                            $(inputName + suffix).typedInput('type', typeDefinition.value);
+                            $(inputName + suffix).typedInput('types', [typeDefinition]);
+                        }
+                    }
+                }
+            }
+
             function resetArg(argNumber) {
                 if (! isValidArgNumber(argNumber)) { return; }
 
                 var suffix = getSuffix(argNumber);
+                setTypedInput("", argNumber);
                 $(inputName + suffix).val('');
                 $(inputName + suffix).hide();
+                $(inputName + suffix + "-row").hide();
                 setLabel(argNumber);
-                $(inputName + suffix + labelSuffix).hide();
             }
         }
     });

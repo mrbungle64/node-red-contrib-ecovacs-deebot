@@ -31,6 +31,16 @@
         icon: "file.png",
         label: function () {
             return this.name || "ecovacs-deebot";
+        },
+        oneditprepare: function () {
+            $("#node-input-name").typedInput({
+                type:"str",
+                types:["str"]
+            });
+            $("#node-input-deviceNumber").typedInput({
+                type:"num",
+                types:["num"]
+            });
         }
     });
 </script>
