@@ -12,7 +12,7 @@
         "description_FindMe": "Play \"I am here\"",
         "description_GetMapImage": "Get map image (PNG format)",
         "description_GetAutoEmpty": "Retrieve info if auto empty is enabled",
-        "Disconnect": "Disconnect from robot",
+        "Disconnect": "Disconnect",
         "dummy_auto_empty_station": "--- Auto empty station ---",
         "dummy_cleaning_log": "--- Cleaning log and consumable ---",
         "dummy_cleaning": "--- Cleaning ---",
