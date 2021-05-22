@@ -1,6 +1,5 @@
 const commands = {
     "AddVirtualBoundary": {
-        description: "Create a virtual boundary",
         arg: {
             name: "mapID",
             required: true,
@@ -19,18 +18,15 @@ const commands = {
         payload: "AddVirtualBoundary"
     },
     "Charge": {
-        description: "Return to charging station",
         payload: "Charge"
     },
     "Clean": {
-        description: "Start automatic cleaning",
         payload: "Clean"
     },
     "Connect": {
         payload: "Connect"
     },
     "CustomArea": {
-        description: "Start cleaning a custom area",
         arg: "start",
         arg2: {
             name: "boundaryCoordinates",
@@ -45,7 +41,6 @@ const commands = {
         payload: "CustomArea"
     },
     "DeleteVirtualBoundary": {
-        description: "Delete the specified virtual boundary",
         arg: {
             name: "mapID",
             required: true,
@@ -70,67 +65,53 @@ const commands = {
         payload: "Edge"
     },
     "FindMe": {
-        description: "Play 'I am here' for locating the device",
         arg: "30",
         label: "FindMe",
         payload: "PlaySound"
     },
     "GetAutoEmpty": {
-        description: "Retrieve current auto empty setting",
         payload: "GetAutoEmpty"
     },
     "GetBatteryState": {
-        description: "Retrieve current battery state",
         payload: "GetBatteryState"
     },
     "GetChargerPos": {
-        description: "Retrieve Coordinates of the charging position",
         payload: "GetChargerPos"
     },
     "GetChargeState": {
-        description: "Retrieve current charge state",
         payload: "GetChargeState"
     },
     "GetCleanLogs": {
-        description: "Retrieve clean logs",
         payload: "GetCleanLogs"
     },
     "GetCleanSpeed": {
-        description: "Retrieve current vacuum power level",
         payload: "GetCleanSpeed"
     },
     "GetCleanState": {
-        description: "Retrieve current clean state",
         payload: "GetCleanState"
     },
     "GetCleanSum": {
-        description: "Retrieve clean sum",
         payload: "GetCleanSum"
     },
     "GetLifeSpan": {
-        description: "Retrieve life span for filter, side brush and main brush",
         payload: "GetLifeSpan"
     },
     "GetLifeSpan_filter": {
-        description: "Retrieve life span for filter",
         arg: "filter",
         label: "GetLifeSpan (filter)",
         payload: "GetLifeSpan"
     },
     "GetLifeSpan_main_brush": {
-        description: "Retrieve life span for main brush",
         arg: "main_brush",
         label: "GetLifeSpan (main brush)",
         payload: "GetLifeSpan"
     },
     "GetLifeSpan_side_brush": {
-        description: "Retrieve life span for side brush",
         arg: "side_brush",
         label: "GetLifeSpan (side brush)",
         payload: "GetLifeSpan"
     },
     "GetMapImage": {
-        description: "Retrieve image data of the map",
         arg: {
             name: "mapID",
             required: true,
@@ -145,43 +126,35 @@ const commands = {
         payload: "GetMapImage"
     },
     "GetMaps": {
-        description: "Retrieve complex object of map data",
         arg: true,
         info: ["950Type"],  // TO-DO: Check infos
         payload: "GetMaps"
     },
     "GetNetInfo": {
-        description: "Retrieve some networking related information",
         payload: "GetNetInfo"
     },
     "GetOnOff_continuous_cleaning": {
-        description: "Indicates if continuous cleaning mode is enabled",
         arg: "continuous_cleaning",
         label: "GetOnOff (continuous cleaning)",
         payload: "GetOnOff"
     },
     "GetOnOff_do_not_disturb": {
-        description: "Indicates if do not disturb mode is enabled",
         arg: "do_not_disturb",
         label: "GetOnOff (do not disturb)",
         payload: "GetOnOff"
     },
     "GetOnOff_silence_voice_report": {
-        description: "Indicates if voice report is set to silent",
         arg: "silence_voice_report",
         label: "GetOnOff (silence voice report)",
         payload: "GetOnOff"
     },
     "GetPosition": {
-        description: "Retrieve the current position of the bot",
         payload: "GetPosition"
     },
     "GetSleepStatus": {
-        description: "Indicates of the bot is in sleep state",
         payload: "GetSleepStatus"
     },
     "GetSpotAreaInfo": {
-        description: "Retrieve information for the given spot area",
         arg: {
             name: "mapID",
             required: true,
@@ -195,7 +168,6 @@ const commands = {
         payload: "GetSpotAreaInfo"
     },
     "GetSpotAreas": {
-        description: "Retrieve spot areas",
         arg: {
             name: "mapID",
             required: true,
@@ -204,7 +176,6 @@ const commands = {
         payload: "GetSpotAreas"
     },
     "GetVirtualBoundaries": {
-        description: "Retrieve virtual boundaries",
         arg: {
             name: "mapID",
             required: true,
@@ -213,7 +184,6 @@ const commands = {
         payload: "GetVirtualBoundaries"
     },
     "GetVirtualBoundaryInfo": {
-        description: "Retrieve information for the given virtual boundary",
         arg: {
             name: "mapID",
             required: true,
@@ -232,42 +202,33 @@ const commands = {
         payload: "GetVirtualBoundaryInfo"
     },
     "GetVolume": {
-        description: "Retrieve the current volume",
         label: "GetVolume",
         payload: "GetVolume"
     },
     "GetWaterBoxInfo": {
-        description: "Indicates of the water box is installed",
         info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
         payload: "GetWaterBoxInfo"
     },
     "GetWaterLevel": {
-        description: "Retrieve the current water level",
         info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
         payload: "GetWaterLevel"
     },
     "MoveBackward": {
-        description: "Move backward",
         payload: "MoveBackward"
     },
     "MoveForward": {
-        description: "Move forward",
         payload: "MoveForward"
     },
     "MoveLeft": {
-        description: "Move left",
         payload: "MoveLeft"
     },
     "MoveRight": {
-        description: "Move right",
         payload: "MoveRight"
     },
     "Pause": {
-        description: "Pause cleaning",
         payload: "Pause"
     },
     "PlaySound_custom": {
-        description: "play a custom sound",
         arg: {
             name: "soundID",
             required: true,
@@ -277,15 +238,12 @@ const commands = {
         payload: "PlaySound"
     },
     "PlaySound": {
-        description: "play sound for locating the device",
         payload: "PlaySound"
     },
     "Relocate": {
-        description: "Relocate the location",
         payload: "Relocate"
     },
     "RenameSpotArea": {
-        description: "Rename the given spot area",
         arg: {
             name: "mapSetID",
             required: true,
@@ -304,29 +262,24 @@ const commands = {
         payload: "RenameSpotArea"
     },
     "ResetLifeSpan_filter": {
-        description: "Reset life span value for filter",
         arg: "filter",
         label: "ResetLifeSpan (filter)",
         payload: "ResetLifeSpan"
     },
     "ResetLifeSpan_main_brush": {
-        description: "Reset life span value for main brush",
         arg: "main_brush",
         label: "ResetLifeSpan (main brush)",
         payload: "ResetLifeSpan"
     },
     "ResetLifeSpan_side_brush": {
-        description: "Reset life span value for side brush",
         arg: "side_brush",
         label: "ResetLifeSpan (side brush)",
         payload: "ResetLifeSpan"
     },
     "Resume": {
-        description: "Resume cleaning",
         payload: "Resume"
     },
     "SetAutoEmpty": {
-        description: "Set auto empty mode",
         arg: {
             name: "value",
             required: true,
@@ -335,7 +288,6 @@ const commands = {
         payload: "SetAutoEmpty"
     },
     "SetCleanSpeed": {
-        description: "Set vacuum power level",
         arg: {
             name: "level",
             required: true,
@@ -344,7 +296,6 @@ const commands = {
         payload: "SetCleanSpeed"
     },
     "SetOnOff_continuous_cleaning": {
-        description: "Set continuous cleaning mode",
         arg: "continuous_cleaning",
         arg2: {
             name: "value",
@@ -355,7 +306,6 @@ const commands = {
         payload: "SetOnOff"
     },
     "SetOnOff_do_not_disturb": {
-        description: "Set do not disturb mode",
         arg: "do_not_disturb",
         arg2: {
             name: "value",
@@ -366,7 +316,6 @@ const commands = {
         payload: "SetOnOff"
     },
     "SetOnOff_silence_voice_report": {
-        description: "Set voice report silent",
         arg: "silence_voice_report",
         arg2: {
             name: "value",
@@ -377,7 +326,6 @@ const commands = {
         payload: "SetOnOff"
     },
     "SetVolume": {
-        description: "Set volume for sound and voice",
         arg: {
             name: "volume",
             required: true,
@@ -386,7 +334,6 @@ const commands = {
         payload: "SetVolume"
     },
     "SetWaterLevel": {
-        description: "Set water level",
         arg: {
             name: "level",
             required: true,
@@ -395,11 +342,9 @@ const commands = {
         payload: "SetWaterLevel"
     },
     "Spot": {
-        description: "Start spot cleaning",
         payload: "Spot"
     },
     "SpotArea": {
-        description: "Start cleaning one or multiple spot areas",
         arg: "start",
         arg2: {
             name: "areas",
@@ -409,7 +354,6 @@ const commands = {
         payload: "SpotArea"
     },
     "Stop": {
-        description: "Stop cleaning",
         payload: "Stop"
     }
 };
