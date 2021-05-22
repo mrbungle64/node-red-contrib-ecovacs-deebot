@@ -141,11 +141,13 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: "950Type",  // TO-DO: Check infos
         payload: "GetMapImage"
     },
     "GetMaps": {
         description: "Retrieve complex object of map data",
         arg: true,
+        info: ["950Type"],  // TO-DO: Check infos
         payload: "GetMaps"
     },
     "GetNetInfo": {
@@ -236,10 +238,12 @@ const commands = {
     },
     "GetWaterBoxInfo": {
         description: "Indicates of the water box is installed",
+        info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
         payload: "GetWaterBoxInfo"
     },
     "GetWaterLevel": {
         description: "Retrieve the current water level",
+        info: ["moppingSystem", "experimental"],  // TO-DO: Check infos
         payload: "GetWaterLevel"
     },
     "MoveBackward": {
@@ -411,20 +415,20 @@ const commands = {
 };
 
 function getArgName(command, argNumber) {
-    if (! hasArg(command, argNumber)){
+    if (! hasArg(command, argNumber)) {
         return "";
     }
-    if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("name")){
+    if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("name")) {
         return commands[command]["arg" + getSuffix(argNumber)]["name"];
     }
     return "";
 }
 
 function getArgType(command, argNumber) {
-    if (! hasArg(command, argNumber)){
+    if (! hasArg(command, argNumber)) {
         return "string";
     }
-    if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("type")){
+    if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("type")) {
         return commands[command]["arg" + getSuffix(argNumber)]["type"];
     }
     return "string";
@@ -437,11 +441,18 @@ function getSuffix(argNumber) {
     return '';
 }
 
+function getTranslation(node, text) {
+    if (isTranslationAvailable(node, text)) {
+        return node._(node.type + "." + text);
+    }
+    return "";
+}
+
 function hasArg(command, argNumber) {
-    if (! isValidArgNumber || ! isValidCommand(command)){
+    if (! isValidArgNumber || ! isValidCommand(command)) {
         return false;
     }
-    if (commands[command].hasOwnProperty("arg" + getSuffix(argNumber))){
+    if (commands[command].hasOwnProperty("arg" + getSuffix(argNumber))) {
         return true;
     }
     return false;
@@ -454,10 +465,17 @@ function isArgRequired(command, argNumber) {
     if (typeof commands[command]['arg' + getSuffix(argNumber)] !== "object") {
         return false;
     }
-    if (commands[command]['arg' + getSuffix(argNumber)].hasOwnProperty("required")){
+    if (commands[command]['arg' + getSuffix(argNumber)].hasOwnProperty("required")) {
         return commands[command]['arg' + getSuffix(argNumber)]["required"];
     }
     return true;
+}
+
+function isTranslationAvailable(node, text) {
+    if (node._(node.type + "." + text) !== (node.type + "." + text)) {
+        return true;
+    }
+    return false;
 }
 
 function isValidArg(command, argNumber, argValue) {

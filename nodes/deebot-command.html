@@ -39,8 +39,8 @@
             if (this.name) {
                 return this.name;
             }
-            if (this._("ecovacs-deebot-command." + this.command) !== "ecovacs-deebot-command." + this.command) {
-                    return this._("ecovacs-deebot-command." + this.command);
+            if (isTranslationAvailable(this, this.command)) {
+                return getTranslation(this, this.command);
             }
             return commands[this.command].label ||
                     this.command ||
@@ -81,8 +81,32 @@
                 setArgs(selectedCommand, 2);
                 setArgs(selectedCommand, 1);
                 var additional_output = "";
-                if (node._("ecovacs-deebot-command.description_" + selectedCommand) !== "ecovacs-deebot-command.description_" + selectedCommand) {
-                    additional_output = node._("ecovacs-deebot-command.description_" + selectedCommand);
+                if (isTranslationAvailable(node, "description_" + selectedCommand)) {
+                    additional_output = getTranslation(node, "description_" + selectedCommand);
+                }
+                if (additional_output !== "") {
+                    additional_output = additional_output + "<br />";
+                }
+                if (commands[selectedCommand].hasOwnProperty("info")) {
+                    var infos = commands[selectedCommand]["info"];
+                    if (Array.isArray(infos)){
+                        infos.forEach(function(info) {
+                            if (isTranslationAvailable(node, "info_" + info)) {
+                                if (additional_output !== "") {
+                                    additional_output = additional_output + "<br />";
+                                }
+                                additional_output = additional_output + getTranslation(node, "info_" + info);
+                            }
+                        });
+                    }
+                    if (typeof infos === "string"){
+                        if (isTranslationAvailable(node, "info_" + infos)) {
+                            if (additional_output !== "") {
+                                additional_output = additional_output + "<br />";
+                            }
+                            additional_output = getTranslation(node, "info_" + infos);
+                        }
+                    }
                 }
                 if (additional_output !== "") {
                     $('#node-input-description').html(additional_output);
@@ -130,7 +154,7 @@
                 }
 
                 var suffix = getSuffix(argNumber);
-                $(inputName + suffix + labelSuffix + " span").html(node._("ecovacs-deebot-command.label_" + value));
+                $(inputName + suffix + labelSuffix + " span").html(getTranslation(node, "label_" + value));
             }
 
             function resetArg(argNumber) {
