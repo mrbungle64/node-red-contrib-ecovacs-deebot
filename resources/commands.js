@@ -458,14 +458,14 @@ function hasArg(command, argNumber) {
     return false;
 }
 
-function isArgRequired(command, argNumber) {
+function isArgRequired(command, argNumber, ignoreRequired = false) {
     if (! hasArg(command, argNumber)) {
         return false;
     }
     if (typeof commands[command]['arg' + getSuffix(argNumber)] !== "object") {
         return false;
     }
-    if (commands[command]['arg' + getSuffix(argNumber)].hasOwnProperty("required")) {
+    if (commands[command]['arg' + getSuffix(argNumber)].hasOwnProperty("required") && !ignoreRequired) {
         return commands[command]['arg' + getSuffix(argNumber)]["required"];
     }
     return true;

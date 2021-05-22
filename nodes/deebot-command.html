@@ -51,6 +51,14 @@
             var inputName = '#node-input-arg';
             var labelSuffix = '-row label';
 
+            if (node.name) {
+                $('#node-input-name').val(node.name);
+            }
+            $("#node-input-name").typedInput({
+                type:"str",
+                types:["str"]
+            });
+
             if (node.command) {
                 $('#node-input-command').val(node.command);
             }
@@ -58,14 +66,26 @@
             if (node.arg) {
                 $(inputName).val(node.arg);
             }
+            $(inputName).typedInput({
+                type:"str",
+                types:["str"]
+            });
 
             if (node.arg2) {
                 $(inputName + '2').val(node.arg2);
             }
+            $(inputName + '2').typedInput({
+                type:"str",
+                types:["str"]
+            });
 
             if (node.arg3) {
                 $(inputName + '3').val(node.arg3);
             }
+            $(inputName + '3').typedInput({
+                type:"str",
+                types:["str"]
+            });
 
             $('#node-input-command').change(function () {
                 var selectedCommand = $('#node-input-command').val();
@@ -127,19 +147,21 @@
 
                 if (hasArg(myCommand, argNumber)) {
                     var suffix = getSuffix(argNumber);
-                    if (isArgRequired(myCommand, argNumber)) {
+                    if (isArgRequired(myCommand, argNumber, true)) {
                         if (commands[myCommand]['arg' + suffix].hasOwnProperty('name')) {
                             setLabel(argNumber, commands[myCommand]['arg' + suffix]['name']);
                         } else {
                             setLabel(argNumber);
                         }
                         $(inputName + suffix).show();
-                        $(inputName + suffix + labelSuffix).show();
+                        $(inputName + suffix + "-row").show();
+                        setTypedInput(myCommand, argNumber);
                     } else {
+                        setTypedInput(myCommand, argNumber);
                         $(inputName + suffix).val(commands[myCommand]['arg' + suffix]);
                         $(inputName + suffix).hide();
+                        $(inputName + suffix + "-row").hide();
                         setLabel(argNumber);
-                        $(inputName + suffix + labelSuffix).hide();
                     }
                 } else {
                     resetArg(argNumber);
@@ -157,14 +179,44 @@
                 $(inputName + suffix + labelSuffix + " span").html(getTranslation(node, "label_" + value));
             }
 
+            function setTypedInput(command, argNumber) {
+                if (! isValidArgNumber(argNumber)) { return; }
+
+                if (hasArg(command, argNumber)) {
+                    console.log(command + " has argNumber " + argNumber);
+                    var suffix = getSuffix(argNumber);
+                    if (commands[command]['arg' + suffix].hasOwnProperty('type')) {
+                        console.log(command + " has argNumber " + argNumber + " mit Typ " + commands[command]['arg' + suffix]['type']);
+                        var type = "";
+                        switch (commands[command]['arg' + suffix]['type']) {
+                            case "boolean":
+                                type = "bool";
+                                break;
+                            case "number":
+                                type = "num";
+                                break;
+                            default:
+                            case "string":
+                                type = "str";
+                                break;
+                        }
+                        if (type !== ""){
+                            $(inputName + suffix).typedInput('type',type);
+                            $(inputName + suffix).typedInput('types',[type]);
+                        }
+                    }
+                }
+            }
+
             function resetArg(argNumber) {
                 if (! isValidArgNumber(argNumber)) { return; }
 
                 var suffix = getSuffix(argNumber);
+                setTypedInput("", argNumber);
                 $(inputName + suffix).val('');
                 $(inputName + suffix).hide();
+                $(inputName + suffix + "-row").hide();
                 setLabel(argNumber);
-                $(inputName + suffix + labelSuffix).hide();
             }
         }
     });

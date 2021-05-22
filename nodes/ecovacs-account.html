@@ -16,7 +16,7 @@
             email: {
                 required: true,
                 type: "text",
-                validate: (RED.validators.regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/) || RED.validators.regex(/^[a-zA-Z0-9]{8}$/))
+                validate: RED.validators.regex(/(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$)|(^[a-zA-Z0-9]{8}$)/)
             },
             password: {
                 type: "password",
@@ -25,6 +25,24 @@
         },
         label: function () {
             return this.name || "ecovacs-account";
+        },
+        oneditprepare: function () {
+            $("#node-config-input-name").typedInput({
+                type:"str",
+                types:["str"]
+            });
+            $("#node-config-input-email").typedInput({
+                type:"cred",
+                types:["cred"]
+            });
+            $("#node-config-input-password").typedInput({
+                type:"cred",
+                types:["cred"]
+            });
+            $("#node-config-input-countryCode").typedInput({
+                type:"str",
+                types:["str"]
+            });
         }
     });
 </script>
