@@ -71,7 +71,7 @@
         "label_mapID": "ID der Karte (mapID)",
         "label_mapinfotype": "Typ der Karte<br /><ul><li>\"outline\": Umriss</li><li>\"wifiHeatMap\": WLAN-Abdeckungskarte</li></ul>",
         "label_mapSetID": "ID des Karten-Sets (mapSetID)",
-        "label_name": "Name"
+        "label_name": "Name",
         "label_numberOfCleanings": "Anzahl der Reinigungsdurchgänge",
         "label_soundID": "ID des Sounds (soundID siehe <a href=\"https://github.com/mrbungle64/ecovacs-deebot.js/wiki/playSound#available-sound-ids\" target=\"_blank\">>hier<</a>)",
         "label_spotAreaID": "ID des Bereichs (spotAreaID)",
