@@ -24,6 +24,7 @@ Available options:
 - "Name" of the Device
 - "Device number" (`0` for the first device)
 - "Connect on startup"
+- "Enable output of simple events"
 
 #### Deebot command
 
