@@ -7,6 +7,14 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Sascha Hölzel",
+    "keywords": [
+      "node-red",
+      "ecovacs",
+      "deebot",
+      "vacuum",
+      "OZMO",
+      "robot"
+    ],
     "license": "GPL-3.0",
     "node-red": {
         "nodes": {
