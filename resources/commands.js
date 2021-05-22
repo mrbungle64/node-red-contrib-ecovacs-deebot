@@ -15,6 +15,7 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["950Type", "laserType"],
         payload: "AddVirtualBoundary"
     },
     "Charge": {
@@ -38,6 +39,7 @@ const commands = {
             required: false,
             type: "number"
         },
+        info: ["laserType"],
         payload: "CustomArea"
     },
     "DeleteVirtualBoundary": {
@@ -56,12 +58,14 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["950Type", "laserType"],
         payload: "DeleteVirtualBoundary"
     },
     "Disconnect": {
         payload: "Disconnect"
     },
     "Edge": {
+        info: ["nonLaserType"],
         payload: "Edge"
     },
     "FindMe": {
@@ -70,6 +74,7 @@ const commands = {
         payload: "PlaySound"
     },
     "GetAutoEmpty": {
+        info: ["suctionStation"],
         payload: "GetAutoEmpty"
     },
     "GetBatteryState": {
@@ -104,6 +109,7 @@ const commands = {
     "GetLifeSpan_main_brush": {
         arg: "main_brush",
         label: "GetLifeSpan (main brush)",
+        info: ["mainBrush"],
         payload: "GetLifeSpan"
     },
     "GetLifeSpan_side_brush": {
@@ -122,12 +128,12 @@ const commands = {
             required: true,
             type: "string"
         },
-        info: "950Type",  // TO-DO: Check infos
+        info: ["950Type", "laserType"],
         payload: "GetMapImage"
     },
     "GetMaps": {
         arg: true,
-        info: ["950Type"],  // TO-DO: Check infos
+        info: ["laserType"],
         payload: "GetMaps"
     },
     "GetNetInfo": {
@@ -146,9 +152,11 @@ const commands = {
     "GetOnOff_silence_voice_report": {
         arg: "silence_voice_report",
         label: "GetOnOff (silence voice report)",
+        info: ["notWorking"],
         payload: "GetOnOff"
     },
     "GetPosition": {
+        info: ["laserType"],
         payload: "GetPosition"
     },
     "GetSleepStatus": {
@@ -165,6 +173,7 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["laserType"],
         payload: "GetSpotAreaInfo"
     },
     "GetSpotAreas": {
@@ -173,6 +182,7 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["laserType"],
         payload: "GetSpotAreas"
     },
     "GetVirtualBoundaries": {
@@ -181,6 +191,7 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["laserType"],
         payload: "GetVirtualBoundaries"
     },
     "GetVirtualBoundaryInfo": {
@@ -199,10 +210,12 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["laserType"],
         payload: "GetVirtualBoundaryInfo"
     },
     "GetVolume": {
         label: "GetVolume",
+        info: ["950Type"],
         payload: "GetVolume"
     },
     "GetWaterBoxInfo": {
@@ -241,6 +254,7 @@ const commands = {
         payload: "PlaySound"
     },
     "Relocate": {
+        info: ["950Type"],
         payload: "Relocate"
     },
     "RenameSpotArea": {
@@ -259,6 +273,7 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["Ozmo930"],
         payload: "RenameSpotArea"
     },
     "ResetLifeSpan_filter": {
@@ -269,6 +284,7 @@ const commands = {
     "ResetLifeSpan_main_brush": {
         arg: "main_brush",
         label: "ResetLifeSpan (main brush)",
+        info: ["mainBrush"],
         payload: "ResetLifeSpan"
     },
     "ResetLifeSpan_side_brush": {
@@ -285,6 +301,7 @@ const commands = {
             required: true,
             type: "number"
         },
+        info: ["suctionStation"],
         payload: "SetAutoEmpty"
     },
     "SetCleanSpeed": {
@@ -323,6 +340,7 @@ const commands = {
             type: "number"
         },
         label: "SetOnOff (silence voice report)",
+        info: ["notWorking"],
         payload: "SetOnOff"
     },
     "SetVolume": {
@@ -331,6 +349,7 @@ const commands = {
             required: true,
             type: "number"
         },
+        info: ["950Type"],
         payload: "SetVolume"
     },
     "SetWaterLevel": {
@@ -339,9 +358,11 @@ const commands = {
             required: true,
             type: "number"
         },
+        info: ["moppingSystem"],
         payload: "SetWaterLevel"
     },
     "Spot": {
+        info: ["nonLaserType"],
         payload: "Spot"
     },
     "SpotArea": {
@@ -351,6 +372,7 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["laserType"],
         payload: "SpotArea"
     },
     "Stop": {
