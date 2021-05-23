@@ -70,6 +70,9 @@ Available options:
 
 ## Changelog
 
+### 0.2.1
+* Device number starts with 1
+
 ### 0.2.0
 * Initial npm release
   * Added a lot of commands and events
