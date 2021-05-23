@@ -136,6 +136,10 @@ const commands = {
         info: ["laserType"],
         payload: "GetMaps"
     },
+    "GetMapsBasic": {
+        info: ["laserType"],
+        payload: "GetMaps"
+    },
     "GetNetInfo": {
         payload: "GetNetInfo"
     },
