@@ -137,7 +137,7 @@ const commands = {
         payload: "GetMaps"
     },
     "GetMapsBasic": {
-        info: ["laserType"],
+        info: ["laserType","enableSimpleEvents"],
         payload: "GetMaps"
     },
     "GetNetInfo": {
@@ -177,7 +177,7 @@ const commands = {
             required: true,
             type: "string"
         },
-        info: ["laserType"],
+        info: ["laserType","enableSimpleEvents"],
         payload: "GetSpotAreaInfo"
     },
     "GetSpotAreas": {
@@ -186,7 +186,7 @@ const commands = {
             required: true,
             type: "string_mapID"
         },
-        info: ["laserType"],
+        info: ["laserType","enableSimpleEvents"],
         payload: "GetSpotAreas"
     },
     "GetVirtualBoundaries": {
@@ -195,7 +195,7 @@ const commands = {
             required: true,
             type: "string_mapID"
         },
-        info: ["laserType"],
+        info: ["laserType","enableSimpleEvents"],
         payload: "GetVirtualBoundaries"
     },
     "GetVirtualBoundaryInfo": {
@@ -214,7 +214,7 @@ const commands = {
             required: true,
             type: "string_boundaryType"
         },
-        info: ["laserType"],
+        info: ["laserType","enableSimpleEvents"],
         payload: "GetVirtualBoundaryInfo"
     },
     "GetVolume": {

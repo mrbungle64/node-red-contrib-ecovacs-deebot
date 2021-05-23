@@ -63,6 +63,7 @@
         "info_moppingSystem": "Models with mopping system only",
         "info_suctionStation": "Models with suction station only",
         "info_experimental": "Experimental",
+        "info_enableSimpleEvents": "'Enable output of simple events' must be enabled",
         "info_notWorking": "Not supported by most models",
         "info_worksOnlyOnce": "Works only once in sequence",
         "label_areas": "Areas",
