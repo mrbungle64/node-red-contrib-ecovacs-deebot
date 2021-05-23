@@ -17,7 +17,7 @@ This node uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-dee
 First you have to configure the Ecovacs account:
 - "Email / Ecovacs ID"
 - "Password"
-- "Country code" (e.g. `DE`, `UK`, `US`, `WW`)
+- "Country code" (see [here](https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot/wiki/Country-codes) for a list of country codes)
 
 ### Available nodes
 
