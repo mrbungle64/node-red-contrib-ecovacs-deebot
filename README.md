@@ -66,10 +66,10 @@ Available options:
 
 ## Changelog
 
-### 0.2.0-alpha
+### 0.2.0
 * Initial npm release
   * Added a lot of commands and events
-  * Using library version 0.6.1-alpha
+  * Using library version 0.6.1-alpha.6
   * (unclej84) Added Multi-language support
   * (unclej84) A lot of improvements for the node editor
   * (unclej84) Use credentials for account data
