@@ -70,6 +70,9 @@ Available options:
 
 ## Changelog
 
+### 0.2.2
+* Some minor fixes and improvements
+
 ### 0.2.1
 * Device number starts with 1
 
