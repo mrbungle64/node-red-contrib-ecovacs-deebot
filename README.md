@@ -22,7 +22,7 @@ First you have to configure the Ecovacs account:
 Available options: 
 - Ecovacs "Account"
 - "Name" of the Device
-- "Device number" (`0` for the first device)
+- "Device number"
 - "Connect on startup"
 - "Enable output of simple events"
 

@@ -14,8 +14,8 @@
             },
             deviceNumber: {
                 required: true,
-                validate: RED.validators.regex(/^[0-9]{1,2}$/),
-                value: "0"
+                validate: RED.validators.regex(/^[1-9][0-9]?$/),
+                value: "1"
             },
             connectOnStartup: {
                 value: false,

@@ -13,15 +13,16 @@ module.exports = function (RED) {
             text: 'Connecting...',
         });
 
+        const deviceNumber = node.config.deviceNumber - 1
         const password_hash = EcoVacsAPI.md5(node.account.password);
-        const device_id = EcoVacsAPI.getDeviceId(nodeMachineId.machineIdSync(), node.config.deviceNumber);
+        const device_id = EcoVacsAPI.getDeviceId(nodeMachineId.machineIdSync(), deviceNumber);
         const countryCode = node.account.countryCode.toLowerCase();
         const continent = countries[countryCode.toUpperCase()].continent.toLowerCase();
 
         let api = new EcoVacsAPI(device_id, countryCode, continent);
         api.connect(node.account.email, password_hash).then(() => {
             api.devices().then((devices) => {
-                let vacuum = devices[node.config.deviceNumber];
+                let vacuum = devices[deviceNumber];
                 node.vacbot = api.getVacBot(api.uid, EcoVacsAPI.REALM, api.resource, api.user_access_token, vacuum, continent);
                 node.vacbot.on('ready', (event) => {
                     node.status({
