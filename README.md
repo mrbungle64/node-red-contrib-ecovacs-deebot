@@ -4,7 +4,7 @@
 [![npm](http://img.shields.io/npm/v/node-red-contrib-ecovacs-deebot.svg)](https://www.npmjs.com/package/node-red-contrib-ecovacs-deebot)
 [![npm](https://img.shields.io/npm/dm/node-red-contrib-ecovacs-deebot.svg)](https://www.npmjs.com/package/node-red-contrib-ecovacs-deebot)
 [![npm](https://img.shields.io/npm/dt/node-red-contrib-ecovacs-deebot.svg)](https://www.npmjs.com/package/node-red-contrib-ecovacs-deebot)
-[![Dependency Status](https://img.shields.io/david/mrbungle64/node-red-contrib-ecovacs-deebot.svg)](https://david-dm.org/mrbungle64/node-red-contrib-ecovacs-deebot.js)
+[![Dependency Status](https://img.shields.io/david/mrbungle64/node-red-contrib-ecovacs-deebot.svg)](https://david-dm.org/mrbungle64/node-red-contrib-ecovacs-deebot)
 
 Node-RED node for running Ecovacs Deebot vacuum cleaner robots
 
