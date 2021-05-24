@@ -61,8 +61,28 @@ const commands = {
         info: ["950Type", "laserType"],
         payload: "DeleteVirtualBoundary"
     },
+    "DisableDoNotDisturb": {
+        arg: 0,
+        info: ["950Type"],
+        payload: "DoNotDisturb"
+    },
     "Disconnect": {
         payload: "Disconnect"
+    },
+    "EnableDoNotDisturb": {
+        arg: 1,
+        arg2: {
+            name: "timeStart",
+            required: false,
+            type: "time"
+        },
+        arg3: {
+            name: "timeEnd",
+            required: false,
+            type: "string"
+        },
+        info: ["950Type"],
+        payload: "DoNotDisturb"
     },
     "Edge": {
         info: ["nonLaserType"],
@@ -328,6 +348,7 @@ const commands = {
             type: "number_on_off"
         },
         label: "SetOnOff (continuous cleaning)",
+        info: ["info_Non950Type"],
         payload: "SetOnOff"
     },
     "SetOnOff_do_not_disturb": {
@@ -338,6 +359,7 @@ const commands = {
             type: "number_on_off"
         },
         label: "SetOnOff (do not disturb)",
+        info: ["info_Non950Type"],
         payload: "SetOnOff"
     },
     "SetOnOff_silence_voice_report": {
@@ -492,6 +514,10 @@ function isValidArg(command, argNumber, argValue) {
             break;
         case "volume":
             myRegEx = new RegExp('^(\\d|10)$');
+            break;
+        case "timeStart":
+        case "timeEnd":
+            myRegEx = new RegExp('^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$');
             break;
         default:
             switch (getArgType(command, argNumber)) {
