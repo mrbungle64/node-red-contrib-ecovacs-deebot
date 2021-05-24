@@ -1,3 +1,50 @@
 <script type="text/html" data-help-name="ecovacs-deebot-command">
-    <p>Node for sending commands to Ecovacs Deebot node</p>
+    <p>Node for sending commands to Ecovacs Deebot node.</p>
+
+    <h3>Inputs</h3>
+        <dl class="message-properties">
+            <dt class="optional">payload
+                <span class="property-type">any | none</span>
+            </dt>
+            <dd>The input of the node is just used as trigger and does not
+                expect any data to be passed.</dd>
+        </dl>
+
+    <h3>Outputs</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">string</span>
+            </dt>
+            <dd>The command, which shall be send to the vacuum cleaning robot.</dd>
+            <dt class="optional">arg
+                <span class="property-type">boolean | number | string</span>
+            </dt>
+            <dd>Depending on the chosen command the first argument of the
+                command which shall be passed.</dd>
+            <dt class="optional">arg2
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Depending on the chosen command the second argument of the
+                command which shall be passed.</dd>
+            <dt class="optional">arg3
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Depending on the chosen command the third argument of the
+                command which shall be passed.</dd>
+        </dl>
+
+    <h3>Details</h3>
+        <p>The incoming <code>msg</code> is used to trigger the output of the
+        command including its parameters, which are configured in the node
+        interface. This output can be directly injected into an
+        <span style="background-color:Gainsboro">ecovacs-deebot</span>-node</p>
+        <p>Depending on the selected command, the node provides input fields
+        for the required parameters.</p>
+        <p>IMPORTANT: The inputs are not passed to the output!</p>
+
+    <h3>References</h3>
+        <ul>
+            <li><a href="https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot" target="_blank" alt="GitHub repository of node-red-contrib-ecovacs-deebot">GitHub</a> - the nodes github repository</li>
+            <li><a href="https://github.com/mrbungle64/ecovacs-deebot.js/wiki" target="_blank" alt="GitHub Wiki of ecovacs-deebot.js">ecovacs-deebot.js GitHub Wiki</a> - full description of the underlying library</li>
+        </ul>
 </script>

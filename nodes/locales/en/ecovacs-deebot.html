@@ -1,3 +1,59 @@
 <script type="text/html" data-help-name="ecovacs-deebot">
-    <p>Node for running Ecovacs Deebot vacuum cleaner robots</p>
+    <p>Node for running Ecovacs Deebot vacuum cleaner robots.</p>
+
+    <h3>Inputs</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">string</span>
+            </dt>
+            <dd>The command, which shall be send to the vacuum cleaning robot.</dd>
+            <dt class="optional">arg
+                <span class="property-type">boolean | number | string</span>
+            </dt>
+            <dd>Depending on the chosen command the first argument of the
+                command which shall be passed.</dd>
+            <dt class="optional">arg2
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Depending on the chosen command the second argument of the
+                command which shall be passed.</dd>
+            <dt class="optional">arg3
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Depending on the chosen command the third argument of the
+                command which shall be passed.</dd>
+        </dl>
+
+    <h3>Outputs</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">obejct</span>
+            </dt>
+            <dd>The events / status messages received from the vacuum cleaning
+                robot</dd>
+        </dl>
+
+    <h3>Details</h3>
+        <p><code>msg.payload</code> can be chosen from a list of available
+        commands, which are provided by the underlying library.
+        Depending on the model of the vacuum cleaning robot, not all commands
+        are fully supported.</p>
+        <p>Depending on the command used, additional parameters need to be
+        passed.</p>
+        <p>This has to be done by the use of <code>msg.arg</code>,
+        <code>msg.arg2</code> as well as <code>msg.arg3</code>.</p>
+        <p>An overview of the existing commands as well as their required
+        parameters can be found in the wiki of the underlying library, which is
+        listed under references below.</p>
+        <p>For easier use, the
+        <span style="background-color:Gainsboro">deebot-command</span>-node
+        should be used, which provides an interface for the selection of
+        available commands as well as the input of required parameters.</p>
+        <p>IMPORTANT: The inputs are not passed to the output!</p>
+
+    <h3>References</h3>
+        <ul>
+            <li><a href="https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot" target="_blank" alt="GitHub repository of node-red-contrib-ecovacs-deebot">GitHub</a> - the nodes github repository</li>
+            <li><a href="https://github.com/mrbungle64/ecovacs-deebot.js/wiki" target="_blank" alt="GitHub Wiki of ecovacs-deebot.js">ecovacs-deebot.js GitHub Wiki</a> - full description of the underlying library</li>
+        </ul>
 </script>
