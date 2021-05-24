@@ -70,6 +70,9 @@ Available options:
 
 ## Changelog
 
+### 0.2.3
+* (unclej84) Help texts for display in editor sidebar
+
 ### 0.2.2
 * Some minor fixes and improvements
 
