@@ -102,7 +102,7 @@
         "SetAutoEmpty": "Set auto empty",
         "SetCleanSpeed": "Set vacuum power level",
         "SetOnOff_continuous_cleaning": "Set continuous cleaning mode",
-        "SetOnOff_do_not_disturb": "Set do not disturb mode",
+        "SetOnOff_do_not_disturb": "Set do-not-disturb mode (legacy models)",
         "SetOnOff_silence_voice_report": "Set silence voice report",
         "SetVolume": "Set volume",
         "SetWaterLevel": "Set water level",
