@@ -301,7 +301,7 @@ const commands = {
             required: true,
             type: "string"
         },
-        info: ["Ozmo930"],
+        info: ["ozmo930"],
         payload: "RenameSpotArea"
     },
     "ResetLifeSpan_filter": {
@@ -348,7 +348,7 @@ const commands = {
             type: "number_on_off"
         },
         label: "SetOnOff (continuous cleaning)",
-        info: ["info_Non950Type"],
+        info: ["non950Type"],
         payload: "SetOnOff"
     },
     "SetOnOff_do_not_disturb": {
@@ -359,7 +359,7 @@ const commands = {
             type: "number_on_off"
         },
         label: "SetOnOff (do not disturb)",
-        info: ["info_Non950Type"],
+        info: ["non950Type"],
         payload: "SetOnOff"
     },
     "SetOnOff_silence_voice_report": {
