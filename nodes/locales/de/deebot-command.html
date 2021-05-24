@@ -1,3 +1,52 @@
 <script type="text/html" data-help-name="ecovacs-deebot-command">
-    <p>Node zum Senden von Befehlen an die Ecovacs Deebot Node</p>
+    <p>Node zum Senden von Befehlen an die Ecovacs Deebot Node.</p>
+
+    <h3>Eingangsdaten</h3>
+        <dl class="message-properties">
+            <dt class="optional">payload
+                <span class="property-type">any | none</span>
+            </dt>
+            <dd>Der Eingang der Node wird nur als Auslöser verwendet und
+                erwartet keinerlei Daten.</dd>
+        </dl>
+
+    <h3>Ausgangsdaten</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">string</span>
+            </dt>
+            <dd>Der Befehl, welcher an den Staubsauger-Roboter gesendet werden
+                soll.</dd>
+            <dt class="optional">arg
+                <span class="property-type">boolean | number | string</span>
+            </dt>
+            <dd>Abhängig vom gewählten Befehl das erste Argument des Befehls,
+                welches gesendet werden soll.</dd>
+            <dt class="optional">arg2
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Abhängig vom gewählten Befehl das zweite Argument des Befehls,
+                welches gesendet werden soll.</dd>
+            <dt class="optional">arg3
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Abhängig vom gewählten Befehl das dritte Argument des Befehls,
+                welches gesendet werden soll.</dd>
+        </dl>
+
+    <h3>Details</h3>
+        <p>Die eingehende <code>msg</code> wird verwendet um den, über die
+        Oberfläche der Node konfigurieren, Befehl mitsamt seiner Parameter
+        auszugeben. Diese kann direkt in eine
+        <span style="background-color:Gainsboro">ecovacs-deebot</span>-Node
+        injeziert werden.</p>
+        <p>Je nach gewähltem Befehl, stellt die Node Eingabefelder für die
+        erforderlichen Parameter bereit.</p>
+        <p>WICHTIG: Die Eingangsdaten werden nicht an den Ausgang weitergegeben!</p>
+
+    <h3>References</h3>
+        <ul>
+            <li><a href="https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot" target="_blank" alt="GitHub Repository von node-red-contrib-ecovacs-deebot">GitHub</a> - das GitHub Repository der Node</li>
+            <li><a href="https://github.com/mrbungle64/ecovacs-deebot.js/wiki" target="_blank" alt="GitHub Wiki von ecovacs-deebot.js">ecovacs-deebot.js GitHub Wiki</a> - volle Beschreibung der zugrundeliegenden Bibliothek</li>
+        </ul>
 </script>

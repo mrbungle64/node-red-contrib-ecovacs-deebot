@@ -1,3 +1,59 @@
 <script type="text/html" data-help-name="ecovacs-deebot">
-    <p>Node zum Betreiben eines Ecovacs Deebot Staubsauger-Roboters</p>
+    <p>Node zum Betreiben eines Ecovacs Deebot Staubsauger-Roboters.</p>
+
+    <h3>Eingangsdaten</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">string</span>
+            </dt>
+            <dd>Der Befehl, welcher an den Staubsauger-Roboter gesendet werden
+                soll.</dd>
+            <dt class="optional">arg
+                <span class="property-type">boolean | number | string</span>
+            </dt>
+            <dd>Abhängig vom gewählten Befehl das erste Argument des Befehls,
+                welches gesendet werden soll.</dd>
+            <dt class="optional">arg2
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Abhängig vom gewählten Befehl das zweite Argument des Befehls,
+                welches gesendet werden soll.</dd>
+            <dt class="optional">arg3
+                <span class="property-type">number | string</span>
+            </dt>
+            <dd>Abhängig vom gewählten Befehl das dritte Argument des Befehls,
+                welches gesendet werden soll.</dd>
+        </dl>
+
+    <h3>Ausgangsdaten</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">obejct</span>
+            </dt>
+            <dd>Die vom Staubsauger-Roboter gesendeten Events /
+                Statusmeldungen.</dd>
+        </dl>
+
+    <h3>Details</h3>
+        <p><code>msg.payload</code> kann aus einer Liste verfügbarer Befehle,
+        welche die verwendete Bibliothek zur Verfügung stellt, gewählt werden.
+        Abhängig vom Modell des Staubsauger-Roboters werden nicht alle Befehle
+        unterstützt.</p>
+        <p>Je nach verwendetem Befehl müssen weitere Parameter übergeben werden.</p>
+        <p>Dies erfolgt durch die zusätzliche Verwendung von <code>msg.arg</code>,
+        <code>msg.arg2</code> sowie <code>msg.arg3</code>.</p>
+        <p>Eine Übersicht der Befehle sowie der benötigten Parameter finden sich
+        im Wiki der zugrundeliegenden Bibliothek, welches unter den Referenzen
+        verlinkt ist.</p>
+        <p>Zur einfacheren Verwendung, sollte die
+        <span style="background-color:Gainsboro">deebot-command</span>-Node
+        verwendet werden, welche eine Oberfläche zur Auswahl der verfügbaren
+        Befehle sowie der Eingabe der erforderlichen Parameter bereit stellt.</p>
+        <p>WICHTIG: Die Eingangsdaten werden nicht an den Ausgang weitergegeben!</p>
+
+    <h3>References</h3>
+        <ul>
+            <li><a href="https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot" target="_blank" alt="GitHub Repository von node-red-contrib-ecovacs-deebot">GitHub</a> - das GitHub Repository der Node</li>
+            <li><a href="https://github.com/mrbungle64/ecovacs-deebot.js/wiki" target="_blank" alt="GitHub Wiki von ecovacs-deebot.js">ecovacs-deebot.js GitHub Wiki</a> - volle Beschreibung der zugrundeliegenden Bibliothek</li>
+        </ul>
 </script>
