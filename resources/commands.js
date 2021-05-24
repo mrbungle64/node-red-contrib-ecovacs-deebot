@@ -64,7 +64,7 @@ const commands = {
     "DisableDoNotDisturb": {
         arg: 0,
         info: ["950Type"],
-        payload: "DoNotDisturb"
+        payload: "SetDoNotDisturb"
     },
     "Disconnect": {
         payload: "Disconnect"
@@ -73,16 +73,16 @@ const commands = {
         arg: 1,
         arg2: {
             name: "timeStart",
-            required: false,
+            required: true,
             type: "time"
         },
         arg3: {
             name: "timeEnd",
-            required: false,
+            required: true,
             type: "string"
         },
         info: ["950Type"],
-        payload: "DoNotDisturb"
+        payload: "SetDoNotDisturb"
     },
     "Edge": {
         info: ["nonLaserType"],
