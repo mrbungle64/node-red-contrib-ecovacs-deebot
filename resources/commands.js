@@ -62,27 +62,25 @@ const commands = {
         payload: "DeleteVirtualBoundary"
     },
     "DisableDoNotDisturb": {
-        arg: 0,
         info: ["950Type"],
-        payload: "SetDoNotDisturb"
+        payload: "DisableDoNotDisturb"
     },
     "Disconnect": {
         payload: "Disconnect"
     },
     "EnableDoNotDisturb": {
-        arg: 1,
-        arg2: {
+        arg: {
             name: "timeStart",
             required: true,
             type: "time"
         },
-        arg3: {
+        arg2: {
             name: "timeEnd",
             required: true,
             type: "string"
         },
         info: ["950Type"],
-        payload: "SetDoNotDisturb"
+        payload: "EnableDoNotDisturb"
     },
     "Edge": {
         info: ["nonLaserType"],
