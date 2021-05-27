@@ -70,6 +70,10 @@ Available options:
 
 ## Changelog
 
+### 0.2.4
+* Using library version 0.6.1-alpha.9
+* Added EnableDoNotDisturb and DisableDoNotDisturb commands (950 type models)
+
 ### 0.2.3
 * (unclej84) Help texts for display in editor sidebar
 
