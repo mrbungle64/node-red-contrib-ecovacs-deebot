@@ -45,6 +45,8 @@ Available options:
 * Deebot OZMO 920/950
 * Deebot T9 series
 
+The models listed are those that we use ourselves or are technically identical to these.
+
 ### These models should work properly or at least partially
 
 * Deebot Slim 2
@@ -61,6 +63,8 @@ Available options:
 * Deebot N7
 * Deebot N8 series
 * Deebot (OZMO) T8 series
+
+The models listed are either already known to work or are technically similar to these models. Nevertheless, the functionality may be partially limited.
 
 ## Known issues
 
