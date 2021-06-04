@@ -521,7 +521,7 @@ function isValidArg(command, argNumber, argValue) {
             switch (getArgType(command, argNumber)) {
                 default:
                 case "string":
-                    myRegEx = new RegExp('^[a-zA-Z\\d]+$');
+                    myRegEx = new RegExp('^[a-zA-Z\\d_]+$');
                     break;
                 case "number":
                     myRegEx = new RegExp('^\\d+$');
