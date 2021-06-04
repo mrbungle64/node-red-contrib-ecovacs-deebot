@@ -3,6 +3,7 @@ module.exports = function (RED) {
     const EcoVacsAPI = library.EcoVacsAPI;
     const nodeMachineId = require('node-machine-id');
     const countries = library.countries;
+    const packageInfo = require('../package.json');
 
     function connect(node) {
         node.vacbot = null;
@@ -29,6 +30,20 @@ module.exports = function (RED) {
                         fill: 'green',
                         shape: 'dot',
                         text: 'Connected',
+                    });
+
+                    const nickname = vacuum.nick ? vacuum.nick : 'New Device ' + this.deviceNumber;
+                    node.send({
+                        payload: {
+                            "type": "info",
+                            "value": {
+                                "nickname": nickname,
+                                "version": packageInfo.version,
+                                "libraryVersion": api.getVersion(),
+                                "deviceClass": node.vacbot.deviceClass,
+                                "deviceModel": node.vacbot.deviceModel
+                            }
+                        }
                     });
 
                     node.vacbot.run('GetBatteryState');
