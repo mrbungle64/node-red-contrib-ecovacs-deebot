@@ -71,8 +71,14 @@ The models listed are either already known to work or are technically similar to
 * There's a strange behavior of the battery value on Deebot 900/901. It's very likely that this is a firmware bug
 * Some cleaning commands may not work with Deebot 710/711/711s
 * "Edge" command does not work with Deebot U2 (starts auto clean instead)
+* The cleaning log has an empty result on T9 series
+* The combined map data object does not work with T9 series
 
 ## Changelog
+
+### 0.2.5
+* Using library version 0.6.1-alpha.11
+* Some minor changes and fixes
 
 ### 0.2.4
 * Using library version 0.6.1-alpha.9
