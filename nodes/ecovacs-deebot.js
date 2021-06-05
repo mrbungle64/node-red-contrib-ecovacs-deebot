@@ -57,6 +57,7 @@ module.exports = function (RED) {
                     if (node.vacbot.hasSpotAreas()) {
                         node.vacbot.run('GetPosition');
                         node.vacbot.run('GetChargerPos');
+                        node.vacbot.run('GetMaps', true);
                     }
                     if (node.vacbot.hasMoppingSystem()) {
                         node.vacbot.run('GetWaterBoxInfo');
