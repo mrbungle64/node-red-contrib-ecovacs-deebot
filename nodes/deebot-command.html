@@ -1,303 +1,313 @@
-<script src="resources/node-red-contrib-ecovacs-deebot/commands.js"></script>
 <script type="text/javascript">
-    RED.nodes.registerType('ecovacs-deebot-command', {
-        paletteLabel: 'Deebot command',
-        category: 'ecovacs-deebot',
-        color: '#1E90FF',
-        defaults: {
-            name: {
-                required: false,
-                value: ""
-            },
-            command: {
-                required: true,
-                value: ""
-            },
-            arg: {
-                validate: function() {
-                    return isValidArg($('#node-input-command').val(), 1, $('#node-input-arg').val())
+    const script = document.createElement('script');
+    if (RED.settings.version.substring(0, 3) >= "1.3") {
+        script.src = 'resources/node-red-contrib-ecovacs-deebot/commands.js';
+    } else {
+        script.src = 'deebot-command/commands.js';
+    }
+    document.head.appendChild(script);
+    script.addEventListener('load', function() {
+        RED.nodes.registerType('ecovacs-deebot-command', {
+            paletteLabel: 'Deebot command',
+            category: 'ecovacs-deebot',
+            color: '#1E90FF',
+            defaults: {
+                name: {
+                    required: false,
+                    value: ""
                 },
-                value: ""
-            },
-            arg2: {
-                validate: function() {
-                    return isValidArg($('#node-input-command').val(), 2, $('#node-input-arg2').val())
+                command: {
+                    required: true,
+                    value: ""
                 },
-                value: ""
-            },
-            arg3: {
-                validate: function() {
-                    return isValidArg($('#node-input-command').val(), 3, $('#node-input-arg3').val())
+                arg: {
+                    validate: function() {
+                        return isValidArg($('#node-input-command').val(), 1, $('#node-input-arg').val())
+                    },
+                    value: ""
                 },
-                value: ""
-            }
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "file.png",
-        label: function () {
-            if (this.name) {
-                return this.name;
-            }
-            if (isTranslationAvailable(this, this.command)) {
-                return getTranslation(this, this.command);
-            }
-            return commands[this.command].label ||
-                    this.command ||
-                    "ecovacs-deebot-command";
-        },
-        oneditprepare: function () {
-            var node = this;
-            var inputName = '#node-input-arg';
-            var labelSuffix = '-row label';
-
-            if (node.name) {
-                $('#node-input-name').val(node.name);
-            }
-            $("#node-input-name").typedInput({
-                type:"str",
-                types:["str"]
-            });
-
-            if (node.command) {
-                $('#node-input-command').val(node.command);
-            }
-
-            if (node.arg) {
-                $(inputName).val(node.arg);
-            }
-            $(inputName).typedInput({
-                type:"str",
-                types:["str"]
-            });
-
-            if (node.arg2) {
-                $(inputName + '2').val(node.arg2);
-            }
-            $(inputName + '2').typedInput({
-                type:"str",
-                types:["str"]
-            });
-
-            if (node.arg3) {
-                $(inputName + '3').val(node.arg3);
-            }
-            $(inputName + '3').typedInput({
-                type:"str",
-                types:["str"]
-            });
-
-            $('#node-input-command').change(function () {
-                var selectedCommand = $('#node-input-command').val();
-
-                if (! isValidCommand(selectedCommand)) {
-                    resetArg(1);
-                    resetArg(2);
-                    resetArg(3);
-                    hideDescription();
-                    return;
+                arg2: {
+                    validate: function() {
+                        return isValidArg($('#node-input-command').val(), 2, $('#node-input-arg2').val())
+                    },
+                    value: ""
+                },
+                arg3: {
+                    validate: function() {
+                        return isValidArg($('#node-input-command').val(), 3, $('#node-input-arg3').val())
+                    },
+                    value: ""
                 }
-                setArgs(selectedCommand, 3);
-                setArgs(selectedCommand, 2);
-                setArgs(selectedCommand, 1);
-                var additional_output = "";
-                if (isTranslationAvailable(node, "description_" + selectedCommand)) {
-                    additional_output = getTranslation(node, "description_" + selectedCommand);
+            },
+            inputs: 1,
+            outputs: 1,
+            icon: "file.png",
+            label: function () {
+                if (this.name) {
+                    return this.name;
                 }
-                if (additional_output !== "") {
-                    additional_output = additional_output + "<br />";
+                if (isTranslationAvailable(this, this.command)) {
+                    return getTranslation(this, this.command);
                 }
-                if (commands[selectedCommand].hasOwnProperty("info")) {
-                    var infos = commands[selectedCommand]["info"];
-                    if (Array.isArray(infos)){
-                        infos.forEach(function(info) {
-                            if (isTranslationAvailable(node, "info_" + info)) {
+                return commands[this.command].label ||
+                        this.command ||
+                        "ecovacs-deebot-command";
+            },
+            oneditprepare: function () {
+                var node = this;
+                var inputName = '#node-input-arg';
+                var labelSuffix = '-row label';
+
+                if (node.name) {
+                    $('#node-input-name').val(node.name);
+                }
+                $("#node-input-name").typedInput({
+                    type:"str",
+                    types:["str"]
+                });
+
+                if (node.command) {
+                    $('#node-input-command').val(node.command);
+                }
+
+                if (node.arg) {
+                    $(inputName).val(node.arg);
+                }
+                $(inputName).typedInput({
+                    type:"str",
+                    types:["str"]
+                });
+
+                if (node.arg2) {
+                    $(inputName + '2').val(node.arg2);
+                }
+                $(inputName + '2').typedInput({
+                    type:"str",
+                    types:["str"]
+                });
+
+                if (node.arg3) {
+                    $(inputName + '3').val(node.arg3);
+                }
+                $(inputName + '3').typedInput({
+                    type:"str",
+                    types:["str"]
+                });
+
+                $('#node-input-command').change(function () {
+                    var selectedCommand = $('#node-input-command').val();
+
+                    if (! isValidCommand(selectedCommand)) {
+                        resetArg(1);
+                        resetArg(2);
+                        resetArg(3);
+                        hideDescription();
+                        return;
+                    }
+                    setArgs(selectedCommand, 3);
+                    setArgs(selectedCommand, 2);
+                    setArgs(selectedCommand, 1);
+                    var additional_output = "";
+                    if (isTranslationAvailable(node, "description_" + selectedCommand)) {
+                        additional_output = getTranslation(node, "description_" + selectedCommand);
+                    }
+                    if (additional_output !== "") {
+                        additional_output = additional_output + "<br />";
+                    }
+                    if (commands[selectedCommand].hasOwnProperty("info")) {
+                        var infos = commands[selectedCommand]["info"];
+                        if (Array.isArray(infos)){
+                            infos.forEach(function(info) {
+                                if (isTranslationAvailable(node, "info_" + info)) {
+                                    if (additional_output !== "") {
+                                        additional_output = additional_output + "<br />";
+                                    }
+                                    additional_output = additional_output + getTranslation(node, "info_" + info);
+                                }
+                            });
+                        }
+                        if (typeof infos === "string"){
+                            if (isTranslationAvailable(node, "info_" + infos)) {
                                 if (additional_output !== "") {
                                     additional_output = additional_output + "<br />";
                                 }
-                                additional_output = additional_output + getTranslation(node, "info_" + info);
+                                additional_output = getTranslation(node, "info_" + infos);
                             }
-                        });
-                    }
-                    if (typeof infos === "string"){
-                        if (isTranslationAvailable(node, "info_" + infos)) {
-                            if (additional_output !== "") {
-                                additional_output = additional_output + "<br />";
-                            }
-                            additional_output = getTranslation(node, "info_" + infos);
                         }
                     }
+                    if (additional_output !== "") {
+                        $('#node-input-description').html(additional_output);
+                        $('#form-tips').show();
+
+                    } else {
+                        hideDescription();
+                    }
+                });
+
+                function hideDescription() {
+                    $('#form-tips').hide();
+                    $('#node-input-description').html("");
                 }
-                if (additional_output !== "") {
-                    $('#node-input-description').html(additional_output);
-                    $('#form-tips').show();
 
-                } else {
-                    hideDescription();
-                }
-            });
+                function setArgs(myCommand, argNumber) {
+                    if (!(isValidArgNumber(argNumber))) { return; }
 
-            function hideDescription() {
-                $('#form-tips').hide();
-                $('#node-input-description').html("");
-            }
-
-            function setArgs(myCommand, argNumber) {
-                if (!(isValidArgNumber(argNumber))) { return; }
-
-                if (hasArg(myCommand, argNumber)) {
-                    var suffix = getSuffix(argNumber);
-                    if (isArgRequired(myCommand, argNumber, true)) {
-                        if (commands[myCommand]['arg' + suffix].hasOwnProperty('name')) {
-                            setLabel(argNumber, commands[myCommand]['arg' + suffix]['name']);
+                    if (hasArg(myCommand, argNumber)) {
+                        var suffix = getSuffix(argNumber);
+                        if (isArgRequired(myCommand, argNumber, true)) {
+                            if (commands[myCommand]['arg' + suffix].hasOwnProperty('name')) {
+                                setLabel(argNumber, commands[myCommand]['arg' + suffix]['name']);
+                            } else {
+                                setLabel(argNumber);
+                            }
+                            if (myCommand !== node.command) {
+                                $(inputName + suffix).typedInput('value', '');
+                                $(inputName + suffix).val('');
+                            }
+                            $(inputName + suffix).show();
+                            $(inputName + suffix + "-row").show();
+                            setTypedInput(myCommand, argNumber);
                         } else {
+                            setTypedInput(myCommand, argNumber);
+                            $(inputName + suffix).typedInput('value', commands[myCommand]['arg' + suffix]);
+                            $(inputName + suffix).val(commands[myCommand]['arg' + suffix]);
+                            $(inputName + suffix).hide();
+                            $(inputName + suffix + "-row").hide();
                             setLabel(argNumber);
                         }
-                        if (myCommand !== node.command) {
-                            $(inputName + suffix).typedInput('value', '');
-                            $(inputName + suffix).val('');
-                        }
-                        $(inputName + suffix).show();
-                        $(inputName + suffix + "-row").show();
-                        setTypedInput(myCommand, argNumber);
                     } else {
-                        setTypedInput(myCommand, argNumber);
-                        $(inputName + suffix).typedInput('value', commands[myCommand]['arg' + suffix]);
-                        $(inputName + suffix).val(commands[myCommand]['arg' + suffix]);
-                        $(inputName + suffix).hide();
-                        $(inputName + suffix + "-row").hide();
-                        setLabel(argNumber);
+                        resetArg(argNumber);
                     }
-                } else {
-                    resetArg(argNumber);
-                }
-            }
-
-            function setLabel(argNumber, value = "") {
-                if (! isValidArgNumber(argNumber)) { return; }
-
-                if (value == "") {
-                    value = 'Argument ' + argNumber;
                 }
 
-                var suffix = getSuffix(argNumber);
-                $(inputName + suffix + labelSuffix + " span").html(getTranslation(node, "label_" + value));
-            }
+                function setLabel(argNumber, value = "") {
+                    if (! isValidArgNumber(argNumber)) { return; }
 
-            function setTypedInput(command, argNumber) {
-                if (! isValidArgNumber(argNumber)) { return; }
+                    if (value == "") {
+                        value = 'Argument ' + argNumber;
+                    }
 
-                if (hasArg(command, argNumber)) {
                     var suffix = getSuffix(argNumber);
-                    if (commands[command]['arg' + suffix].hasOwnProperty('type')) {
-                        var type = "";
-                        var typeDefinition = "";
-                        switch (commands[command]['arg' + suffix]['type']) {
-                            case "boolean":
-                                type = "bool";
-                                break;
-                            case "number":
-                                type = "num";
-                                break;
-                            case "number_cleanings":
-                                type = "number_cleanings";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "number",
-                                    icon: "red/images/typedInput/09.png",
-                                    options: ["1", "2"]
-                                };
-                                break;
-                            case "number_level":
-                                type = "number_level";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "number",
-                                    icon: "red/images/typedInput/09.png",
-                                    options: ["1", "2", "3", "4"]
-                                };
-                                break;
-                            case "number_on_off":
-                                type = "number_on_off";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "number",
-                                    icon: "red/images/typedInput/09.png",
-                                    options: ["0", "1"]
-                                };
-                                break;
-                            case "number_volume":
-                                type = "number_volume";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "number",
-                                    icon: "red/images/typedInput/09.png",
-                                    options: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-                                };
-                                break;
-                            default:
-                            case "string":
-                                type = "str";
-                                break;
-                            case "string_boundaryType":
-                                type = "string_boundaryType";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "string",
-                                    icon: "red/images/typedInput/az.png",
-                                    options: ["vw","mw"]
-                                };
-                                break;
-                            case "string_mapID":
-                                type = "string_mapID";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "str",
-                                    icon: "red/images/typedInput/09.png"
-                                };
-                                break;
-                            case "string_mapinfotype":
-                                type = "string_mapinfotype";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "string",
-                                    icon: "red/images/typedInput/az.png",
-                                    options: ["outline","wifiHeatMap"]
-                                };
-                                break;
-                            case "time":
-                                type = "time";
-                                typeDefinition = {
-                                    value: type,
-                                    label: "string",
-                                    icon: "red/images/typedInput/az.png"
-                                };
-                                break;
-                        }
-                        if (type !== "" && typeDefinition === ""){
-                            $(inputName + suffix).typedInput('type', type);
-                            $(inputName + suffix).typedInput('types', [type]);
-                        }
-                        if (type !== "" && typeDefinition !== ""){
-                            $(inputName + suffix).typedInput('type', typeDefinition.value);
-                            $(inputName + suffix).typedInput('types', [typeDefinition]);
+                    $(inputName + suffix + labelSuffix + " span").html(getTranslation(node, "label_" + value));
+                }
+
+                function setTypedInput(command, argNumber) {
+                    if (! isValidArgNumber(argNumber)) { return; }
+
+                    if (hasArg(command, argNumber)) {
+                        var suffix = getSuffix(argNumber);
+                        if (commands[command]['arg' + suffix].hasOwnProperty('type')) {
+                            var type = "";
+                            var typeDefinition = "";
+                            switch (commands[command]['arg' + suffix]['type']) {
+                                case "boolean":
+                                    type = "bool";
+                                    break;
+                                case "number":
+                                    type = "num";
+                                    break;
+                                case "number_cleanings":
+                                    type = "number_cleanings";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "number",
+                                        icon: "red/images/typedInput/09.png",
+                                        options: ["1", "2"]
+                                    };
+                                    break;
+                                case "number_level":
+                                    type = "number_level";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "number",
+                                        icon: "red/images/typedInput/09.png",
+                                        options: ["1", "2", "3", "4"]
+                                    };
+                                    break;
+                                case "number_on_off":
+                                    type = "number_on_off";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "number",
+                                        icon: "red/images/typedInput/09.png",
+                                        options: ["0", "1"]
+                                    };
+                                    break;
+                                case "number_volume":
+                                    type = "number_volume";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "number",
+                                        icon: "red/images/typedInput/09.png",
+                                        options: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+                                    };
+                                    break;
+                                default:
+                                case "string":
+                                    type = "str";
+                                    break;
+                                case "string_boundaryType":
+                                    type = "string_boundaryType";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "string",
+                                        icon: "red/images/typedInput/az.png",
+                                        options: ["vw","mw"]
+                                    };
+                                    break;
+                                case "string_mapID":
+                                    type = "string_mapID";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "str",
+                                        icon: "red/images/typedInput/09.png"
+                                    };
+                                    break;
+                                case "string_mapinfotype":
+                                    type = "string_mapinfotype";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "string",
+                                        icon: "red/images/typedInput/az.png",
+                                        options: ["outline","wifiHeatMap"]
+                                    };
+                                    break;
+                                case "time":
+                                    type = "time";
+                                    typeDefinition = {
+                                        value: type,
+                                        label: "string",
+                                        icon: "red/images/typedInput/az.png"
+                                    };
+                                    break;
+                            }
+                            if (type !== "" && typeDefinition === ""){
+                                $(inputName + suffix).typedInput('type', type);
+                                $(inputName + suffix).typedInput('types', [type]);
+                            }
+                            if (type !== "" && typeDefinition !== ""){
+                                $(inputName + suffix).typedInput('type', typeDefinition.value);
+                                $(inputName + suffix).typedInput('types', [typeDefinition]);
+                            }
                         }
                     }
                 }
-            }
 
-            function resetArg(argNumber) {
-                if (! isValidArgNumber(argNumber)) { return; }
+                function resetArg(argNumber) {
+                    if (! isValidArgNumber(argNumber)) { return; }
 
-                var suffix = getSuffix(argNumber);
-                setTypedInput("", argNumber);
-                $(inputName + suffix).typedInput('value', '');
-                $(inputName + suffix).val('');
-                $(inputName + suffix).hide();
-                $(inputName + suffix + "-row").hide();
-                setLabel(argNumber);
+                    var suffix = getSuffix(argNumber);
+                    setTypedInput("", argNumber);
+                    $(inputName + suffix).typedInput('value', '');
+                    $(inputName + suffix).val('');
+                    $(inputName + suffix).hide();
+                    $(inputName + suffix + "-row").hide();
+                    setLabel(argNumber);
+                }
             }
-        }
+        });
+    // The script is loaded completely
+    // Do something
     });
 </script>
 
