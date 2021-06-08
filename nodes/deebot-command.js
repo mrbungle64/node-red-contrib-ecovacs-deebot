@@ -55,4 +55,14 @@ module.exports = function (RED) {
     }
 
     RED.nodes.registerType("ecovacs-deebot-command", EcovacsDeebotCommandNode);
+
+    if (RED.settings.version.substring(0, 3) < "1.3"){
+        RED.httpAdmin.get('/deebot-command/*', RED.auth.needsPermission('deebot-command.read'), function(req, res) {
+            var options = {
+                root: __dirname + '/../resources/',
+                dotfiles: 'deny'
+            };
+            res.sendFile(req.params[0], options);
+        });
+    }
 }
