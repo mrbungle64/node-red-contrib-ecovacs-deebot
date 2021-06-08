@@ -76,6 +76,9 @@ The models listed are either already known to work or are technically similar to
 
 ## Changelog
 
+### 0.2.6
+* (unclej84) Make node compatible with pre-1.3-versions
+
 ### 0.2.5
 * Using library version 0.6.1-alpha.11
 * Some minor changes and fixes
