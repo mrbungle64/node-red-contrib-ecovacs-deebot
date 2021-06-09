@@ -76,6 +76,10 @@ The models listed are either already known to work or are technically similar to
 
 ## Changelog
 
+### 0.2.7
+* (unclej84) Improve loading of commands.js for deebot-command node 
+* (unclej84) Add basic example
+
 ### 0.2.6
 * (unclej84) Make node compatible with pre-1.3-versions
 
@@ -85,7 +89,7 @@ The models listed are either already known to work or are technically similar to
 
 ### 0.2.4
 * Using library version 0.6.1-alpha.9
-* Added EnableDoNotDisturb and DisableDoNotDisturb commands (950 type models)
+* Add EnableDoNotDisturb and DisableDoNotDisturb commands (950 type models)
 
 ### 0.2.3
 * (unclej84) Help texts for display in editor sidebar
@@ -98,9 +102,9 @@ The models listed are either already known to work or are technically similar to
 
 ### 0.2.0
 * Initial npm release
-  * Added a lot of commands and events
+  * Add a lot of commands and events
   * Using library version 0.6.1-alpha.6
-  * (unclej84) Added Multi-language support
+  * (unclej84) Add Multi-language support
   * (unclej84) A lot of improvements for the node editor
   * (unclej84) Use credentials for account data
 
