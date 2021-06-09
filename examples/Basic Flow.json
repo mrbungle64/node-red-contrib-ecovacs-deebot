@@ -2,14 +2,14 @@
     {
         "id": "ce32457c.36af08",
         "type": "ecovacs-deebot",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "account": "f58ee3da.650fc",
         "name": "Deebot Vacuum Cleaning Robot",
         "deviceNumber": "1",
         "connectOnStartup": false,
         "enableSimpleEvents": false,
-        "x": 690,
-        "y": 180,
+        "x": 810,
+        "y": 340,
         "wires": [
             [
                 "429c4136.94907"
@@ -19,7 +19,7 @@
     {
         "id": "b4cae92d.678908",
         "type": "inject",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "props": [
             {
@@ -37,8 +37,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 230,
-        "y": 140,
+        "x": 250,
+        "y": 300,
         "wires": [
             [
                 "ac846fee.40856"
@@ -48,7 +48,7 @@
     {
         "id": "6cbd5268.40e18c",
         "type": "inject",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "props": [
             {
@@ -66,8 +66,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 230,
-        "y": 220,
+        "x": 250,
+        "y": 380,
         "wires": [
             [
                 "8f1a0d6.fbdd2f"
@@ -77,7 +77,7 @@
     {
         "id": "429c4136.94907",
         "type": "debug",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -86,21 +86,21 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 180,
+        "x": 1030,
+        "y": 340,
         "wires": []
     },
     {
         "id": "ac846fee.40856",
         "type": "ecovacs-deebot-command",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "command": "Connect",
         "arg": "",
         "arg2": "",
         "arg3": "",
-        "x": 420,
-        "y": 140,
+        "x": 440,
+        "y": 300,
         "wires": [
             [
                 "ce32457c.36af08"
@@ -110,14 +110,14 @@
     {
         "id": "8f1a0d6.fbdd2f",
         "type": "ecovacs-deebot-command",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "command": "Disconnect",
         "arg": "",
         "arg2": "",
         "arg3": "",
-        "x": 410,
-        "y": 220,
+        "x": 430,
+        "y": 380,
         "wires": [
             [
                 "ce32457c.36af08"
@@ -127,7 +127,7 @@
     {
         "id": "731a0a8b.fd73a4",
         "type": "inject",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "props": [
             {
@@ -145,8 +145,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 230,
-        "y": 180,
+        "x": 250,
+        "y": 340,
         "wires": [
             [
                 "5b444c21.79be44"
@@ -156,14 +156,14 @@
     {
         "id": "5b444c21.79be44",
         "type": "ecovacs-deebot-command",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "",
-        "command": "Disconnect",
+        "command": "Clean",
         "arg": "",
         "arg2": "",
         "arg3": "",
-        "x": 410,
-        "y": 180,
+        "x": 470,
+        "y": 340,
         "wires": [
             [
                 "ce32457c.36af08"
@@ -173,11 +173,11 @@
     {
         "id": "4b7b3fdf.9a1c5",
         "type": "comment",
-        "z": "b522eda2.3ab61",
+        "z": "f6f2187d.f17ca8",
         "name": "Basic flow for node-red-contrib-ecovacs-deebot",
         "info": "Any trigger to the Deebot command node will prepare the correct payload to be executed in Ecovacs Deebot node.\n\nThe events from the robot will be send to debug node.",
-        "x": 350,
-        "y": 100,
+        "x": 370,
+        "y": 260,
         "wires": []
     },
     {
