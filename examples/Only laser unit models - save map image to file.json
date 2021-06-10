@@ -1,0 +1,256 @@
+[
+    {
+        "id": "ce32457c.36af08",
+        "type": "ecovacs-deebot",
+        "z": "f6f2187d.f17ca8",
+        "account": "f58ee3da.650fc",
+        "name": "Deebot Vacuum Cleaning Robot",
+        "deviceNumber": "1",
+        "connectOnStartup": false,
+        "enableSimpleEvents": false,
+        "x": 770,
+        "y": 380,
+        "wires": [
+            [
+                "fb7c3142.574da"
+            ]
+        ]
+    },
+    {
+        "id": "b4cae92d.678908",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "ac846fee.40856"
+            ]
+        ]
+    },
+    {
+        "id": "6cbd5268.40e18c",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "8f1a0d6.fbdd2f"
+            ]
+        ]
+    },
+    {
+        "id": "429c4136.94907",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ac846fee.40856",
+        "type": "ecovacs-deebot-command",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "command": "Connect",
+        "arg": "",
+        "arg2": "",
+        "arg3": "",
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "ce32457c.36af08"
+            ]
+        ]
+    },
+    {
+        "id": "8f1a0d6.fbdd2f",
+        "type": "ecovacs-deebot-command",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "command": "Disconnect",
+        "arg": "",
+        "arg2": "",
+        "arg3": "",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "ce32457c.36af08"
+            ]
+        ]
+    },
+    {
+        "id": "731a0a8b.fd73a4",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "5b444c21.79be44"
+            ]
+        ]
+    },
+    {
+        "id": "5b444c21.79be44",
+        "type": "ecovacs-deebot-command",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "command": "GetMapImage",
+        "arg": "012345678",
+        "arg2": "outline",
+        "arg3": "",
+        "x": 410,
+        "y": 380,
+        "wires": [
+            [
+                "ce32457c.36af08"
+            ]
+        ]
+    },
+    {
+        "id": "4b7b3fdf.9a1c5",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "Flow for saving map image to file",
+        "info": "When connected the robot should provide the map image as base64 data. These can be saved to a file and then be displayed e.g. on the dashboard or send somewhere else.\n\nIf you want to refresh the image data trigger the node which provides `Retrieve map image data`.\n\nThis works only with robot models with laser unit",
+        "x": 280,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "fb7c3142.574da",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "name": "Event-Type",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "MapImage",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 380,
+        "wires": [
+            [
+                "429c4136.94907",
+                "8baf9da3.4b091"
+            ],
+            [
+                "429c4136.94907"
+            ]
+        ]
+    },
+    {
+        "id": "8baf9da3.4b091",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Get raw data",
+        "func": "return {\n    payload: msg.payload.value.mapBase64PNG.split(';base64,').pop()\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 340,
+        "wires": [
+            [
+                "d7f80e4b.b0032"
+            ]
+        ]
+    },
+    {
+        "id": "d7f80e4b.b0032",
+        "type": "file",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "filename": "mapImage.jpg",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1340,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f58ee3da.650fc",
+        "type": "ecovacs-account",
+        "countryCode": "DE",
+        "name": ""
+    }
+]
