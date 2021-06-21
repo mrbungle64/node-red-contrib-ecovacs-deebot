@@ -76,6 +76,10 @@ The models listed are either already known to work or are technically similar to
 
 ## Changelog
 
+### 0.2.8
+* Using library version 0.6.1-alpha.15
+* (unclej84) Add example for saving map image to jpg file
+
 ### 0.2.7
 * (unclej84) Improve loading of commands.js for deebot-command node 
 * (unclej84) Add basic example
