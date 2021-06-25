@@ -70,14 +70,14 @@ const commands = {
         payload: "DisableAdvancedMode"
     },
     "DisableTrueDetect": {
-        info: ["info_trueDetect"],
+        info: ["trueDetect"],
         payload: "DisableTrueDetect"
     },
     "Disconnect": {
         payload: "Disconnect"
     },
     "EnableTrueDetect": {
-        info: ["info_trueDetect"],
+        info: ["trueDetect"],
         payload: "EnableTrueDetect"
     },
     "EnableAdvancedMode": {
@@ -228,6 +228,7 @@ const commands = {
         payload: "GetSpotAreas"
     },
     "GetTrueDetect": {
+        info: ["trueDetect"],
         payload: "GetTrueDetect"
     },
     "GetVirtualBoundaries": {
