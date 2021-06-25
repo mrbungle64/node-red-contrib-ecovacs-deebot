@@ -139,6 +139,14 @@ module.exports = function (RED) {
                         const msg = createMsgObject('AutoEmpty', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('AdvancedMode', (value) => {
+                        const msg = createMsgObject('AdvancedMode', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('TrueDetect', (value) => {
+                        const msg = createMsgObject('TrueDetect', value);
+                        node.send(msg);
+                    });
                     node.vacbot.on('DoNotDisturbEnabled', (value) => {
                         const doNotDisturb = (parseInt(value) === 1);
                         const msg = createMsgObject('DoNotDisturbEnabled', doNotDisturb);
