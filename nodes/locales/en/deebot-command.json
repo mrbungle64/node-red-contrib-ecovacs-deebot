@@ -71,6 +71,7 @@
         "info_mainBrush": "Models with main brush only",
         "info_moppingSystem": "Models with mopping system only",
         "info_suctionStation": "Models with suction station only",
+        "info_trueDetect": "Models with TrueDetect 3D only",
         "info_experimental": "Experimental",
         "info_enableSimpleEvents": "<i>Enable output of simple events</i> must be enabled",
         "info_notWorking": "Not supported by most models",

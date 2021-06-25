@@ -65,8 +65,24 @@ const commands = {
         info: ["950Type"],
         payload: "DisableDoNotDisturb"
     },
+    "DisableAdvancedMode": {
+        info: ["950Type"],
+        payload: "DisableAdvancedMode"
+    },
+    "DisableTrueDetect": {
+        info: ["info_trueDetect"],
+        payload: "DisableTrueDetect"
+    },
     "Disconnect": {
         payload: "Disconnect"
+    },
+    "EnableTrueDetect": {
+        info: ["info_trueDetect"],
+        payload: "EnableTrueDetect"
+    },
+    "EnableAdvancedMode": {
+        info: ["950Type"],
+        payload: "EnableAdvancedMode"
     },
     "EnableDoNotDisturb": {
         arg: {
@@ -94,6 +110,10 @@ const commands = {
     "GetAutoEmpty": {
         info: ["suctionStation"],
         payload: "GetAutoEmpty"
+    },
+    "GetAdvancedMode": {
+        info: ["950Type"],
+        payload: "GetAdvancedMode"
     },
     "GetBatteryState": {
         payload: "GetBatteryState"
@@ -206,6 +226,9 @@ const commands = {
         },
         info: ["laserType","enableSimpleEvents"],
         payload: "GetSpotAreas"
+    },
+    "GetTrueDetect": {
+        payload: "GetTrueDetect"
     },
     "GetVirtualBoundaries": {
         arg: {

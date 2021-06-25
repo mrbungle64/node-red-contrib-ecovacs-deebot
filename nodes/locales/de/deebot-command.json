@@ -71,6 +71,7 @@
         "info_mainBrush": "Nur Modelle mit Hauptbürste",
         "info_moppingSystem": "Nur Modelle mit Wischfunktion",
         "info_suctionStation": "Nur Modelle mit Absaugstation",
+        "info_trueDetect": "Nur Modelle mit TrueDetect 3D",
         "info_experimental": "Experimenteller Status",
         "info_enableSimpleEvents": "<i>Ausgabe einfache Events aktivieren</i> muss aktiviert sein",
         "info_notWorking": "Wird von den meisten Modellen nicht unterstützt",
