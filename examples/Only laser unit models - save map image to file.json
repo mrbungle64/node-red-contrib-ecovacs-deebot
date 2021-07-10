@@ -175,7 +175,7 @@
         "type": "comment",
         "z": "f6f2187d.f17ca8",
         "name": "Flow for saving map image to file",
-        "info": "When connected the robot should provide the map image as base64 data. These can be saved to a file and then be displayed e.g. on the dashboard or send somewhere else.\n\nIf you want to refresh the image data trigger the node which provides `Retrieve map image data`.\n\nThis works only with robot models with laser unit",
+        "info": "When connected the robot should provide the map image as base64 data. These can be saved to a file and then be displayed e.g. on the dashboard or send somewhere else.\n\nIf you want to refresh the image data trigger the node which provides `Retrieve map image data`.\n\nThis currently works with 950 type models only (e.g. OZMO 920/950, T8/T9 series)",
         "x": 280,
         "y": 300,
         "wires": []
