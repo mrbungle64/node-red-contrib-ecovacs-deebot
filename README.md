@@ -76,6 +76,11 @@ The models listed are either already known to work or are technically similar to
 
 ## Changelog
 
+### 0.2.9
+* Using library version 0.6.1-beta.2
+* Add AdvanceMode command (950 type models)
+* Add TrueDetect command (experimental)
+
 ### 0.2.8
 * Using library version 0.6.1-alpha.15
 * (unclej84) Add example for saving map image to jpg file
