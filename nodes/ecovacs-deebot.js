@@ -194,6 +194,10 @@ module.exports = function (RED) {
                         const msg = createMsgObject('RelocationState', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('Schedules', (object) => {
+                        const msg = createMsgObject('Schedules', object);
+                        node.send(msg);
+                    });
                     // Activate additional simple events if enabled
                     if (node.config.enableSimpleEvents) {
                         node.vacbot.on('ChargePosition', (value) => {

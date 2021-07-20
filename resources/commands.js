@@ -201,6 +201,9 @@ const commands = {
         info: ["laserType"],
         payload: "GetPosition"
     },
+    "GetSchedules": {
+        payload: "GetSchedules"
+    },
     "GetSleepStatus": {
         payload: "GetSleepStatus"
     },

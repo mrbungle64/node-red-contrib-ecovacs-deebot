@@ -54,6 +54,7 @@
         "GetOnOff_do_not_disturb": "Nicht-Stören-Modus abfragen",
         "GetOnOff_silence_voice_report": "Status der Sprachfunktion abfragen",
         "GetPosition": "Position abfragen",
+        "GetSchedules": "Reinigungsplan abfragen",
         "GetSleepStatus": "Standby-Modus abfragen",
         "GetSpotAreaInfo": "Infos zu einem Bereich abfragen",
         "GetSpotAreas": "Bereiche der Map beziehen",
