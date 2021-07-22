@@ -6,6 +6,9 @@
         "connectOnStartup": {
             "label": "Beim Starten verbinden"
         },
+        "enableGetMapsOnStartup": {
+            "label": "Beim Starten Map Objekt abfragen (inkl. Karte bei 950 basierten Modellen)"
+        },
         "deviceNumber": {
             "label": "Gerätenummer",
             "placeholder": "Gerätenummer eingeben"

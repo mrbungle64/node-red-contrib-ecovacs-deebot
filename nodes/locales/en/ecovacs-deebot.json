@@ -6,6 +6,9 @@
         "connectOnStartup": {
             "label": "Connect on startup"
         },
+        "enableGetMapsOnStartup": {
+            "label": "Retrieve map data object at startup (incl. map image for 950 type models)"
+        },
         "deviceNumber": {
             "label": "Device number",
             "placeholder": "Insert number of device here"

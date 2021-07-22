@@ -7,6 +7,7 @@
         "name": "Deebot Vacuum Cleaning Robot",
         "deviceNumber": "1",
         "connectOnStartup": false,
+        "enableGetMapsOnStartup": false,
         "enableSimpleEvents": false,
         "x": 810,
         "y": 340,
