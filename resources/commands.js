@@ -166,12 +166,12 @@ const commands = {
             required: true,
             type: "string_mapinfotype"
         },
-        info: ["950Type", "laserType"],
+        info: ["950Type", "laserType", "canvasLibrary"],
         payload: "GetMapImage"
     },
     "GetMaps": {
         arg: true,
-        info: ["laserType"],
+        info: ["laserType", "canvasLibrary"],
         payload: "GetMaps"
     },
     "GetMapsBasic": {

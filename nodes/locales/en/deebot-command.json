@@ -67,6 +67,7 @@
         "info_950Type": "950 type models only (e.g. OZMO 920/950, T8/T9 series)",
         "info_non950Type": "Some older models only (e.g. OZMO 930, Deebot 900/901)",
         "info_ozmo930": "OZMO 930 only",
+        "info_canvasLibrary": "Requires the <a href=\"https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot#installation\" style=\"text-decoration:underline\" target=\"_blank\">installation</a> of the <a href=\"https://github.com/Automattic/node-canvas\" style=\"text-decoration:underline\" target=\"_blank\">canvas</a> library",
         "info_laserType": "Models with laser unit only",
         "info_nonLaserType": "Models without laser unit only",
         "info_mainBrush": "Models with main brush only",

@@ -74,9 +74,20 @@ This node uses the [node-canvas](https://www.npmjs.com/package/canvas) library f
 This is optional and not necessary for models without map functionality, but for full functional range please install the following packages.
 
 For Debian-based Linux systems the following commands should be executed:
+
 ```bash
 sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+```
+
+Installation for canvas on alpine based systems (e.g. Node-RED docker container):
+```bash
+apk add --no-cache build-base g++ cairo-dev jpeg-dev pango-dev giflib-dev
+```
+
+A reboot might be necessary before executing the next command
+```bash
+sudo npm install canvas --unsafe-perm=true
 ```
 
 For instructions for other systems visit https://www.npmjs.com/package/canvas#compiling
