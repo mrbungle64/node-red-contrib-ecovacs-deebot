@@ -66,6 +66,21 @@ The models listed are those that we use ourselves or are technically identical t
 
 The models listed are either already known to work or are technically similar to these models. Nevertheless, the functionality may be partially limited.
 
+## Installation
+
+It is recommended to use version 12.x or 14.x of Node.js. The minimum required version is 10.x
+
+This node uses the [node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality which may require the installation of some additional packages.
+This is optional and not necessary for models without map functionality, but for full functional range please install the following packages.
+
+For Debian-based Linux systems the following commands should be executed:
+```bash
+sudo apt-get update
+sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+```
+
+For instructions for other systems visit https://www.npmjs.com/package/canvas#compiling
+
 ## Known issues
 
 * There's a strange behavior of the battery value on Deebot 900/901. It's very likely that this is a firmware bug
