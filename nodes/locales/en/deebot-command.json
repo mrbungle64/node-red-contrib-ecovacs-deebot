@@ -83,6 +83,7 @@
         "label_boundaryID": "ID of the boundary (e.g. <i>5</i>)",
         "label_boundaryType": "Type of the virtual boundary<br /><ul><li>\"vw\": virtual wall</li><li>\"mw\": no-mop-zone</li></ul>",
         "label_command": "Command",
+        "label_includeMapImage": "Include map image",
         "label_level": "Level",
         "label_mapID": "ID of the map (e.g. <i>1286981979</i>)",
         "label_mapInfoType": "Map type<br /><ul><li>\"outline\": outline</li><li>\"wifiHeatMap\": WiFi coverage map</li></ul>",

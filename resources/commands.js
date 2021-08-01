@@ -171,6 +171,11 @@ const commands = {
     },
     "GetMaps": {
         arg: true,
+        arg2: {
+            name: "includeMapImage",
+            required: false,
+            type: "boolean"
+        },
         info: ["laserType", "canvasLibrary"],
         payload: "GetMaps"
     },

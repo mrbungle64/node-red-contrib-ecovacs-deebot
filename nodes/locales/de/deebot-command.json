@@ -83,6 +83,7 @@
         "label_boundaryID": "ID der Begrenzung (z.B. <i>5</i>)",
         "label_boundaryType": "Art der Begrenzung<br /><ul><li>\"vw\": virtuelle Wand</li><li>\"mw\": Wisch-Verbotszone</li></ul>",
         "label_command": "Auszuführender Befehl",
+        "label_includeMapImage": "Bild der Karte inkludieren",
         "label_level": "Level",
         "label_mapID": "ID der Karte (z.B. <i>1286981979</i>)",
         "label_mapInfoType": "Typ der Karte<br /><ul><li>\"outline\": Umriss</li><li>\"wifiHeatMap\": WLAN-Abdeckungskarte</li></ul>",
