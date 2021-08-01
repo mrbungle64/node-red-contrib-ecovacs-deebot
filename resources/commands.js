@@ -508,7 +508,7 @@ function isValidArg(command, argNumber, argValue) {
     if (!hasArg(command, argNumber)) {
         return true;
     }
-    var myRegEx;
+    let myRegEx;
     switch (getArgName(command, argNumber)) {
         case "areas":
             myRegEx = new RegExp('^[\\d\\,]+\\;?$');
@@ -551,17 +551,17 @@ function isValidArg(command, argNumber, argValue) {
             break;
         default:
             switch (getArgType(command, argNumber)) {
-                default:
                 case "string":
                     myRegEx = new RegExp('^[a-zA-Z\\d_]+$');
                     break;
                 case "number":
                     myRegEx = new RegExp('^\\d+$');
                     break;
+                default:
+                    return true;
             }
     }
     return myRegEx.test(argValue);
-
 }
 
 function isValidArgNumber(argNumber) {

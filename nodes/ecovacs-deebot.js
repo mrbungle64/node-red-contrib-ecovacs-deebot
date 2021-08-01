@@ -50,7 +50,6 @@ module.exports = function (RED) {
                     node.vacbot.run('GetCleanState');
                     node.vacbot.run('GetChargeState');
                     node.vacbot.run('GetSleepStatus');
-                    node.vacbot.run('GetCleanSpeed');
                     node.vacbot.run('GetCleanSum');
                     node.vacbot.run('GetCleanLogs');
                     node.vacbot.run('GetLifespan');
@@ -60,6 +59,9 @@ module.exports = function (RED) {
                         if (node.config.enableGetMapsOnStartup) {
                             node.vacbot.run('GetMaps', true, true);
                         }
+                    }
+                    if (node.vacbot.hasVacuumPowerAdjustment()) {
+                        node.vacbot.run('GetCleanSpeed');
                     }
                     if (node.vacbot.hasMoppingSystem()) {
                         node.vacbot.run('GetWaterBoxInfo');
