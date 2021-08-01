@@ -173,7 +173,7 @@ const commands = {
         arg: true,
         arg2: {
             name: "includeMapImage",
-            required: false,
+            required: true,
             type: "boolean"
         },
         info: ["laserType", "canvasLibrary"],
