@@ -162,9 +162,9 @@ const commands = {
             type: "string_mapID"
         },
         arg2: {
-            name: "mapinfotype",
+            name: "mapInfoType",
             required: true,
-            type: "string_mapinfotype"
+            type: "string_mapInfoType"
         },
         info: ["950Type", "laserType", "canvasLibrary"],
         payload: "GetMapImage"
@@ -525,7 +525,7 @@ function isValidArg(command, argNumber, argValue) {
         case "mapID":
             myRegEx = new RegExp('^\\d{7,}$');
             break;
-        case "mapinfotype":
+        case "mapInfoType":
             myRegEx = new RegExp('^(outline|wifiHeatMap)$');
             break;
         case "numberOfCleanings":

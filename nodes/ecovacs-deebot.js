@@ -58,7 +58,7 @@ module.exports = function (RED) {
                         node.vacbot.run('GetPosition');
                         node.vacbot.run('GetChargerPos');
                         if (node.config.enableGetMapsOnStartup) {
-                            node.vacbot.run('GetMaps', true);
+                            node.vacbot.run('GetMaps', true, true);
                         }
                     }
                     if (node.vacbot.hasMoppingSystem()) {

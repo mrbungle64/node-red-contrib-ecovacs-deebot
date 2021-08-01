@@ -85,7 +85,7 @@
         "label_command": "Command",
         "label_level": "Level",
         "label_mapID": "ID of the map (e.g. <i>1286981979</i>)",
-        "label_mapinfotype": "Map type<br /><ul><li>\"outline\": outline</li><li>\"wifiHeatMap\": WiFi coverage map</li></ul>",
+        "label_mapInfoType": "Map type<br /><ul><li>\"outline\": outline</li><li>\"wifiHeatMap\": WiFi coverage map</li></ul>",
         "label_mapSetID": "ID of the map set (msid)",
         "label_name": "Name",
         "label_numberOfCleanings": "Number of cleanings",
