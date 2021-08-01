@@ -31,6 +31,9 @@
     "ecovacs-deebot": "^0.6.1-beta.7",
     "node-machine-id": "^1.1.12"
   },
+  "devDependencies": {
+    "@types/node-red": "^1.1.1"
+  },
   "engines": {
     "node": ">=10"
   }
