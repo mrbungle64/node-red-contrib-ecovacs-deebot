@@ -379,11 +379,11 @@ module.exports = function (RED) {
                         shape: 'dot',
                         text: 'Disconnected'
                     });
-                } else if (msg.arg && msg.arg2 && msg.arg3) {
+                } else if ((msg.arg !== undefined) && (msg.arg2 !== undefined) && (msg.arg3 !== undefined)) {
                     node.vacbot.run(msg.payload, msg.arg, msg.arg2, msg.arg3);
-                } else if (msg.arg && msg.arg2) {
+                } else if ((msg.arg !== undefined) && (msg.arg2 !== undefined)) {
                     node.vacbot.run(msg.payload, msg.arg, msg.arg2);
-                } else if (msg.arg) {
+                } else if ((msg.arg !== undefined)) {
                     node.vacbot.run(msg.payload, msg.arg);
                 } else {
                     node.vacbot.run(msg.payload);
