@@ -4,7 +4,7 @@
   "description": "Node-RED node for Ecovacs Deebot vacuum cleaner",
   "main": "nodes/ecovacs-deebot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha"
   },
   "author": "Sascha Hölzel",
   "keywords": [
@@ -32,6 +32,7 @@
     "node-machine-id": "^1.1.12"
   },
   "devDependencies": {
+    "mocha": "^8.4.0",
     "@types/node-red": "^1.1.1"
   },
   "engines": {

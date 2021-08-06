@@ -4,6 +4,7 @@
 [![npm](http://img.shields.io/npm/v/node-red-contrib-ecovacs-deebot.svg)](https://www.npmjs.com/package/node-red-contrib-ecovacs-deebot)
 [![npm](https://img.shields.io/npm/dm/node-red-contrib-ecovacs-deebot.svg)](https://www.npmjs.com/package/node-red-contrib-ecovacs-deebot)
 [![npm](https://img.shields.io/npm/dt/node-red-contrib-ecovacs-deebot.svg)](https://www.npmjs.com/package/node-red-contrib-ecovacs-deebot)
+[![github-workflow](https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot)
 
 Node-RED node for running Ecovacs Deebot vacuum cleaner robots
 
@@ -55,7 +56,7 @@ The models listed are those that we use ourselves or are technically identical t
 * Deebot 710/711/711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
-* Deebot OZMO Slim 10
+* Deebot OZMO Slim 10/11
 * Deebot OZMO T5
 * Deebot U2 series
 * Deebot N3 MAX
