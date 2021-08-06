@@ -139,22 +139,6 @@ const commands = {
     "GetLifeSpan": {
         payload: "GetLifeSpan"
     },
-    "GetLifeSpan_filter": {
-        arg: "filter",
-        label: "GetLifeSpan (filter)",
-        payload: "GetLifeSpan"
-    },
-    "GetLifeSpan_main_brush": {
-        arg: "main_brush",
-        label: "GetLifeSpan (main brush)",
-        info: ["mainBrush"],
-        payload: "GetLifeSpan"
-    },
-    "GetLifeSpan_side_brush": {
-        arg: "side_brush",
-        label: "GetLifeSpan (side brush)",
-        payload: "GetLifeSpan"
-    },
     "GetMapImage": {
         arg: {
             name: "mapID",
