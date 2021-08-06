@@ -10,12 +10,24 @@ describe('Commands', () => {
             it('should find a payload', function () {
                 assert.ok(resourcesCommands.commands[command].hasOwnProperty('payload'));
             });
-            it('should find a German translation ', function () {
+            it('should find a German translation', function () {
                 assert.ok(germanTranslation.hasOwnProperty(command));
             });
-            it('should find a English translation ', function () {
+            it('should find a English translation', function () {
                 assert.ok(englishTranslation.hasOwnProperty(command));
             });
+            if (resourcesCommands.commands[command].hasOwnProperty('info')) {
+                const infoArray = resourcesCommands.commands[command]['info'];
+                for (let i = 0; i < infoArray.length; i++) {
+                    const info = infoArray[i];
+                    it('should find a German translation for info ' + info, function () {
+                        assert.ok(germanTranslation.hasOwnProperty('info_' + info));
+                    });
+                    it('should find a English translation for info ' + info, function () {
+                        assert.ok(englishTranslation.hasOwnProperty('info_' + info));
+                    });
+                }
+            }
         });
     }
 });
