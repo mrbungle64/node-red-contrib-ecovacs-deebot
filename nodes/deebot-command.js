@@ -1,3 +1,4 @@
+const {getArgType} = require("../resources/commands");
 module.exports = function (RED) {
     const {commands, getArgType} = require('../resources/commands');
 
@@ -32,6 +33,8 @@ module.exports = function (RED) {
                     if (commands[node.config.command].hasOwnProperty("arg2")) {
                         if (getArgType(node.config.command, 2).substring(0, 6) === "number") {
                             argValue = parseInt(node.config.arg2);
+                        } else if (getArgType(node.config.command, 2) === "boolean") {
+                            argValue = node.config.arg2.toLowerCase() === "true";
                         } else {
                             argValue = node.config.arg2;
                         }
