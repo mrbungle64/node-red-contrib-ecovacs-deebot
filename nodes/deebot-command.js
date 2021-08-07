@@ -1,6 +1,5 @@
-const {getArgType} = require("../resources/commands");
+const {commands, getArgValue} = require("../resources/commands");
 module.exports = function (RED) {
-    const {commands, getArgType} = require('../resources/commands');
 
     function EcovacsDeebotCommandNode(config) {
         RED.nodes.createNode(this, config);
@@ -17,34 +16,19 @@ module.exports = function (RED) {
         });
 
         function sendCommand(node, msg) {
-            const command = commands[node.config.command];
             const output = {};
-            var argValue;
+            let argValue;
 
             if (msg && commands.hasOwnProperty(node.config.command) ) {
                 Object.assign(output, {payload: commands[node.config.command].payload});
                 if (commands[node.config.command].hasOwnProperty("arg")) {
-                    if (getArgType(node.config.command, 1).substring(0, 6) === "number") {
-                        argValue = parseInt(node.config.arg);
-                    } else {
-                        argValue = node.config.arg;
-                    }
+                    argValue = getArgValue(node.config.command, node.config.arg, 1);
                     Object.assign(output, {arg: argValue});
                     if (commands[node.config.command].hasOwnProperty("arg2")) {
-                        if (getArgType(node.config.command, 2).substring(0, 6) === "number") {
-                            argValue = parseInt(node.config.arg2);
-                        } else if (getArgType(node.config.command, 2) === "boolean") {
-                            argValue = node.config.arg2.toLowerCase() === "true";
-                        } else {
-                            argValue = node.config.arg2;
-                        }
+                        argValue = getArgValue(node.config.command, node.config.arg2, 2);
                         Object.assign(output, {arg2: argValue});
                         if (commands[node.config.command].hasOwnProperty("arg3")) {
-                            if (getArgType(node.config.command, 3).substring(0, 6) === "number") {
-                                argValue = parseInt(node.config.arg3);
-                            } else {
-                                argValue = node.config.arg3;
-                            }
+                            argValue = getArgValue(node.config.command, node.config.arg3, 3);
                             Object.assign(output, {arg3: argValue});
                         }
                     }
@@ -61,7 +45,7 @@ module.exports = function (RED) {
 
     if (RED.settings.version.substring(0, 3) < "1.3"){
         RED.httpAdmin.get('/deebot-command/*', RED.auth.needsPermission('deebot-command.read'), function(req, res) {
-            var options = {
+            const options = {
                 root: __dirname + '/../resources/',
                 dotfiles: 'deny'
             };

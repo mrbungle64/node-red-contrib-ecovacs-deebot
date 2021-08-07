@@ -481,6 +481,16 @@ function isArgRequired(command, argNumber, ignoreRequired = false) {
     return true;
 }
 
+function getArgValue(command, arg, number) {
+    if (getArgType(command, number).substring(0, 6) === "number") {
+        return parseInt(arg);
+    } else if (getArgType(command, number) === "boolean") {
+        return arg.toLowerCase() === "true";
+    } else {
+        return arg;
+    }
+}
+
 function isTranslationAvailable(node, text) {
     if (node._(node.type + "." + text) !== (node.type + "." + text)) {
         return true;
@@ -559,4 +569,4 @@ function isValidCommand(command) {
     return false;
 }
 
-module.exports = {commands, getArgType};
+module.exports = {commands, getArgValue};
