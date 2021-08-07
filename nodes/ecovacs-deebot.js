@@ -256,18 +256,6 @@ module.exports = function (RED) {
                             const msg = createMsgObject('ErrorCode', value);
                             node.send(msg);
                         });
-                        node.vacbot.on('LifeSpan_filter', (value) => {
-                            const msg = createMsgObject('LifeSpan_filter', value);
-                            node.send(msg);
-                        });
-                        node.vacbot.on('LifeSpan_main_brush', (value) => {
-                            const msg = createMsgObject('LifeSpan_main_brush', value);
-                            node.send(msg);
-                        });
-                        node.vacbot.on('LifeSpan_side_brush', (value) => {
-                            const msg = createMsgObject('LifeSpan_side_brush', value);
-                            node.send(msg);
-                        });
                         node.vacbot.on('Maps', (object) => {
                             const msg = createMsgObject('Maps', object);
                             node.send(msg);
