@@ -103,6 +103,11 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.3.1
+* Using library version 0.6.1-beta.7
+* Add option for GetMaps command whether to include map image
+* Some fixes and improvements
+
 ### 0.3.0
 * Using library version 0.6.1-beta.3
 * Add option to enable retrieving map object on startup
