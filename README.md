@@ -68,7 +68,7 @@ The models listed are either already known to work or are technically similar to
 
 ## Installation
 
-It is recommended to use version 12.x or 14.x of Node.js. The minimum required version is 10.x
+It is recommended to use version 12.x or 14.x of Node.js. The minimum required version is 12.x
 
 This node uses the [node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality which may require the installation of some additional packages.
 
@@ -102,6 +102,10 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 * The combined map data object does not work with T9 series
 
 ## Changelog
+
+### 0.3.2 (alpha)
+* Using library version 0.6.2-beta.0
+* Bump minimum required version of Node.js to 12.x
 
 ### 0.3.1
 * Using library version 0.6.1-beta.7

@@ -36,6 +36,6 @@
     "@types/node-red": "^1.1.1"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   }
 }
