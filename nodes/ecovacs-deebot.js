@@ -53,7 +53,7 @@ module.exports = function (RED) {
                     node.vacbot.run('GetCleanSum');
                     node.vacbot.run('GetCleanLogs');
                     node.vacbot.run('GetLifespan');
-                    if (node.vacbot.hasSpotAreas()) {
+                    if (node.vacbot.hasSpotAreaCleaningMode()) {
                         node.vacbot.run('GetPosition');
                         node.vacbot.run('GetChargerPos');
                         if (node.config.enableGetMapsOnStartup) {
