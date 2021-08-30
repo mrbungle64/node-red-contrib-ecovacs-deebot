@@ -115,7 +115,7 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 ### 0.3.0
 * Using library version 0.6.1-beta.3
 * Add option to enable retrieving map object on startup
-* Add GetSchedules command
+* Add GetSchedule command
 
 ### 0.2.9
 * Using library version 0.6.1-beta.2
