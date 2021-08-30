@@ -54,7 +54,7 @@
         "GetOnOff_do_not_disturb": "Retrieve do-not-disturb mode info",
         "GetOnOff_silence_voice_report": "Retrieve silence voice report info",
         "GetPosition": "Retrieve position of the robot",
-        "GetSchedule": "Retrieve cleaning schedules",
+        "GetSchedule": "Retrieve cleaning schedule",
         "GetSleepStatus": "Retrieve sleeping mode status",
         "GetSpotAreaInfo": "Retrieve spot area infos",
         "GetSpotAreas": "Retrieve spot areas",

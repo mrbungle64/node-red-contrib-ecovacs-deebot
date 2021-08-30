@@ -198,8 +198,8 @@ module.exports = function (RED) {
                         const msg = createMsgObject('RelocationState', value);
                         node.send(msg);
                     });
-                    node.vacbot.on('Schedules', (object) => {
-                        const msg = createMsgObject('Schedules', object);
+                    node.vacbot.on('Schedule', (object) => {
+                        const msg = createMsgObject('Schedule', object);
                         node.send(msg);
                     });
                     // Activate additional simple events if enabled
