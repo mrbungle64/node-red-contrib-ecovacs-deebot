@@ -24,7 +24,7 @@ First you have to configure the Ecovacs account:
 #### Ecovacs Deebot
 
 Available options: 
-- Ecovacs "Account"
+- "Account" (Ecovacs account / email address)
 - "Name" of the Device
 - "Device number"
 - "Connect on startup"
@@ -45,26 +45,22 @@ Available options:
 * Deebot OZMO 920/950
 * Deebot T9 series
 
-The models listed are those that we use ourselves or are technically identical to these.
+These are the models that the developers themselves own or that are technically identical to these.
 
-### These models should work properly or at least partially
+### Models that should work properly or at least partially
 
 * Deebot Slim 2
 * Deebot N79 series
-* Deebot M88
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
 * Deebot OZMO Slim 10/11
-* Deebot OZMO T5
 * Deebot U2 series
-* Deebot N3 MAX
-* Deebot N7
 * Deebot N8 series
 * Deebot (OZMO) T8 series
 
-The models listed are either already known to work or are technically similar to these models. Nevertheless, the functionality may be partially limited.
+Please also check the [current list](https://github.com/mrbungle64/ecovacs-deebot.js#models) of models that should work with the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library
 
 ## Installation
 
