@@ -99,6 +99,9 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.3.3
+* Using library version 0.6.6
+
 ### 0.3.2
 * Using library version 0.6.3
 * Bump minimum required version of Node.js to 12.x
