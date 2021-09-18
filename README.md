@@ -99,6 +99,9 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.3.5
+* Using library version [0.6.8](https://github.com/mrbungle64/ecovacs-deebot.js#068)
+
 ### 0.3.4
 * Using library version [0.6.7](https://github.com/mrbungle64/ecovacs-deebot.js#067)
 
