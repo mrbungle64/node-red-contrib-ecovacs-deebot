@@ -76,7 +76,7 @@
         "info_enableSimpleEvents": "<i>Enable output of simple events</i> must be enabled",
         "info_notWorking": "Not supported by most models",
         "info_worksOnlyOnce": "Works only once in sequence",
-        "label_areas": "Areas",
+        "label_areas": "IDs of the spot areas (e.g. <i>0,5</i>)",
         "label_boundaryCoordinates": "Boundary coordinates (e.g. <i>-1320,-1100,1705,1200</i>)",
         "label_boundaryID": "ID of the boundary (e.g. <i>5</i>)",
         "label_boundaryType": "Type of the virtual boundary<br /><ul><li>\"vw\": virtual wall</li><li>\"mw\": no-mop-zone</li></ul>",
