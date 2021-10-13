@@ -28,11 +28,11 @@
     }
   },
   "dependencies": {
-    "ecovacs-deebot": "^0.6.8",
+    "ecovacs-deebot": "^0.7.0-alpha.0",
     "node-machine-id": "^1.1.12"
   },
   "devDependencies": {
-    "mocha": "^9.1.1",
+    "mocha": "^9.1.2",
     "@types/node-red": "^1.1.1"
   },
   "engines": {
