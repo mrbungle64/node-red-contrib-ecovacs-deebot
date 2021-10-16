@@ -119,6 +119,7 @@ const commands = {
         payload: "GetBatteryState"
     },
     "GetChargerPos": {
+        info: ["laserType"],
         payload: "GetChargerPos"
     },
     "GetChargeState": {

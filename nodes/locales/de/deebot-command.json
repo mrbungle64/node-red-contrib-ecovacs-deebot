@@ -10,6 +10,8 @@
         "description_Disconnect": "Verbindung zum Roboter trennen",
         "description_FindMe": "\"Ich bin hier\" abspielen",
         "description_GetMapImage": "Bild der Karte abfragen (PNG-Format)",
+        "description_GetWaterBoxInfo": "Abfragen, ob der Wassertank eingesetzt ist",
+        "description_GetWaterLevel": "Eingestellte Wasserdurchflussrate abfragen",
         "Disconnect": "Verbindung trennen",
         "DisableDoNotDisturb": "Nicht-Stören-Modus einschalten",
         "EnableDoNotDisturb": "Nicht-Stören-Modus ausschalten",
