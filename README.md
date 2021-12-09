@@ -92,12 +92,15 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 ## Known issues
 
 * There's a strange behavior of the battery value on Deebot 900/901. It's very likely that this is a firmware bug
-* Some cleaning commands may not work with Deebot 710/711/711s
 * "Edge" command does not work with Deebot U2 (starts auto clean instead)
 * The cleaning log has an empty result on T9 series
 * The combined map data object does not work with T9 series
 
 ## Changelog
+
+### 0.3.7
+
+* Fix the cleaning functions for the Deebot 710 series
 
 ### 0.3.6
 * Using library version 0.7.0
