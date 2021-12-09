@@ -62,7 +62,6 @@ const commands = {
         payload: "DeleteVirtualBoundary"
     },
     "DisableDoNotDisturb": {
-        info: ["950Type"],
         payload: "DisableDoNotDisturb"
     },
     "DisableAdvancedMode": {
