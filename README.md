@@ -98,6 +98,9 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.3.8
+* Bumped some dependencies (incl. fix for CVE-2022-0155)
+
 ### 0.3.7
 * Fix the cleaning functions for the Deebot 710 series
 
