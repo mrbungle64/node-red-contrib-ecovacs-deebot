@@ -52,7 +52,7 @@ These are the models that the developers themselves own or that are technically 
 * Deebot Slim 2
 * Deebot N79 series
 * Deebot 600/601/605
-* Deebot 710/711/711s
+* Deebot 710/711
 * Deebot OZMO 610
 * Deebot OZMO 900/905
 * Deebot OZMO Slim 10/11
@@ -180,4 +180,4 @@ We are in no way affiliated with ECOVACS.
 
 GNU GENERAL PUBLIC LICENSE
 
-Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
