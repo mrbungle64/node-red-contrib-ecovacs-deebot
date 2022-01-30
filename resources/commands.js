@@ -164,7 +164,7 @@ const commands = {
         payload: "GetMaps"
     },
     "GetMapsBasic": {
-        info: ["laserType","enableSimpleEvents"],
+        info: ["laserType", "enableSimpleEvents"],
         payload: "GetMaps"
     },
     "GetNetInfo": {
@@ -207,7 +207,7 @@ const commands = {
             required: true,
             type: "string"
         },
-        info: ["laserType","enableSimpleEvents"],
+        info: ["laserType", "enableSimpleEvents"],
         payload: "GetSpotAreaInfo"
     },
     "GetSpotAreas": {
@@ -216,7 +216,7 @@ const commands = {
             required: true,
             type: "string_mapID"
         },
-        info: ["laserType","enableSimpleEvents"],
+        info: ["laserType", "enableSimpleEvents"],
         payload: "GetSpotAreas"
     },
     "GetTrueDetect": {
@@ -229,7 +229,7 @@ const commands = {
             required: true,
             type: "string_mapID"
         },
-        info: ["laserType","enableSimpleEvents"],
+        info: ["laserType", "enableSimpleEvents"],
         payload: "GetVirtualBoundaries"
     },
     "GetVirtualBoundaryInfo": {
@@ -248,7 +248,7 @@ const commands = {
             required: true,
             type: "string_boundaryType"
         },
-        info: ["laserType","enableSimpleEvents"],
+        info: ["laserType", "enableSimpleEvents"],
         payload: "GetVirtualBoundaryInfo"
     },
     "GetVolume": {
@@ -425,7 +425,7 @@ const commands = {
 };
 
 function getArgName(command, argNumber) {
-    if (! hasArg(command, argNumber)) {
+    if (!hasArg(command, argNumber)) {
         return "";
     }
     if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("name")) {
@@ -435,7 +435,7 @@ function getArgName(command, argNumber) {
 }
 
 function getArgType(command, argNumber) {
-    if (! hasArg(command, argNumber)) {
+    if (!hasArg(command, argNumber)) {
         return "string";
     }
     if (commands[command]["arg" + getSuffix(argNumber)].hasOwnProperty("type")) {
@@ -459,17 +459,15 @@ function getTranslation(node, text) {
 }
 
 function hasArg(command, argNumber) {
-    if (! isValidArgNumber || ! isValidCommand(command)) {
+    if (!isValidArgNumber || !isValidCommand(command)) {
         return false;
     }
-    if (commands[command].hasOwnProperty("arg" + getSuffix(argNumber))) {
-        return true;
-    }
-    return false;
+    return commands[command].hasOwnProperty("arg" + getSuffix(argNumber));
+
 }
 
 function isArgRequired(command, argNumber, ignoreRequired = false) {
-    if (! hasArg(command, argNumber)) {
+    if (!hasArg(command, argNumber)) {
         return false;
     }
     if (typeof commands[command]['arg' + getSuffix(argNumber)] !== "object") {
@@ -492,10 +490,7 @@ function getArgValue(command, arg, number) {
 }
 
 function isTranslationAvailable(node, text) {
-    if (node._(node.type + "." + text) !== (node.type + "." + text)) {
-        return true;
-    }
-    return false;
+    return node._(node.type + "." + text) !== (node.type + "." + text);
 }
 
 function isValidArg(command, argNumber, argValue) {
@@ -563,10 +558,7 @@ function isValidArgNumber(argNumber) {
 }
 
 function isValidCommand(command) {
-    if (commands.hasOwnProperty(command)) {
-        return true;
-    }
-    return false;
+    return commands.hasOwnProperty(command);
 }
 
 module.exports = {commands, getArgValue};
