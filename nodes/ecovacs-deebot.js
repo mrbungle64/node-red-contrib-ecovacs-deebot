@@ -68,12 +68,17 @@ module.exports = function (RED) {
                         node.vacbot.run('GetWaterLevel');
                     }
 
-                    node.vacbot.on('disconnect', () => {
-                        node.status({
-                            fill: 'gray',
-                            shape: 'dot',
-                            text: 'Disconnected'
-                        });
+                    node.vacbot.on('disconnect', (error) => {
+                        if (error) {
+                            const errorMessage = 'Received disconnect event from library';
+                            node.vacbot.disconnect();
+                            node.status({
+                                fill: 'gray',
+                                shape: 'dot',
+                                text: errorMessage
+                            });
+                            node.error(errorMessage);
+                        }
                     });
                     node.vacbot.on('BatteryInfo', (value) => {
                         const msg = createMsgObject('BatteryInfo', value , null, '%');
