@@ -21,6 +21,7 @@
     "url": "https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot"
   },
   "node-red": {
+    "version": ">=1.3.0",
     "nodes": {
       "ecovacs-account": "nodes/ecovacs-account.js",
       "ecovacs-deebot": "nodes/ecovacs-deebot.js",
