@@ -307,7 +307,7 @@ module.exports = function (RED) {
                         });
                     }
                 });
-                node.vacbot.connect_and_wait_until_ready();
+                node.vacbot.connect();
             });
         }).catch((e) => {
             node.status({

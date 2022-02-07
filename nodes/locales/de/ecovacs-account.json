@@ -6,14 +6,14 @@
         },
         "email": {
             "label": "E-Mail-Adresse / Ecovacs ID",
-            "placeholder": "E-Mail-Adresse oder ID ihres Ecovacs Kontos"
+            "placeholder": "E-Mail-Adresse oder ID Ihres Ecovacs Kontos"
         },
         "name": {
             "label": "Name"
         },
         "password": {
             "label": "Passwort",
-            "placeholder": "Passwort ihres Ecovacs Kontos hier eingeben"
+            "placeholder": "Passwort Ihres Ecovacs Kontos hier eingeben"
         }
     }
 }

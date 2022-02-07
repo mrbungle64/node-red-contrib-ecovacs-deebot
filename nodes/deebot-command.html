@@ -97,7 +97,7 @@
             $('#node-input-command').change(function () {
                 var selectedCommand = $('#node-input-command').val();
 
-                if (! isValidCommand(selectedCommand)) {
+                if (!isValidCommand(selectedCommand)) {
                     resetArg(1);
                     resetArg(2);
                     resetArg(3);
@@ -181,7 +181,7 @@
             }
 
             function setLabel(argNumber, value = "") {
-                if (! isValidArgNumber(argNumber)) { return; }
+                if (!isValidArgNumber(argNumber)) { return; }
 
                 if (value == "") {
                     value = 'Argument ' + argNumber;
@@ -192,7 +192,7 @@
             }
 
             function setTypedInput(command, argNumber) {
-                if (! isValidArgNumber(argNumber)) { return; }
+                if (!isValidArgNumber(argNumber)) { return; }
 
                 if (hasArg(command, argNumber)) {
                     var suffix = getSuffix(argNumber);
@@ -294,7 +294,7 @@
             }
 
             function resetArg(argNumber) {
-                if (! isValidArgNumber(argNumber)) { return; }
+                if (!isValidArgNumber(argNumber)) { return; }
 
                 var suffix = getSuffix(argNumber);
                 setTypedInput("", argNumber);
