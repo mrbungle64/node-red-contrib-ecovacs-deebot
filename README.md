@@ -95,6 +95,7 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 * "Edge" command does not work with Deebot U2 (starts auto clean instead)
 * The cleaning log has an empty result on T9 series
 * The combined map data object does not work with T9 series
+* The generation of map images is currently not stable on 32-bit systems
 
 ## Changelog
 
