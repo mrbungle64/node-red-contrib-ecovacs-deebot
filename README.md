@@ -45,6 +45,8 @@ There are 2 example flows provided by this node:
 
 You can directly import them from the editor using the [Import dialog](https://nodered.org/docs/user-guide/editor/workspace/import-export).
 
+![Flow Example](images/basic-flow-example.png)
+
 ## Models
 
 ### Supported models
