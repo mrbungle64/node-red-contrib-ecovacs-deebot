@@ -36,6 +36,15 @@ Available options:
 - "Command" (e.g. `Start automatic cleaning`, `Retrieve battery state`)
 - Command specific fields (e.g. `Map ID`, `Spot area ID`)
 
+### Examples
+
+There are 2 example flows provided by this node:
+
+* Basic Flow
+* Only laser unit models - save map image to file
+
+You can directly import them from the editor using the [Import dialog](https://nodered.org/docs/user-guide/editor/workspace/import-export).
+
 ## Models
 
 ### Supported models
