@@ -11,9 +11,11 @@
     "node-red",
     "ecovacs",
     "deebot",
+    "ozmo",
     "vacuum",
-    "OZMO",
-    "robot"
+    "robot",
+    "smart home",
+    "home automation"
   ],
   "license": "GPL-3.0",
   "repository": {
