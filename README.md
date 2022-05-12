@@ -54,7 +54,7 @@ You can directly import them from the editor using the [Import dialog](https://n
 * Deebot 900/901
 * Deebot OZMO 930
 * Deebot OZMO 920/950
-* Deebot T9 series
+* Deebot T8 AIVI (T8 series)
 
 These are the models that the developers themselves own or that are technically identical to these.
 
@@ -70,6 +70,7 @@ These are the models that the developers themselves own or that are technically 
 * Deebot U2 series
 * Deebot N8 series
 * Deebot (OZMO) T8 series
+* Deebot T9 series
 
 Please also check the [current list](https://github.com/mrbungle64/ecovacs-deebot.js#models) of models that should work with the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library
 
