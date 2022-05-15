@@ -55,7 +55,10 @@ module.exports = function (RED) {
                     node.vacbot.run('GetLifespan');
                     if (node.vacbot.hasSpotAreaCleaningMode()) {
                         node.vacbot.run('GetPosition');
-                        node.vacbot.run('GetChargerPos');
+                        if (node.vacbot.isNot950type()) {
+                            // On 950 type models not necessary
+                            node.vacbot.run('GetChargerPos');
+                        }
                         if (node.config.enableGetMapsOnStartup) {
                             node.vacbot.run('GetMaps', true, true);
                         }
@@ -65,7 +68,10 @@ module.exports = function (RED) {
                     }
                     if (node.vacbot.hasMoppingSystem()) {
                         node.vacbot.run('GetWaterBoxInfo');
-                        node.vacbot.run('GetWaterLevel');
+                        if (node.vacbot.isNot950type()) {
+                            // On 950 type models not necessary
+                            node.vacbot.run('GetWaterLevel');
+                        }
                     }
 
                     node.vacbot.on('disconnect', (error) => {
