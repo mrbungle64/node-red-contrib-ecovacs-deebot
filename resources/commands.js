@@ -334,6 +334,11 @@ const commands = {
         label: "ResetLifeSpan (side brush)",
         payload: "ResetLifeSpan"
     },
+    "ResetLifeSpan_unit_care": {
+        arg: "unit_care",
+        label: "ResetLifeSpan (unit care)",
+        payload: "ResetLifeSpan"
+    },
     "Resume": {
         payload: "Resume"
     },

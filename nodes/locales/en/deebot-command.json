@@ -110,6 +110,7 @@
         "ResetLifeSpan_filter": "Reset filter",
         "ResetLifeSpan_main_brush": "Reset main brush",
         "ResetLifeSpan_side_brush": "Reset side brush",
+        "ResetLifeSpan_unit_care": "Reset other components",
         "Resume": "Resume the cleaning",
         "SetAutoEmpty": "Set auto empty",
         "SetCleanSpeed": "Set vacuum power level",
