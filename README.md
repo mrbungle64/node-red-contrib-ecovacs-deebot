@@ -10,6 +10,19 @@ Node-RED node for running Ecovacs Deebot vacuum cleaner robots
 
 This node uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
 
+## Features
+
+Some noteworthy features are:
+
+* Basic cleaning functions (e.g. auto clean, spot area, custom area etc.)
+* and various other commands (e.g. play sound, reset consumables, relocate position etc.)
+* Retrieve basic information (e.g. battery level, cleaning log, consumable, cleaning and charging status etc.)
+* and various extended information (e.g. charging position, current map, network information)
+* Retrieve information during the cleaning process (e.g. current position and current spot area)
+* Set basic and advanced settings (e.g. continuous cleaning, do-not-disturb mode, TrueDetect 3D, volume etc.)
+* Adjustment of vacuum power and water level
+* Function for loading the current map image
+
 ## Usage
 
 ### Ecovacs account
