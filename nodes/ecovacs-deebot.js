@@ -201,6 +201,14 @@ module.exports = function (RED) {
                         const msg = createMsgObject('CurrentMapIndex', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('CurrentCustomAreaValues', (value) => {
+                        const msg = createMsgObject('CurrentUsedCustomAreaValues', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('CurrentSpotAreas', (value) => {
+                        const msg = createMsgObject('CurrentUsedSpotAreas', value);
+                        node.send(msg);
+                    });
                     node.vacbot.on('DeebotPositionCurrentSpotAreaID', (value) => {
                         const msg = createMsgObject('CurrentSpotAreaID', value);
                         node.send(msg);
