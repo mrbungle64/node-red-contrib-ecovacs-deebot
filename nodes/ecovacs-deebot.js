@@ -158,6 +158,14 @@ module.exports = function (RED) {
                         const msg = createMsgObject('AdvancedMode', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('CarpetPressure', (value) => {
+                        const msg = createMsgObject('CarpetPressure', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('CleanPreference', (value) => {
+                        const msg = createMsgObject('CleanPreference', value);
+                        node.send(msg);
+                    });
                     node.vacbot.on('TrueDetect', (value) => {
                         const msg = createMsgObject('TrueDetect', value);
                         node.send(msg);

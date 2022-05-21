@@ -61,6 +61,18 @@ const commands = {
         info: ["950Type", "laserType"],
         payload: "DeleteVirtualBoundary"
     },
+    "DisableAutoEmpty": {
+        info: ["suctionStation", "950Type_V2"],
+        payload: "DisableAutoEmpty"
+    },
+    "DisableCarpetPressure": {
+        info: ["950Type"],
+        payload: "DisableCarpetPressure"
+    },
+    "DisableCleanPreference": {
+        info: ["950Type_V2"],
+        payload: "DisableCleanPreference"
+    },
     "DisableDoNotDisturb": {
         payload: "DisableDoNotDisturb"
     },
@@ -69,14 +81,26 @@ const commands = {
         payload: "DisableAdvancedMode"
     },
     "DisableTrueDetect": {
-        info: ["trueDetect"],
+        info: ["trueDetect", "950Type_V2"],
         payload: "DisableTrueDetect"
     },
     "Disconnect": {
         payload: "Disconnect"
     },
+    "EnableAutoEmpty": {
+        info: ["suctionStation", "950Type_V2"],
+        payload: "EnableAutoEmpty"
+    },
+    "EnableCarpetPressure": {
+        info: ["950Type"],
+        payload: "EnableCarpetPressure"
+    },
+    "EnableCleanPreference": {
+        info: ["950Type_V2"],
+        payload: "EnableCleanPreference"
+    },
     "EnableTrueDetect": {
-        info: ["trueDetect"],
+        info: ["trueDetect", "950Type_V2"],
         payload: "EnableTrueDetect"
     },
     "EnableAdvancedMode": {
@@ -107,7 +131,7 @@ const commands = {
         payload: "PlaySound"
     },
     "GetAutoEmpty": {
-        info: ["suctionStation"],
+        info: ["suctionStation", "950Type_V2"],
         payload: "GetAutoEmpty"
     },
     "GetAdvancedMode": {
@@ -220,7 +244,7 @@ const commands = {
         payload: "GetSpotAreas"
     },
     "GetTrueDetect": {
-        info: ["trueDetect"],
+        info: ["trueDetect", "950Type_V2"],
         payload: "GetTrueDetect"
     },
     "GetVirtualBoundaries": {
@@ -337,6 +361,7 @@ const commands = {
     "ResetLifeSpan_unit_care": {
         arg: "unit_care",
         label: "ResetLifeSpan (unit care)",
+        info: ["950Type_V2"],
         payload: "ResetLifeSpan"
     },
     "Resume": {
@@ -348,7 +373,7 @@ const commands = {
             required: true,
             type: "number_on_off"
         },
-        info: ["suctionStation"],
+        info: ["suctionStation", "950Type_V2"],
         payload: "SetAutoEmpty"
     },
     "SetCleanSpeed": {
