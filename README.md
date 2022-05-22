@@ -126,9 +126,15 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.0
+* Using library version 0.8.1
+* Added symbols to the command select box
+* Added some events (e.g. DusterRemind, WaterBoxMoppingType, WaterBoxScrubbingType, CleanCount)
+* Some further improvements and fixes
+
 ### 0.3.17
 * Using the latest library version (beta)
-* Add commands for Auto-Boost Suction and Clean Preference
+* Added commands for Auto-Boost Suction and Clean Preference
 * Corrected some labels for commands in the German version
 * Some further improvements and fixes
 
