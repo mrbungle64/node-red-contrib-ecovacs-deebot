@@ -118,6 +118,14 @@ module.exports = function (RED) {
                         const msg = createMsgObject('MoppingSystemInfo', object);
                         node.send(msg);
                     });
+                    node.vacbot.on('WaterBoxInfo', (value) => {
+                        const msg = createMsgObject('WaterBoxInfo', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('WaterLevel', (value) => {
+                        const msg = createMsgObject('WaterLevel', value);
+                        node.send(msg);
+                    });
                     node.vacbot.on('DustCaseInfo', (value) => {
                         const msg = createMsgObject('DustCaseInfo', value);
                         node.send(msg);
@@ -164,6 +172,18 @@ module.exports = function (RED) {
                     });
                     node.vacbot.on('CleanPreference', (value) => {
                         const msg = createMsgObject('CleanPreference', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('DusterRemind', (object) => {
+                        const msg = createMsgObject('DusterRemind', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('WaterBoxMoppingType', (value) => {
+                        const msg = createMsgObject('WaterBoxMoppingType', value);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('WaterBoxScrubbingType', (value) => {
+                        const msg = createMsgObject('WaterBoxScrubbingType', value);
                         node.send(msg);
                     });
                     node.vacbot.on('TrueDetect', (value) => {
@@ -225,6 +245,10 @@ module.exports = function (RED) {
                         const msg = createMsgObject('RelocationState', value);
                         node.send(msg);
                     });
+                    node.vacbot.on('CleanCount', (value) => {
+                        const msg = createMsgObject('CleanCount', value);
+                        node.send(msg);
+                    });
                     node.vacbot.on('Schedule', (object) => {
                         const msg = createMsgObject('Schedule', object);
                         node.send(msg);
@@ -233,6 +257,10 @@ module.exports = function (RED) {
                     if (node.config.enableSimpleEvents) {
                         node.vacbot.on('ChargePosition', (value) => {
                             const msg = createMsgObject('ChargePosition', value);
+                            node.send(msg);
+                        });
+                        node.vacbot.on('DeebotPosition', (value) => {
+                            const msg = createMsgObject('DeebotPosition', value);
                             node.send(msg);
                         });
                         node.vacbot.on('CleanLog_lastImageTimestamp', (value) => {
@@ -265,10 +293,6 @@ module.exports = function (RED) {
                         });
                         node.vacbot.on('CleanSum_totalSquareMeters', (value) => {
                             const msg = createMsgObject('CleanSum_totalSquareMeters', value);
-                            node.send(msg);
-                        });
-                        node.vacbot.on('DeebotPosition', (value) => {
-                            const msg = createMsgObject('DeebotPosition', value);
                             node.send(msg);
                         });
                         node.vacbot.on('DeebotPositionIsInvalid', (value) => {
@@ -317,14 +341,6 @@ module.exports = function (RED) {
                         });
                         node.vacbot.on('NetInfoWifiSSID', (value) => {
                             const msg = createMsgObject('NetInfoWifiSSID', value);
-                            node.send(msg);
-                        });
-                        node.vacbot.on('WaterBoxInfo', (value) => {
-                            const msg = createMsgObject('WaterBoxInfo', value);
-                            node.send(msg);
-                        });
-                        node.vacbot.on('WaterLevel', (value) => {
-                            const msg = createMsgObject('WaterLevel', value);
                             node.send(msg);
                         });
                     }
