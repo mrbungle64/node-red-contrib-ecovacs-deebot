@@ -127,6 +127,10 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.1
+* Using library version 0.8.2
+* Some minor corrections
+
 ### 0.4.0
 * Using library version 0.8.1
 * Added symbols to the command select box
