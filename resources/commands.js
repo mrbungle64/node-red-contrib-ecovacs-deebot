@@ -207,7 +207,7 @@ const commands = {
     "GetOnOff_silence_voice_report": {
         arg: "silence_voice_report",
         label: "GetOnOff (silence voice report)",
-        info: ["notWorking"],
+        info: ["ozmo930"],
         payload: "GetOnOff"
     },
     "GetPosition": {
@@ -414,7 +414,7 @@ const commands = {
             type: "number_on_off"
         },
         label: "SetOnOff (silence voice report)",
-        info: ["notWorking"],
+        info: ["ozmo930"],
         payload: "SetOnOff"
     },
     "SetVolume": {
