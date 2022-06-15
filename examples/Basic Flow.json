@@ -9,6 +9,7 @@
         "connectOnStartup": false,
         "enableGetMapsOnStartup": false,
         "enableSimpleEvents": false,
+        "useYeediLogin": false,
         "x": 810,
         "y": 340,
         "wires": [

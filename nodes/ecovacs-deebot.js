@@ -19,8 +19,12 @@ module.exports = function (RED) {
         const device_id = EcoVacsAPI.getDeviceId(nodeMachineId.machineIdSync(), deviceNumber);
         const countryCode = node.account.countryCode.toLowerCase();
         const continent = countries[countryCode.toUpperCase()].continent.toLowerCase();
+        let authDomain = 'ecovacs.com';
+        if (node.config.useYeediLogin) {
+            authDomain = 'yeedi.com';
+        }
 
-        let api = new EcoVacsAPI(device_id, countryCode, continent);
+        let api = new EcoVacsAPI(device_id, countryCode, continent, authDomain);
         api.connect(node.account.email, password_hash).then(() => {
             api.devices().then((devices) => {
                 let vacuum = devices[deviceNumber];

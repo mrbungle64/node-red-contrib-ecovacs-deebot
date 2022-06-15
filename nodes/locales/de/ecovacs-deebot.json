@@ -18,6 +18,9 @@
         },
         "name": {
             "label": "Name"
+        },
+        "useYeediLogin": {
+            "label": "Yeedi Login benutzen"
         }
     }
 }
