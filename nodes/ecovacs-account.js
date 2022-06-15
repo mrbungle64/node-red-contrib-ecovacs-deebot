@@ -5,6 +5,7 @@ module.exports = function(RED) {
         this.email = this.credentials.email;
         this.password = this.credentials.password;
         this.countryCode = n.countryCode;
+        this.login = n.login;
     }
     RED.nodes.registerType("ecovacs-account",EcovacsAccountNode,{
         credentials: {

@@ -14,6 +14,9 @@
         "password": {
             "label": "Password",
             "placeholder": "Insert password of your Ecovacs account"
+        },
+        "login": {
+            "label": "Login"
         }
     }
 }

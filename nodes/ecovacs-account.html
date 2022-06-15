@@ -10,6 +10,10 @@
             name: {
                 required: false,
                 value: ""
+            },
+            login: {
+                required: true,
+                value: "ecovacs.com"
             }
         },
         credentials: {
@@ -43,6 +47,15 @@
                 type:"str",
                 types:["str"]
             });
+            $("#node-config-input-login").typedInput({
+                type: "login", types: [{
+                    value: "login",
+                    options: [
+                        {value: "ecovacs.com", label: "Ecovacs"},
+                        {value: "yeedi.com", label: "Yeedi"},
+                    ]
+                }]
+            })
         }
     });
 </script>
@@ -51,6 +64,10 @@
     <div class="form-row">
         <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="ecovacs-account.name.label"></span></label>
         <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-login"><i class="fa fa-globe"></i> <span data-i18n="ecovacs-account.login.label"></span></label>
+        <input type="text" id="node-config-input-login">
     </div>
     <div class="form-row">
         <label for="node-config-input-email"><i class="fa fa-user-o"></i> <span data-i18n="ecovacs-account.email.label"></span></label>

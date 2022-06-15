@@ -9,7 +9,6 @@
         "connectOnStartup": false,
         "enableGetMapsOnStartup": false,
         "enableSimpleEvents": false,
-        "useYeediLogin": false,
         "x": 810,
         "y": 340,
         "wires": [
@@ -186,6 +185,7 @@
         "id": "f58ee3da.650fc",
         "type": "ecovacs-account",
         "countryCode": "DE",
-        "name": ""
+        "name": "",
+        "login": "ecovacs.com"
     }
 ]
