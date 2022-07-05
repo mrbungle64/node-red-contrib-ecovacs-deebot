@@ -112,7 +112,7 @@ apk add --no-cache build-base g++ cairo-dev jpeg-dev pango-dev giflib-dev
 
 A reboot might be necessary before executing the next command
 ```bash
-sudo npm install canvas --unsafe-perm=true
+npm install canvas --unsafe-perm=true
 ```
 
 For instructions for other systems visit https://www.npmjs.com/package/canvas#compiling
