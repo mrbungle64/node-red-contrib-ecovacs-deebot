@@ -85,6 +85,7 @@ These are the models that the developers themselves own or that are technically 
 * Deebot (OZMO) T8 series
 * Deebot T9 series
 * Deebot T10 series
+* and also some yeedi models (experimental)
 
 Please also check the [current list](https://github.com/mrbungle64/ecovacs-deebot.js#models) of models that should work with the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library
 
@@ -126,6 +127,10 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 * The generation of map images is currently not stable on 32-bit systems
 
 ## Changelog
+
+### 0.4.2
+* Using library version 0.8.3 (alpha)
+* Added initial support for yeedi login (experimental)
 
 ### 0.4.1
 * Using library version 0.8.2
