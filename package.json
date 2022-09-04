@@ -12,6 +12,7 @@
     "ecovacs",
     "deebot",
     "ozmo",
+    "yeedi",
     "vacuum",
     "robot",
     "smart home",
@@ -39,6 +40,6 @@
     "@types/node-red": "^1.2.1"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   }
 }
