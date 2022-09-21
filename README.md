@@ -6,7 +6,9 @@
 [![npm](https://img.shields.io/npm/dt/node-red-contrib-ecovacs-deebot.svg)](https://www.npmjs.com/package/node-red-contrib-ecovacs-deebot)
 [![github-workflow](https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot)
 
-Node-RED node for running Ecovacs Deebot vacuum cleaner robots
+Node-RED node for running Ecovacs Deebot vacuum cleaner robots.
+
+There's also initial support for some yeedi models (experimental).
 
 This node uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
 
@@ -27,8 +29,10 @@ Some noteworthy features are:
 
 ### Ecovacs account
 
-First you have to configure the Ecovacs account:
-- "Email / Ecovacs ID"
+First you have to configure the Ecovacs (or yeedi) account:
+- "Name" (optional)
+- "Login" (Ecovacs or yeedi)
+- "Email / Ecovacs ID" (email or account ID)
 - "Password"
 - "Country code" (see [here](https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot/wiki/Country-codes) for a list of country codes)
 
@@ -37,11 +41,12 @@ First you have to configure the Ecovacs account:
 #### Ecovacs Deebot
 
 Available options: 
-- "Account" (Ecovacs account / email address)
+- "Account"
 - "Name" of the Device
 - "Device number"
 - "Connect on startup"
-- "Enable output of simple events"
+- "Retrieve map data object at startup" (experimental)
+- "Enable output of simple events" (experimental)
 
 #### Deebot command
 
@@ -60,21 +65,29 @@ You can directly import them from the editor using the [Import dialog](https://n
 
 ![Flow Example](images/basic-flow-example.png)
 
-## Models
-
 ### Supported models
 
+The supported models are those that I own myself (or which are technically identical to these):
+
+* Deebot Slim 2
 * Deebot 900/901
 * Deebot OZMO 930
 * Deebot OZMO 920/950
-* Deebot OZMO T8 AIVI
+* Deebot T8 AIVI (T8 series)
 
-These are the models that the developers themselves own or that are technically identical to these.
+### These models should work properly or at least partially
 
-### Models that should work properly or at least partially
+The following models are either already known to work or are technically similar to these models.
+Nevertheless, the functionality may be partially limited.
 
-* Deebot Slim 2
+I try to achieve a wide range of functionality, but decide this case by case depending on complexity and various other criteria.
+There is of course no claim to full functionality.
+
+#### Ecovacs Deebot
+
 * Deebot N79 series
+* Deebot M88
+* Deebot 500
 * Deebot 600/601/605
 * Deebot 710/711
 * Deebot OZMO 610
@@ -82,12 +95,18 @@ These are the models that the developers themselves own or that are technically 
 * Deebot OZMO Slim 10/11
 * Deebot U2 series
 * Deebot N8 series
+* Deebot OZMO T5
+* Deebot OZMO T10 Plus
 * Deebot (OZMO) T8 series
 * Deebot T9 series
-* Deebot T10 series
-* and also some yeedi models (experimental)
+* Deebot X1 series
 
-Please also check the [current list](https://github.com/mrbungle64/ecovacs-deebot.js#models) of models that should work with the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library
+#### yeedi (experimental)
+
+* yeedi k650
+* yeedi 2 hybrid
+* yeedi vac hybrid
+* yeedi mop station
 
 ## Installation
 
