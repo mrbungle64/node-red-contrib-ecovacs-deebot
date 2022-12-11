@@ -19,10 +19,15 @@ const commands = {
         payload: "AddVirtualBoundary"
     },
     "Charge": {
-        payload: "Charge"
+        payload: "Charge",
+        info: ["airPurifier"]
     },
     "Clean": {
         payload: "Clean"
+    },
+    "Clean_V2": {
+        payload: "Clean_V2",
+        info: ["950Type_V2", "airPurifier"]
     },
     "Connect": {
         payload: "Connect"
@@ -128,7 +133,12 @@ const commands = {
     "FindMe": {
         arg: "30",
         label: "FindMe",
-        payload: "PlaySound"
+        payload: "PlaySound",
+        info: ["airPurifier"]
+    },
+    "GetAirQuality": {
+        info: ["airPurifier_only"],
+        payload: "GetAirQuality"
     },
     "GetAutoEmpty": {
         info: ["suctionStation", "950Type_V2"],
@@ -139,14 +149,16 @@ const commands = {
         payload: "GetAdvancedMode"
     },
     "GetBatteryState": {
-        payload: "GetBatteryState"
+        payload: "GetBatteryState",
+        info: ["airPurifier"]
     },
     "GetChargerPos": {
         info: ["laserType"],
         payload: "GetChargerPos"
     },
     "GetChargeState": {
-        payload: "GetChargeState"
+        payload: "GetChargeState",
+        info: ["airPurifier"]
     },
     "GetCleanLogs": {
         payload: "GetCleanLogs"
@@ -157,8 +169,13 @@ const commands = {
     "GetCleanState": {
         payload: "GetCleanState"
     },
+    "GetCleanState_V2": {
+        payload: "GetCleanState_V2",
+        info: ["950Type_V2", "airPurifier"]
+    },
     "GetCleanSum": {
-        payload: "GetCleanSum"
+        payload: "GetCleanSum",
+        info: ["airPurifier"]
     },
     "GetLifeSpan": {
         payload: "GetLifeSpan"
@@ -192,7 +209,8 @@ const commands = {
         payload: "GetMaps"
     },
     "GetNetInfo": {
-        payload: "GetNetInfo"
+        payload: "GetNetInfo",
+        info: ["airPurifier"]
     },
     "GetOnOff_continuous_cleaning": {
         arg: "continuous_cleaning",
@@ -211,14 +229,15 @@ const commands = {
         payload: "GetOnOff"
     },
     "GetPosition": {
-        info: ["laserType"],
+        info: ["laserType", "airPurifier"],
         payload: "GetPosition"
     },
     "GetSchedule": {
         payload: "GetSchedule"
     },
     "GetSleepStatus": {
-        payload: "GetSleepStatus"
+        payload: "GetSleepStatus",
+        info: ["airPurifier"]
     },
     "GetSpotAreaInfo": {
         arg: {
@@ -244,7 +263,7 @@ const commands = {
         payload: "GetSpotAreas"
     },
     "GetTrueDetect": {
-        info: ["trueDetect", "950Type_V2"],
+        info: ["trueDetect", "950Type_V2", "airPurifier"],
         payload: "GetTrueDetect"
     },
     "GetVirtualBoundaries": {
@@ -289,22 +308,23 @@ const commands = {
         payload: "GetWaterLevel"
     },
     "MoveBackward": {
-        info: ["worksOnlyOnce"],
+        info: ["worksOnlyOnce", "airPurifier"],
         payload: "MoveBackward"
     },
     "MoveForward": {
-        info: ["worksOnlyOnce"],
+        info: ["worksOnlyOnce", "airPurifier"],
         payload: "MoveForward"
     },
     "MoveLeft": {
-        info: ["worksOnlyOnce"],
+        info: ["worksOnlyOnce", "airPurifier"],
         payload: "MoveLeft"
     },
     "MoveRight": {
-        info: ["worksOnlyOnce"],
+        info: ["worksOnlyOnce", "airPurifier"],
         payload: "MoveRight"
     },
     "Pause": {
+        info: ["airPurifier"],
         payload: "Pause"
     },
     "PlaySound_custom": {
@@ -313,14 +333,16 @@ const commands = {
             required: true,
             type: "string"
         },
+        info: ["airPurifier"],
         label: "PlaySound (soundID)",
         payload: "PlaySound"
     },
     "PlaySound": {
+        info: ["airPurifier"],
         payload: "PlaySound"
     },
     "Relocate": {
-        info: ["950Type"],
+        info: ["950Type", "airPurifier"],
         payload: "Relocate"
     },
     "RenameSpotArea": {
@@ -365,6 +387,7 @@ const commands = {
         payload: "ResetLifeSpan"
     },
     "Resume": {
+        info: ["airPurifier"],
         payload: "Resume"
     },
     "SetAutoEmpty": {
@@ -450,6 +473,7 @@ const commands = {
         payload: "SpotArea"
     },
     "Stop": {
+        info: ["airPurifier"],
         payload: "Stop"
     }
 };
