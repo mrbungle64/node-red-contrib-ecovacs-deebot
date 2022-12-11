@@ -147,6 +147,9 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.5
+* Add some commands for AIRBOT Z1
+
 ### 0.4.4
 * Using library version 0.9.1 (alpha)
 
