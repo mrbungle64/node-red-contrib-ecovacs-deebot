@@ -268,10 +268,10 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Disclaimer
 
-We are in no way affiliated with ECOVACS.
+I am in no way affiliated with Ecovacs Robotics Co., Ltd. or yeedi Technology Limited.
 
 ## License
 
 GNU GENERAL PUBLIC LICENSE
 
-Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2023 Sascha Hölzel <mrb1232@posteo.de>
