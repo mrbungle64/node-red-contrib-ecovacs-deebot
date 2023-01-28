@@ -147,11 +147,16 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.6
+* Using library version 0.9.2 (beta)
+* Fixed cleaning log for N8 series
+
 ### 0.4.5
-* Add some commands for AIRBOT Z1
+* Added some commands for AIRBOT Z1
 
 ### 0.4.4
 * Using library version 0.9.1 (alpha)
+* Fixed cleaning log for T9 based models
 
 ### 0.4.3
 * Using library version 0.9.0 (beta)
