@@ -34,7 +34,7 @@
     }
   },
   "dependencies": {
-    "ecovacs-deebot": "0.9.2-beta.0",
+    "ecovacs-deebot": "0.9.2",
     "node-machine-id": "1.1.12"
   },
   "devDependencies": {
