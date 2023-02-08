@@ -66,9 +66,17 @@ const commands = {
         info: ["950Type", "laserType"],
         payload: "DeleteVirtualBoundary"
     },
+    "DisableAdvancedMode": {
+        info: ["950Type"],
+        payload: "DisableAdvancedMode"
+    },
     "DisableAutoEmpty": {
         info: ["suctionStation", "950Type_V2"],
         payload: "DisableAutoEmpty"
+    },
+    "DisableBorderSpin": {
+        info: ["X1Series"],
+        payload: "EnableBorderSpin"
     },
     "DisableCarpetPressure": {
         info: ["950Type"],
@@ -81,20 +89,32 @@ const commands = {
     "DisableDoNotDisturb": {
         payload: "DisableDoNotDisturb"
     },
-    "DisableAdvancedMode": {
-        info: ["950Type"],
-        payload: "DisableAdvancedMode"
+    "DisableSweepMode": {
+        info: ["X1Series"],
+        payload: "EnableSweepMode"
     },
     "DisableTrueDetect": {
         info: ["trueDetect", "950Type_V2"],
         payload: "DisableTrueDetect"
     },
+    "DisableVoiceAssistant": {
+        info: ["X1Series", "airPurifier"],
+        payload: "EnableVoiceAssistant"
+    },
     "Disconnect": {
         payload: "Disconnect"
+    },
+    "EnableAdvancedMode": {
+        info: ["950Type"],
+        payload: "EnableAdvancedMode"
     },
     "EnableAutoEmpty": {
         info: ["suctionStation", "950Type_V2"],
         payload: "EnableAutoEmpty"
+    },
+    "EnableBorderSpin": {
+        info: ["X1Series"],
+        payload: "EnableBorderSpin"
     },
     "EnableCarpetPressure": {
         info: ["950Type"],
@@ -103,14 +123,6 @@ const commands = {
     "EnableCleanPreference": {
         info: ["950Type_V2"],
         payload: "EnableCleanPreference"
-    },
-    "EnableTrueDetect": {
-        info: ["trueDetect", "950Type_V2"],
-        payload: "EnableTrueDetect"
-    },
-    "EnableAdvancedMode": {
-        info: ["950Type"],
-        payload: "EnableAdvancedMode"
     },
     "EnableDoNotDisturb": {
         arg: {
@@ -125,6 +137,18 @@ const commands = {
         },
         info: ["950Type"],
         payload: "EnableDoNotDisturb"
+    },
+    "EnableSweepMode": {
+        info: ["X1Series"],
+        payload: "EnableSweepMode"
+    },
+    "EnableTrueDetect": {
+        info: ["trueDetect", "950Type_V2"],
+        payload: "EnableTrueDetect"
+    },
+    "EnableVoiceAssistant": {
+        info: ["X1Series", "airPurifier"],
+        payload: "EnableVoiceAssistant"
     },
     "Edge": {
         info: ["nonLaserType"],
