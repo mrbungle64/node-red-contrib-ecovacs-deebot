@@ -1,6 +1,8 @@
 {
     "ecovacs-deebot-command" : {
         "AddVirtualBoundary": "+ Add virtual boundary",
+        "AirDryingStart": "► Start air-drying",
+        "AirDryingStop": "◼ Stop air-drying",
         "Charge": "⏮ Return to charging station",
         "Clean": "► Start automatic cleaning",
         "Clean_V2": "► Start automatic cleaning (V2)",
@@ -36,6 +38,7 @@
         "dummy_auto_empty_station": "--- Auto empty station ---",
         "dummy_cleaning": "--- Cleaning ---",
         "dummy_cleaning_log": "--- Cleaning log and consumable ---",
+        "dummy_cleaning_station": "--- Cleaning station ---",
         "dummy_connection_handling": "--- Connection handling ---",
         "dummy_manual_control": "--- Manual control ---",
         "dummy_map_data": "--- Map data, spot areas and virtual boundaries ---",
@@ -88,6 +91,7 @@
         "info_airPurifier": "Works also with air purifiers (e.g. AIRBOT Z1)",
         "info_airPurifier_only": "Air purifiers only (e.g. AIRBOT Z1)",
         "info_canvasLibrary": "Requires the <a href=\"https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot#installation\" style=\"text-decoration:underline\" target=\"_blank\">installation</a> of the <a href=\"https://github.com/Automattic/node-canvas\" style=\"text-decoration:underline\" target=\"_blank\">canvas</a> library",
+        "info_cleaningStation": "Models with cleaning station only",
         "info_enableSimpleEvents": "<i>Enable output of simple events</i> must be enabled",
         "info_experimental": "Experimental",
         "info_laserType": "Models with laser unit only",
@@ -141,6 +145,8 @@
         "SetWaterLevel": "⚙ Set water level",
         "Spot": "► Start spot cleaning",
         "SpotArea": "► Start spot area cleaning",
-        "Stop": "◼ Stop cleaning"
+        "Stop": "◼ Stop cleaning",
+        "WashingStart": "► Start self-cleaning",
+        "WashingStop": "◼ Stop self-cleaning"
     }
 }

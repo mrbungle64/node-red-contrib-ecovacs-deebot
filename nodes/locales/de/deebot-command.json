@@ -1,6 +1,8 @@
 {
     "ecovacs-deebot-command" : {
         "AddVirtualBoundary": "+ Virtuelle Begrenzung erzeugen",
+        "AirDryingStart": "► Lufttrocknung starten",
+        "AirDryingStop": "◼ Lufttrocknung stoppen",
         "Charge": "⏮ Zurück zur Ladestation",
         "Clean": "► Automatische Reinigung starten",
         "Clean_V2": "► Automatische Reinigung starten (V2)",
@@ -36,6 +38,7 @@
         "dummy_auto_empty_station": "--- Absaugstation ---",
         "dummy_cleaning": "--- Reinigung ---",
         "dummy_cleaning_log": "--- Reinigungsprotokoll und Verbrauchsmaterialien ---",
+        "dummy_cleaning_station": "--- Reinigungsstation ---",
         "dummy_connection_handling": "--- Verbindung ---",
         "dummy_manual_control": "--- Manuelle Steuerung ---",
         "dummy_map_data": "--- Kartendaten, Bereiche und virtuelle Begrenzungen ---",
@@ -88,6 +91,7 @@
         "info_airPurifier": "Funktioniert auch für Modelle zur Luftreinigung (z.B. AIRBOT Z1)",
         "info_airPurifier_only": "Nur für Modelle zur Luftreinigung (z.B. AIRBOT Z1)",
         "info_canvasLibrary": "Die <a href=\"https://github.com/Automattic/node-canvas\" style=\"text-decoration:underline\" target=\"_blank\">canvas</a> Library muss <a href=\"https://github.com/mrbungle64/node-red-contrib-ecovacs-deebot#installation\" style=\"text-decoration:underline\" target=\"_blank\">installiert</a> sein",
+        "info_cleaningStation": "Nur Modelle mit Reinigungsstation",
         "info_enableSimpleEvents": "<i>Ausgabe einfache Events aktivieren</i> muss aktiviert sein",
         "info_experimental": "Experimenteller Status",
         "info_laserType": "Nur Modelle mit Lasersteuerung",
@@ -141,6 +145,8 @@
         "SetWaterLevel": "⚙ Wasserdurchflussrate ändern",
         "Spot": "► Spot-Reinigung",
         "SpotArea": "► Bereich(e) reinigen",
-        "Stop": "◼ Reinigung stoppen"
+        "Stop": "◼ Reinigung stoppen",
+        "WashingStart": "► Starte Selbstreinigung",
+        "WashingStop": "◼ Stoppe Selbstreinigung"
     }
 }

@@ -22,6 +22,14 @@ const commands = {
         payload: "Charge",
         info: ["airPurifier"]
     },
+    "AirDryingStart": {
+        payload: "AirDryingStart",
+        info: ["X1Series", "cleaningStation"]
+    },
+    "AirDryingStop": {
+        payload: "AirDryingStop",
+        info: ["X1Series", "cleaningStation"]
+    },
     "Clean": {
         payload: "Clean"
     },
@@ -496,9 +504,13 @@ const commands = {
         info: ["laserType"],
         payload: "SpotArea"
     },
-    "Stop": {
-        info: ["airPurifier"],
-        payload: "Stop"
+    "WashingStart": {
+        info: ["X1Series", "cleaningStation"],
+        payload: "WashingStart"
+    },
+    "WashingStop": {
+        info: ["X1Series", "cleaningStation"],
+        payload: "WashingStop"
     }
 };
 
