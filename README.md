@@ -147,6 +147,10 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.7
+* Using library version 0.9.4
+* Add some commands for the cleaning station (X1 Omni/Turbo and similar models)
+
 ### 0.4.6
 * Using library version 0.9.2 (beta)
 * Fixed cleaning log for N8 series
