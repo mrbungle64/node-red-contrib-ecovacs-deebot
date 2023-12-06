@@ -50,33 +50,35 @@ module.exports = function (RED) {
                         }
                     });
 
-                    node.vacbot.run('GetBatteryState');
-                    node.vacbot.run('GetCleanState');
-                    node.vacbot.run('GetChargeState');
-                    node.vacbot.run('GetCleanSum');
-                    if (node.vacbot.getModelType() !== 'airbot') {
-                        node.vacbot.run('GetSleepStatus');
-                        node.vacbot.run('GetCleanLogs');
-                        node.vacbot.run('GetLifespan');
-                    }
-                    if (node.vacbot.hasSpotAreaCleaningMode()) {
-                        node.vacbot.run('GetPosition');
-                        if (node.vacbot.isNot950type()) {
-                            // On 950 type models not necessary
-                            node.vacbot.run('GetChargerPos');
+                    if (node.vacbot.getModelType() !== 'aqMonitor') {
+                        node.vacbot.run('GetBatteryState');
+                        node.vacbot.run('GetCleanState');
+                        node.vacbot.run('GetChargeState');
+                        node.vacbot.run('GetCleanSum');
+                        if (node.vacbot.getModelType() !== 'airbot') {
+                            node.vacbot.run('GetSleepStatus');
+                            node.vacbot.run('GetCleanLogs');
+                            node.vacbot.run('GetLifespan');
                         }
-                        if (node.config.enableGetMapsOnStartup) {
-                            node.vacbot.run('GetMaps', true, true);
+                        if (node.vacbot.hasSpotAreaCleaningMode()) {
+                            node.vacbot.run('GetPosition');
+                            if (node.vacbot.isNot950type()) {
+                                // On 950 type models not necessary
+                                node.vacbot.run('GetChargerPos');
+                            }
+                            if (node.config.enableGetMapsOnStartup) {
+                                node.vacbot.run('GetMaps', true, true);
+                            }
                         }
-                    }
-                    if (node.vacbot.hasVacuumPowerAdjustment()) {
-                        node.vacbot.run('GetCleanSpeed');
-                    }
-                    if (node.vacbot.hasMoppingSystem()) {
-                        node.vacbot.run('GetWaterBoxInfo');
-                        if (node.vacbot.isNot950type()) {
-                            // On 950 type models not necessary
-                            node.vacbot.run('GetWaterLevel');
+                        if (node.vacbot.hasVacuumPowerAdjustment()) {
+                            node.vacbot.run('GetCleanSpeed');
+                        }
+                        if (node.vacbot.hasMoppingSystem()) {
+                            node.vacbot.run('GetWaterBoxInfo');
+                            if (node.vacbot.isNot950type()) {
+                                // On 950 type models not necessary
+                                node.vacbot.run('GetWaterLevel');
+                            }
                         }
                     }
 
