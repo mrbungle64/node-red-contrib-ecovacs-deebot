@@ -110,9 +110,9 @@ There is of course no claim to full functionality.
 
 ## Installation
 
-It is recommended to use version 14.x or 16.x of Node.js.
+It is recommended to use version 16.x or 18.x of Node.js.
 
-The minimum required version is 12.x, but support for this version may will be dropped soon.
+The minimum required version is 14.x, but support for this version may will be dropped soon.
 
 This node uses the [node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality which may require the installation of some additional packages.
 
@@ -146,6 +146,9 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 * The generation of map images is currently not stable on 32-bit systems
 
 ## Changelog
+
+### 0.4.9
+* Using library version 0.9.6 (alpha)
 
 ### 0.4.8
 * Using library version 0.9.5
