@@ -52,11 +52,15 @@ module.exports = function (RED) {
 
                     if (node.vacbot.getModelType() !== 'aqMonitor') {
                         node.vacbot.run('GetBatteryState');
-                        node.vacbot.run('GetCleanState');
+                        if (node.vacbot.getModelType() === 'airbot') {
+                            node.vacbot.run('GetCleanState_V2');
+                        } else {
+                            node.vacbot.run('GetCleanState');
+                        }
                         node.vacbot.run('GetChargeState');
-                        node.vacbot.run('GetCleanSum');
                         if (node.vacbot.getModelType() !== 'airbot') {
                             node.vacbot.run('GetSleepStatus');
+                            node.vacbot.run('GetCleanSum');
                             node.vacbot.run('GetCleanLogs');
                             node.vacbot.run('GetLifespan');
                         }
