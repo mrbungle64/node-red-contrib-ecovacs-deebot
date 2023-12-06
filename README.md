@@ -147,6 +147,9 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.10
+* A few changes for AIRBOT Z1 and Z1 Air Quality Monitor
+
 ### 0.4.9
 * Using library version 0.9.6 (alpha)
 

@@ -50,8 +50,10 @@ module.exports = function (RED) {
                         }
                     });
 
+                    // aqMonitor = e.g. Z1 Air Quality Monitor
                     if (node.vacbot.getModelType() !== 'aqMonitor') {
                         node.vacbot.run('GetBatteryState');
+                        // airbot = e.g. AIRBOT Z1
                         if (node.vacbot.getModelType() === 'airbot') {
                             node.vacbot.run('GetCleanState_V2');
                         } else {
