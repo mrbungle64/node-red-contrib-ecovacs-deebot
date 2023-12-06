@@ -53,10 +53,12 @@ module.exports = function (RED) {
                     node.vacbot.run('GetBatteryState');
                     node.vacbot.run('GetCleanState');
                     node.vacbot.run('GetChargeState');
-                    node.vacbot.run('GetSleepStatus');
                     node.vacbot.run('GetCleanSum');
-                    node.vacbot.run('GetCleanLogs');
-                    node.vacbot.run('GetLifespan');
+                    if (node.vacbot.getModelType() !== 'airbot') {
+                        node.vacbot.run('GetSleepStatus');
+                        node.vacbot.run('GetCleanLogs');
+                        node.vacbot.run('GetLifespan');
+                    }
                     if (node.vacbot.hasSpotAreaCleaningMode()) {
                         node.vacbot.run('GetPosition');
                         if (node.vacbot.isNot950type()) {
@@ -255,6 +257,10 @@ module.exports = function (RED) {
                     });
                     node.vacbot.on('Schedule', (object) => {
                         const msg = createMsgObject('Schedule', object);
+                        node.send(msg);
+                    });
+                    node.vacbot.on('AirQuality', (object) => {
+                        const msg = createMsgObject('AirQuality', object);
                         node.send(msg);
                     });
                     // Activate additional simple events if enabled
