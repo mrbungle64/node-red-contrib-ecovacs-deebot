@@ -147,7 +147,11 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.11
+* Bumped ecovacs-deebot.js to latest alpha version
+
 ### 0.4.10
+* Bumped ecovacs-deebot.js to latest alpha version
 * A few changes for AIRBOT Z1 and Z1 Air Quality Monitor
 
 ### 0.4.9
