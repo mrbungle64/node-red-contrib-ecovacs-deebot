@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-ecovacs-deebot",
-  "version": "0.4.11",
+  "version": "0.4.12",
   "description": "Node-RED node for Ecovacs Deebot vacuum cleaner",
   "main": "nodes/ecovacs-deebot.js",
   "scripts": {

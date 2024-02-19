@@ -153,6 +153,9 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
+### 0.4.12
+* Bumped ecovacs-deebot.js to latest beta version
+
 ### 0.4.11
 * Bumped ecovacs-deebot.js to latest alpha version
 
