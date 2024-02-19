@@ -65,19 +65,18 @@ You can directly import them from the editor using the [Import dialog](https://n
 
 ![Flow Example](images/basic-flow-example.png)
 
+## Models
+
 ### Supported models
 
-The supported models are those that I own myself (or which are technically identical to these):
-
-* Deebot Slim 2
-* Deebot 900/901
-* Deebot OZMO 930
 * Deebot OZMO 920/950
-* Deebot T8 AIVI
+* Deebot OZMO T8 AIVI
+* Deebot X1 Turbo
 
-### These models should work properly or at least partially
+### Other models
 
-The following models are either already known to work or are technically similar to these models.
+The following models should work properly or at least partially.
+They are either already known to work or are technically similar to these models.
 Nevertheless, the functionality may be partially limited.
 
 I try to achieve a wide range of functionality, but decide this case by case depending on complexity and various other criteria.
@@ -85,28 +84,35 @@ There is of course no claim to full functionality.
 
 #### Ecovacs Deebot
 
-* Deebot N79 series
-* Deebot M88
-* Deebot 500
-* Deebot 600/601/605
-* Deebot 710/711
-* Deebot OZMO 610
-* Deebot OZMO 900/905
-* Deebot OZMO Slim 10/11
-* Deebot U2 series
 * Deebot N8 series
-* Deebot OZMO T5
-* Deebot (OZMO) T8 series
+* Deebot T8 series
 * Deebot T9 series
 * Deebot T10 series
+* Deebot T20 series
 * Deebot X1 series
+* Deebot X2 series
 
-#### yeedi (experimental)
+#### Airbot
+
+* Airbot Z1
+
+#### yeedi
 
 * yeedi k650
 * yeedi 2 hybrid
 * yeedi vac hybrid
+* yeedi vac max
+* yeedi vac 2 pro
 * yeedi mop station
+
+**Note**: The lists may not be fully complete
+
+### Legacy models (soon to be discontinued)
+
+Legacy models that use XML for data transport (e.g. Deebot OZMO 930, Deebot 900/901) are mostly still working,
+but support for these models will be discontinued sooner or later.
+
+Please check [this readme](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued) for more information.
 
 ## Installation
 
