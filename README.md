@@ -116,9 +116,7 @@ Please check [this readme](https://github.com/mrbungle64/ecovacs-deebot.js#legac
 
 ## Installation
 
-It is recommended to use version 16.x or 18.x of Node.js.
-
-The minimum required version is 14.x, but support for this version may will be dropped soon.
+The minimum required version is 18.x
 
 This node uses the [node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality which may require the installation of some additional packages.
 
@@ -145,13 +143,15 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Known issues
 
-* There's a strange behavior of the battery value on Deebot 900/901. It's very likely that this is a firmware bug
-* "Edge" command does not work with Deebot U2 (starts auto clean instead)
-* The cleaning log has an empty result on T9 series
-* The combined map data object does not work with T9 series
-* The generation of map images is currently not stable on 32-bit systems
+* The "move" function varies from model to model, so it's not implemented universally
+* The generation of map images is not stable on 32-bit systems
+* and it still does not work properly with the Deebot X1 series and other current models
 
 ## Changelog
+
+### 0.4.13
+* Bumped minimum required version of Node.js to 18.x
+* Bumped ecovacs-deebot.js to latest beta version
 
 ### 0.4.12
 * Bumped ecovacs-deebot.js to latest beta version
